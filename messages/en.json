@@ -5,5 +5,8 @@
     },
     "About": {
         "title": "This is our site"
+    },
+    "Login": {
+        "title": "login to your account"
     }
 }

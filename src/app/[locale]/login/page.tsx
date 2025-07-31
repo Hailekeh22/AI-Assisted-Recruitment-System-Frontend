@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl"
+
 
 const LoginPage = () => {
+    const t = useTranslations("Login")
   return (
-    <div>This is Login Page</div>
+    <div>{t("title")}</div>
   )
 }
 
