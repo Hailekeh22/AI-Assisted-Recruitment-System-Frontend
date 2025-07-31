@@ -1,0 +1,31 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const userRegistrationApi = createApi({
+    reducerPath: 'userRegistrationApi',
+    baseQuery: fetchBaseQuery({baseUrl: process.env.NEXT_PUBLIC_USERS_API_URL}),
+    endpoints: (builder) => ({
+        registerEmployer: builder.mutation({
+            query: (userData) => ({
+                url: '/employer/register',
+                method: 'POST',
+                body: userData,
+            }),
+        }),
+        registerJobSeeker: builder.mutation({
+            query: (userData) => ({
+                url: '/employee/register',
+                method: 'POST',
+                body: userData
+            })
+        }),
+        registerAdmin: builder.mutation({
+            query: (userData) => ({
+                url: '/admin/register',
+                method: 'POST',
+                body: userData
+            })
+        })
+    }),
+})
+
+export const { useRegisterEmployerMutation, useRegisterJobSeekerMutation, useRegisterAdminMutation } = userRegistrationApi;
