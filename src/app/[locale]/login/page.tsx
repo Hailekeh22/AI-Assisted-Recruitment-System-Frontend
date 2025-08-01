@@ -1,6 +1,6 @@
 'use client';
 
-import { useLoginUserMutation } from '@/services/loginAPI';
+import { useLoginUserMutation } from '@/services/authAPI';
 import { useState } from 'react';
 
 export default function LoginForm() {
@@ -20,11 +20,9 @@ export default function LoginForm() {
         window.location.href = '/admin';
       } else if (role === 'employer') {
         window.location.href = '/employer';
-      } else if (role === 'user') {
+      } else if (role === 'jobseeker') {
         window.location.href = '/user';
-      } else {
-        window.location.href = '/'; // fallback
-      }
+      } 
 
     } catch (error: any) {
       alert(error?.data?.message || 'Login failed');
