@@ -1,56 +1,55 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { useLoginUserMutation } from "@/services/loginAPI";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+'use client';
 
+import { useLoginUserMutation } from '@/services/loginAPI';
+import { useState } from 'react';
 
-const LoginPage = () => {
-  const [userLogin, { isLoading, error }] = useLoginUserMutation();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const t = useTranslations("Login");
+export default function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
-  const submitCredentials = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     try {
-      const res = await userLogin({
-        email,
-        password,
-      }).unwrap()
-      console.log("Login successful:", res);
-    } catch (e) {
-      console.log("login failed", e);
+      const result = await loginUser({ email, password }).unwrap();
+
+      // ✅ Redirect based on user role
+      const role = result.user?.role;
+      if (role === 'admin') {
+        window.location.href = '/admin';
+      } else if (role === 'employer') {
+        window.location.href = '/employer';
+      } else if (role === 'user') {
+        window.location.href = '/user';
+      } else {
+        window.location.href = '/'; // fallback
+      }
+
+    } catch (error: any) {
+      alert(error?.data?.message || 'Login failed');
     }
   };
-  return (
-    <>
-      <div>{t("title")}</div>
 
-      <div>
-        <input
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
         type="email"
         placeholder="Email"
-        className="border-2 border-gray-300 rounded p-2 mb-4"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        required
       />
       <input
         type="password"
         placeholder="Password"
-        className="border-2 border-gray-300 rounded p-2 mb-4"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        required
       />
-      <Button
-        onClick={() => {
-          submitCredentials()
-        }}
-      >
-        Submit
-      </Button>
-      </div>
-    </>
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? 'Logging in...' : 'Login'}
+      </button>
+    </form>
   );
-};
-
-export default LoginPage;
+}
