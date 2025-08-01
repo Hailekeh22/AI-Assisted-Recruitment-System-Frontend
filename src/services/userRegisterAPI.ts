@@ -6,21 +6,21 @@ export const userRegistrationApi = createApi({
     endpoints: (builder) => ({
         registerEmployer: builder.mutation({
             query: (userData) => ({
-                url: '/employer/register',
+                url: '/user/employer/register',
                 method: 'POST',
                 body: userData,
             }),
         }),
         registerJobSeeker: builder.mutation({
             query: (userData) => ({
-                url: '/employee/register',
+                url: '/user/employee/register',
                 method: 'POST',
                 body: userData
             })
         }),
         registerAdmin: builder.mutation({
             query: (userData) => ({
-                url: '/admin/register',
+                url: '/user/admin/register',
                 method: 'POST',
                 body: userData
             })
