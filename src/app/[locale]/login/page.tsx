@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import { useLoginUserMutation } from '@/services/authAPI';
-import { useState } from 'react';
+import Nav from "@/components/Nav/Nav";
+import { useLoginUserMutation } from "@/services/authAPI";
+import { useState } from "react";
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -14,40 +15,42 @@ export default function LoginForm() {
     try {
       const result = await loginUser({ email, password }).unwrap();
 
-      // ✅ Redirect based on user role
+      //Redirect based on user role
       const role = result.user?.role;
-      if (role === 'admin') {
-        window.location.href = '/admin';
-      } else if (role === 'employer') {
-        window.location.href = '/employer';
-      } else if (role === 'jobseeker') {
-        window.location.href = '/user';
-      } 
-
+      if (role === "admin") {
+        window.location.href = "/admin";
+      } else if (role === "employer") {
+        window.location.href = "/employer";
+      } else if (role === "jobseeker") {
+        window.location.href = "/user";
+      }
     } catch (error: any) {
-      alert(error?.data?.message || 'Login failed');
+      alert(error?.data?.message || "Login failed");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Logging in...' : 'Login'}
-      </button>
-    </form>
+    <>
+    <Nav />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Logging in..." : "Login"}
+        </button>
+      </form>
+    </>
   );
 }
