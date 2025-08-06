@@ -8,5 +8,13 @@
     },
     "Login": {
         "title": "ወደ አካውንትዎ ግባ"
+    },
+    "Nav": {
+        "title": "የስራ ድህረ ገጽ",
+        "findJob": "ስራ ፈልግ",
+        "forEmployers": "ለቀጣሪዎች",
+        "about": "ስለ እኛ",
+        "signUp": "ይመዝገቡ",
+        "logIn": "ግባ"
     }
 }

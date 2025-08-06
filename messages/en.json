@@ -8,5 +8,13 @@
     },
     "Login": {
         "title": "login to your account"
+    },
+     "Nav": {
+        "title": "Job Website",
+        "findJob": "Find Job",
+        "forEmployers": "For Employers",
+        "about": "About Us",
+        "signUp": "Sign Up",
+        "logIn": "Login"
     }
 }
