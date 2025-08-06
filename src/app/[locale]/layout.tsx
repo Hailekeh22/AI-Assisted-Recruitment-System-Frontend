@@ -1,9 +1,9 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import "@/app/globals.css";
 import { ReduxProvider } from "./reduxProvider";
-
+import { ThemeProvider } from "@/components/theme-provider";
+import "@/app/globals.css";
 
 export default async function LocaleLayout({
   children,
@@ -19,10 +19,19 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider>
-          <ReduxProvider>{children}</ReduxProvider>
+          <ReduxProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </ReduxProvider>
         </NextIntlClientProvider>
       </body>
     </html>
