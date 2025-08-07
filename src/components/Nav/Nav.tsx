@@ -1,35 +1,37 @@
-'use client';
+"use client";
 
 import { useTranslations } from "next-intl";
 import { ModeToggle } from "../ModeToggle";
-import { BriefcaseBusiness } from 'lucide-react';
+import { BriefcaseBusiness, Menu } from "lucide-react";
 import { LanguageButton } from "../languageSwitcher/LanguageButton";
 import Link from "next/link";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"; 
+import { Button } from "@/components/ui/button";
 
 const Nav = () => {
   const t = useTranslations("Nav");
 
   const MiddleNavLinks = [
-    { name: t('findJob'), href: "/forjobseekers" },
-    { name: t('forEmployers'), href: "/foremployers" },
-    { name: t('about'), href: "/about" }
+    { name: t("findJob"), href: "/forjobseekers" },
+    { name: t("forEmployers"), href: "/foremployers" },
+    { name: t("about"), href: "/about" },
   ];
 
   const RightNavLinks = [
-    { name: t('signUp'), href: "/signup" },
-    { name: t('logIn'), href: "/login" }
+    { name: t("signUp"), href: "/signup" },
+    { name: t("logIn"), href: "/login" },
   ];
 
   return (
     <nav className="w-full flex justify-between items-center py-4 px-6 shadow">
-      {/* Left Nav: Title */}
+      {/* Left Nav: Logo */}
       <div className="flex items-center gap-2">
         <BriefcaseBusiness />
         <h2 className="text-xl font-bold">{t("title")}</h2>
       </div>
 
-      {/* Middle Nav: Center nav links */}
-      <div className="flex gap-6">
+      {/* Desktop Nav */}
+      <div className="hidden md:flex gap-6">
         {MiddleNavLinks.map((link) => (
           <Link
             key={link.href}
@@ -41,8 +43,8 @@ const Nav = () => {
         ))}
       </div>
 
-      {/* Right Nav: Right nav links, Theme and Language Toggles */}
-      <div className="flex items-center gap-4">
+      {/* Right Nav - Desktop */}
+      <div className="hidden md:flex items-center gap-4">
         {RightNavLinks.map((link) => (
           <Link
             key={link.href}
@@ -54,6 +56,51 @@ const Nav = () => {
         ))}
         <ModeToggle />
         <LanguageButton />
+      </div>
+
+      {/* Mobile Menu Button */}
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon">
+              <Menu />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-64 sm:w-80">
+            <SheetHeader className=" py-6">
+              <SheetTitle>{t("title")}</SheetTitle> 
+            </SheetHeader>
+
+            <div className="flex flex-col gap-4 mt-6 px-6">
+              {MiddleNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-base font-medium hover:underline"
+                >
+                  {link.name}
+                </Link>
+              ))}
+
+              <hr />
+
+              {RightNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-base font-medium hover:underline"
+                >
+                  {link.name}
+                </Link>
+              ))}
+
+              <div className="flex items-center gap-4 mt-4">
+                <ModeToggle />
+                <LanguageButton />
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
