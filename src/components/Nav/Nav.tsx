@@ -23,7 +23,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="w-full flex justify-between items-center py-4 px-6 shadow">
+    <nav className="w-full flex sticky top-0 justify-between bg-white dark:bg-black dark:shadow-white/10 items-center py-4 px-6 shadow z-50">
       {/* Left Nav: Logo */}
       <div className="flex items-center gap-2">
         <BriefcaseBusiness />
@@ -36,7 +36,7 @@ const Nav = () => {
           <Link
             key={link.href}
             href={link.href}
-            className="text-sm hover:underline"
+            className="text-md hover:scale-105 duration-200"
           >
             {link.name}
           </Link>
@@ -49,7 +49,7 @@ const Nav = () => {
           <Link
             key={link.href}
             href={link.href}
-            className="text-sm hover:underline"
+            className="text-md hover:scale-105 duration-200"
           >
             {link.name}
           </Link>
