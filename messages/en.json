@@ -14,7 +14,8 @@
         "findJob": "Find Job",
         "forEmployers": "For Employers",
         "about": "About Us",
-        "signUp": "Sign Up",
-        "logIn": "Login"
+        "logIn": "Login",
+        "contactUs": "Contact Us"
+
     }
 }

@@ -36,7 +36,7 @@ const LandingPage: React.FC = () => {
     <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
       <main ref={heroRef}>
         {/* Hero Section */}
-        <section className="relative h-[85vh] flex items-center justify-center text-center text-white overflow-hidden">
+        <section className="relative h-[100dvh] flex items-center justify-center text-center text-white overflow-hidden">
           <div className="absolute inset-0 bg-white dark:bg-black z-0"></div>
           <div className=" p-3 relative z-10">
             <h2 className="hero-headline text-blue-800 dark:text-white text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">

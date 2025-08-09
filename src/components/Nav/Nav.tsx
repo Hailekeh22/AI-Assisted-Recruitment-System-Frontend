@@ -5,7 +5,13 @@ import { ModeToggle } from "../ModeToggle";
 import { BriefcaseBusiness, Menu } from "lucide-react";
 import { LanguageButton } from "../languageSwitcher/LanguageButton";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"; 
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const Nav = () => {
@@ -15,19 +21,19 @@ const Nav = () => {
     { name: t("findJob"), href: "/forjobseekers" },
     { name: t("forEmployers"), href: "/foremployers" },
     { name: t("about"), href: "/about" },
+    { name: t("contactUs"), href: "/contactus" },
   ];
 
-  const RightNavLinks = [
-    { name: t("signUp"), href: "/signup" },
-    { name: t("logIn"), href: "/login" },
-  ];
+  const RightNavLinks = [{ name: t("logIn"), href: "/login" }];
 
   return (
     <nav className="w-full flex sticky top-0 justify-between bg-white dark:bg-black dark:shadow-white/10 items-center py-4 px-6 shadow z-50">
       {/* Left Nav: Logo */}
-      <div className="flex items-center gap-2">
-        <BriefcaseBusiness />
-        <h2 className="text-xl font-bold">{t("title")}</h2>
+      <div>
+        <Link className="flex items-center gap-2" href="/">
+          <BriefcaseBusiness />
+          <h2 className="text-xl font-bold">{t("title")}</h2>
+        </Link>
       </div>
 
       {/* Desktop Nav */}
@@ -68,7 +74,7 @@ const Nav = () => {
           </SheetTrigger>
           <SheetContent side="right" className="w-64 sm:w-80">
             <SheetHeader className=" py-6">
-              <SheetTitle>{t("title")}</SheetTitle> 
+              <SheetTitle>{t("title")}</SheetTitle>
             </SheetHeader>
 
             <div className="flex flex-col gap-4 mt-6 px-6">
