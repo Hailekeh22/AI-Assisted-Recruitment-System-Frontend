@@ -9,7 +9,7 @@
     "Login": {
         "title": "login to your account"
     },
-     "Nav": {
+    "Nav": {
         "title": "Job Website",
         "findJob": "Find Job",
         "forEmployers": "For Employers",
@@ -17,5 +17,23 @@
         "logIn": "Login",
         "contactUs": "Contact Us"
 
+    },
+    "LandingPage": {
+        "moto": "Find Your Next Hire, Faster Than Ever.",
+        "description" : "Our AI intelligently matches the right talent with the right opportunities, saving you time and effort.",
+        "howitworks": "How It Works?"
+
+    },
+    "loginPage": {
+        "title": "Login to Your Account",
+        "email": "Email",
+        "emailplaceholder": "Enter your email",
+        "password": "Password",
+        "passwordplaceholder": "Enter your password",
+        "btntext": "Login",
+        "btntextloading": "Logging in...",
+        "crateaccount":" Create your account -",
+        "forjobseekers":"for Job Seekers",
+        "foremployers":"for Employers"
     }
 }

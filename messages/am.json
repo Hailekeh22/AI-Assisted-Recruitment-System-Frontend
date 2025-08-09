@@ -16,5 +16,22 @@
         "about": "ስለ እኛ",
         "logIn": "ግባ",
         "contactUs": "አግኙን"
+    },
+    "LandingPage": {
+        "moto": "ቀጣዩን ቅጥር ያግኙ፣ ከመቸውም በፈጠነ ጊዜ!",
+        "description" : "በ ሰው ሰራሽ አስተውሎት የታገዘው ሲስተማችን በመታገዝ የስራ ቅጥር ሂደትዎን ያዘምኑ፣ ጊዜዎንና ልፋትዎን ይቀንሱ።",
+        "howitworks": "እንዴት ይሰራል?"
+    },
+    "loginPage": {
+        "title": "ወደ አካውንትዎ ይግቡ",
+        "email": "ኢሜይል",
+        "emailplaceholder": "ኢሜይል አድራሻዎን ያስገቡ",
+        "password": "የሚስጥር ቁጥር",
+        "passwordplaceholder": "የሚስጥር ቁጥርዎን ያስገቡ",
+        "btntext": "ግባ",
+        "btntextloading": "በመግባት ላይ...",
+        "crateaccount":"አካውንት ይፍጠሩ -",
+        "forjobseekers":"ለ ስራ ፈላጊዎች",
+        "foremployers":"ለ ቀጣሪዎች"
     }
 }

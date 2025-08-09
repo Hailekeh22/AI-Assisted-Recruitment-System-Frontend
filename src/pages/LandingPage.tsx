@@ -1,11 +1,14 @@
 "use client";
-
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Briefcase, Search, UserCheck, FileText, Building, Handshake, Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
+
 
 const LandingPage: React.FC = () => {
+  const t = useTranslations("LandingPage");
   const heroRef = useRef<HTMLDivElement>(null);
 
   // GSAP
@@ -40,10 +43,10 @@ const LandingPage: React.FC = () => {
           <div className="absolute inset-0 bg-white dark:bg-black z-0"></div>
           <div className=" p-3 relative z-10">
             <h2 className="hero-headline text-blue-800 dark:text-white text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
-              Find Your Next Hire, Faster Than Ever.
+              {t("moto")}
             </h2>
             <p className="hero-subheadline text-lg md:text-2xl max-w-3xl mx-auto text-blue-700 dark:text-blue-100 mb-8">
-              Our AI intelligently matches the right talent with the right opportunities, saving you time and effort.
+              {t("description")}
             </p>
             <button className=" bg-blue-900 text-white dark:bg-white dark:text-blue-600 font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200 transform hover:scale-105 transition-all duration-300">
               Get Started Now <ArrowRight className="inline-block ml-2" size={20} />
@@ -54,7 +57,7 @@ const LandingPage: React.FC = () => {
         {/* How It Works Section */}
         <section id="how-it-works" className="py-16 sm:py-20 bg-gray-100 dark:bg-black/50">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="how-it-works-title text-3xl md:text-4xl font-bold mb-4">How It Works</h3>
+            <h3 className="how-it-works-title text-3xl md:text-4xl font-bold mb-4">{t("howitworks")}</h3>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16">A simple, streamlined process for candidates and employers.</p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
