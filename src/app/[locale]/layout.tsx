@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import { ReduxProvider } from "./reduxProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/app/globals.css";
+import ChatbotWidget from "@/components/ChatbotWidget/ChatbotWidget";
 
 export default async function LocaleLayout({
   children,
@@ -30,6 +31,7 @@ export default async function LocaleLayout({
               disableTransitionOnChange
             >
               {children}
+              <ChatbotWidget />
             </ThemeProvider>
           </ReduxProvider>
         </NextIntlClientProvider>
