@@ -12,6 +12,7 @@ export const authApi = createApi({
         url: "/login",
         method: "POST",
         body: userData,
+        credentials: "include"
       }),
     }),
     logoutUser: builder.mutation({
