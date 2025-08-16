@@ -96,11 +96,11 @@ export default function LoginForm() {
 
           <p className="text-sm text-gray-500 text-center mt-6">
             {t("crateaccount")}{" "}
-            <Link href="/register" className="text-blue-600 hover:underline">
+            <Link href="/signup" className="text-blue-600 hover:underline">
               {t("foremployers")}
             </Link>
             {"   "}
-            <Link href="/register" className="text-blue-600 hover:underline">
+            <Link href="/signup" className="text-blue-600 hover:underline">
               {t("forjobseekers")}
             </Link>
           </p>
