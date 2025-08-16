@@ -32,7 +32,7 @@ const SignupPage = () => {
     }));
   };
 
-  const submitdata = async (e: FormEvent) => {
+  const submitdata = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {

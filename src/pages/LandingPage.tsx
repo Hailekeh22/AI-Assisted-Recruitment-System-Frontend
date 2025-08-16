@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Briefcase, Search, UserCheck, FileText, Building, Handshake, Mail, Phone, MapPin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 

@@ -2,6 +2,7 @@
 import Nav from "@/components/Nav/Nav";
 import { useLoginUserMutation } from "@/services/authAPI";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { useState } from "react";
 
 
@@ -11,7 +12,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -74,13 +75,13 @@ export default function LoginForm() {
 
           <p className="text-sm text-gray-500 text-center mt-6">
             {t("crateaccount")}{" "}
-            <a href="/register" className="text-blue-600 hover:underline">
+            <Link href="/register" className="text-blue-600 hover:underline">
               {t("foremployers")}
-            </a>
+            </Link>
             {"   "}
-            <a href="/register" className="text-blue-600 hover:underline">
+            <Link href="/register" className="text-blue-600 hover:underline">
               {t("forjobseekers")}
-            </a>
+            </Link>
           </p>
         </div>
       </div>
