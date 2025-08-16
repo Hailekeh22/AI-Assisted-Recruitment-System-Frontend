@@ -39,6 +39,7 @@ export default async function middleware(req: NextRequest) {
     } catch (err) {
       // Invalid token, delete it
       const res = NextResponse.redirect(new URL('/login', req.url));
+      console.log(err);
       res.cookies.delete('token');
       return res;
     }
@@ -63,7 +64,7 @@ export default async function middleware(req: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    const [routePath, allowedRoles] = matchedProtected;
+    const [ allowedRoles] = matchedProtected;
     if (!allowedRoles.includes(userRole)) {
       // Logged in but unauthorized
       const redirectTo = roleToDashboard[userRole] || '/';

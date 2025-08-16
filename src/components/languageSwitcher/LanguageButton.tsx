@@ -15,16 +15,24 @@ const locales = [
   { code: 'am', label: 'አማርኛ' },
 ];
 
-export const LanguageButton = () =>{
+export const LanguageButton = () => {
   const router = useRouter();
   const pathname = usePathname();
   const currentLocale = useLocale();
 
   const handleChange = (locale: string) => {
-    if (locale === currentLocale) return;
+    if (locale === currentLocale || !pathname) return;
 
+    // Split the path into segments
     const segments = pathname.split('/');
-    segments[1] = locale; // Replace the current locale in URL
+
+    // If the path doesn't include a locale, insert it at the start
+    if (segments[1] && locales.some(l => l.code === segments[1])) {
+      segments[1] = locale;
+    } else {
+      segments.splice(1, 0, locale);
+    }
+
     const newPath = segments.join('/');
     router.replace(newPath);
   };
@@ -32,7 +40,9 @@ export const LanguageButton = () =>{
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">{locales.find(l => l.code === currentLocale)?.label}</Button>
+        <Button variant="outline">
+          {locales.find(l => l.code === currentLocale)?.label}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {locales.map(({ code, label }) => (
@@ -43,4 +53,4 @@ export const LanguageButton = () =>{
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};

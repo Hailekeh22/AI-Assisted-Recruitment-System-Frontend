@@ -9,7 +9,7 @@ const UserPage = () => {
       await userLogout(null).unwrap();
       window.location.href = "/";
     } catch (e) {
-      console.log("Error happend while logging out");
+      console.log("Error happend while logging out", e);
     }
   };
 
