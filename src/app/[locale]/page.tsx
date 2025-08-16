@@ -1,5 +1,5 @@
 import Nav from "@/components/Nav/Nav";
-import LandingPage from "@/pages/LandingPage";
+import LandingPage from "@/pageComponents/LandingPage";
 
 
 
