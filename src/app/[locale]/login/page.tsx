@@ -4,16 +4,19 @@ import { useLoginUserMutation } from "@/services/authAPI";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-  const t = useTranslations("loginPage")
+  const t = useTranslations("loginPage");
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMsg("");
 
     try {
       const result = await loginUser({ email, password }).unwrap();
@@ -21,14 +24,16 @@ export default function LoginForm() {
       // Redirect based on user role
       const role = result.user?.role;
       if (role === "admin") {
-        window.location.href = "/admin";
+        router.push("/admin");
       } else if (role === "employer") {
-        window.location.href = "/employer";
+        router.push("/employer");
       } else if (role === "jobseeker") {
-        window.location.href = "/user";
+        router.push("/user");
+      } else {
+        router.push("/");
       }
     } catch (error: any) {
-      alert(error?.data?.message || "Login failed");
+      setErrorMsg(error?.data?.message || "Login failed");
     }
   };
 
@@ -36,7 +41,7 @@ export default function LoginForm() {
     <>
       <Nav />
       <div className="flex items-center min-h-[70vh] justify-center lg:min-h-screen px-4">
-        <div className="w-full max-w-md bg-white dark:bg-[#141414] rounded-xl shadow-md dark:shadow-white/20 p-4 lg:p-8 ">
+        <div className="w-full max-w-md bg-white dark:bg-[#141414] rounded-xl shadow-md dark:shadow-white/20 p-4 lg:p-8">
           <h2 className="text-2xl font-bold text-center mb-6">{t("title")}</h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -48,7 +53,7 @@ export default function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 outline-none"
               />
             </div>
 
@@ -60,9 +65,11 @@ export default function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 outline-none"
               />
             </div>
+
+            {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
 
             <button
               type="submit"

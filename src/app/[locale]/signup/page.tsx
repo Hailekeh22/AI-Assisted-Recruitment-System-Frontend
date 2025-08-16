@@ -2,6 +2,7 @@
 
 import Nav from "@/components/Nav/Nav";
 import { useRegisterJobSeekerMutation } from "@/services/userRegisterAPI";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 interface FormState {
@@ -10,6 +11,12 @@ interface FormState {
   email: string;
   password: string;
   profileImage: File | null;
+}
+
+function isFetchBaseQueryError(
+  error: unknown
+): error is FetchBaseQueryError & { data?: { message?: string } } {
+  return typeof error === "object" && error != null && "status" in error;
 }
 
 const SignupPage = () => {
@@ -43,7 +50,7 @@ const SignupPage = () => {
       formData.append("password", formState.password);
 
       if (formState.profileImage) {
-          formData.append("profile_picture", formState.profileImage);
+        formData.append("profile_picture", formState.profileImage);
       }
 
       console.log(formData);
@@ -118,7 +125,12 @@ const SignupPage = () => {
 
           {error && (
             <p className="text-red-500 mt-2">
-              Error: {(error as any)?.data?.message || "Something went wrong"}
+              Error:{" "}
+              {isFetchBaseQueryError(error) &&
+              typeof error.data === "object" &&
+              "message" in error.data
+                ? (error.data as { message?: string }).message
+                : "Something went wrong"}
             </p>
           )}
         </form>
