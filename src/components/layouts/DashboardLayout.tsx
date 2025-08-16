@@ -23,6 +23,8 @@ import { ModeToggle } from "@/components/ModeToggle";
 import { LanguageButton } from "@/components/languageSwitcher/LanguageButton";
 import { Button } from "@/components/ui/button";
 import { useLogoutUserMutation } from "@/services/authAPI";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
 
 // a map of icon names to components
 const iconMap: { [key: string]: React.ElementType } = {
@@ -35,9 +37,9 @@ const iconMap: { [key: string]: React.ElementType } = {
   FileText: Icons.FileText,
   Bell: Icons.Bell,
   FileUser: Icons.FileUser,
-  MessageSquareMore: Icons.MessageSquareMore, 
+  MessageSquareMore: Icons.MessageSquareMore,
   ChartNoAxesCombined: Icons.ChartNoAxesCombined,
-  DollarSign: Icons.DollarSign,   
+  DollarSign: Icons.DollarSign,
 };
 
 interface UserProfile {
@@ -66,21 +68,27 @@ export default function DashboardLayout({
   basePath,
 }: DashboardLayoutProps) {
   // Function to get initials from name for Avatar fallback
-  const getInitials = (name: string) => {
-    return name
+  const getInitials = (name: string) =>
+    name
       .split(" ")
       .map((n) => n[0])
       .join("")
       .toUpperCase();
-  };
 
   const [logoutUser] = useLogoutUserMutation();
+
   const logout = async () => {
     try {
       await logoutUser("logout").unwrap();
       window.location.href = "/";
-    } catch (error: any) {
-      alert(error?.data?.message || "Logout failed");
+    } catch (error) {
+      const err = error as FetchBaseQueryError | SerializedError;
+
+      if ("data" in err && err.data && typeof err.data === "object" && "message" in err.data) {
+        alert((err.data as { message?: string }).message || "Logout failed");
+      } else {
+        alert("Logout failed");
+      }
     }
   };
 

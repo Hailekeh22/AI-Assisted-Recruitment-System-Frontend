@@ -5,6 +5,14 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { SerializedError } from "@reduxjs/toolkit";
+
+interface LoginResponse {
+  user?: {
+    role?: "admin" | "employer" | "jobseeker";
+  };
+}
 
 export default function LoginForm() {
   const t = useTranslations("loginPage");
@@ -19,7 +27,7 @@ export default function LoginForm() {
     setErrorMsg("");
 
     try {
-      const result = await loginUser({ email, password }).unwrap();
+      const result: LoginResponse = await loginUser({ email, password }).unwrap();
 
       // Redirect based on user role
       const role = result.user?.role;
@@ -32,8 +40,14 @@ export default function LoginForm() {
       } else {
         router.push("/");
       }
-    } catch (error: any) {
-      setErrorMsg(error?.data?.message || "Login failed");
+    } catch (error) {
+      const err = error as FetchBaseQueryError | SerializedError;
+
+      if ("data" in err && err.data && typeof err.data === "object" && "message" in err.data) {
+        setErrorMsg((err.data as { message?: string }).message || "Login failed");
+      } else {
+        setErrorMsg("Login failed");
+      }
     }
   };
 

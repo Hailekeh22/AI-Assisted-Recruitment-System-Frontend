@@ -3,7 +3,7 @@
 import Nav from "@/components/Nav/Nav";
 import { useRegisterJobSeekerMutation } from "@/services/userRegisterAPI";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent } from "react";
 
 interface FormState {
   firstname: string;
