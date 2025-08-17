@@ -4,7 +4,8 @@ import { useTranslations } from "next-intl";
 import { ModeToggle } from "../ModeToggle";
 import { BriefcaseBusiness, Menu } from "lucide-react";
 import { LanguageButton } from "../languageSwitcher/LanguageButton";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+
 import {
   Sheet,
   SheetContent,

@@ -2,7 +2,7 @@
 import Nav from "@/components/Nav/Nav";
 import { useLoginUserMutation } from "@/services/authAPI";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
