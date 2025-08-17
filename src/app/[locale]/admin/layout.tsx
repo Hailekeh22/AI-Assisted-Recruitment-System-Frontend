@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
+import { getTranslations } from "next-intl/server";
+
 
 async function getUser() {
   const token = (await cookies()).get("token")?.value;
@@ -9,7 +11,6 @@ async function getUser() {
   try {
     const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
     const { payload } = await jwtVerify(token, secret);
-    console.log(payload);
     
     return {
       name: (payload.name as string) || "Admin",
@@ -22,15 +23,6 @@ async function getUser() {
   }
 }
 
-const adminNavItems = [
-  { href: "/admin", label: "Overview", iconName: "BarChart" as const },
-  { href: "/admin/users", label: "Manage Users", iconName: "Users" as const },
-  { href: "/admin/settings", label: "Settings", iconName: "Settings" as const },
-  { href: "/admin/managejobs", label: "Manage Job Postings", iconName: "Briefcase" as const },
-  { href: "/admin/complients", label: "Complients", iconName: "Send" as const },
-  { href: "/admin/payments", label: "Payments", iconName: "DollarSign" as const },
-  { href: "/admin/profile", label: "My Profile", iconName: "CircleUser" as const }
-];
 
 export default async function AdminDashboardLayout({
   children,
@@ -38,6 +30,17 @@ export default async function AdminDashboardLayout({
   children: React.ReactNode;
 }) {
   const user = await getUser();
+  const t = await getTranslations("adminDashboard")
+
+  const adminNavItems = [
+  { href: "/admin", label: t("overview"), iconName: "BarChart" as const },
+  { href: "/admin/users", label: t("manageusers") , iconName: "Users" as const },
+  { href: "/admin/settings", label: t("settings"), iconName: "Settings" as const },
+  { href: "/admin/managejobs", label: t("managejobs"), iconName: "Briefcase" as const },
+  { href: "/admin/complients", label: t("complaints"), iconName: "Send" as const },
+  { href: "/admin/payments", label: t("payments"), iconName: "DollarSign" as const },
+  { href: "/admin/profile", label: t("myprofile"), iconName: "CircleUser" as const }
+];
 
   if (!user) {
     return null;

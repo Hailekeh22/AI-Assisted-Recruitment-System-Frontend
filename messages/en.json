@@ -52,5 +52,14 @@
         "interviews": "Interviews",
         "subscriptionplan": "Subscription Plans",
         "myprofile": "My Profile"
+    },
+    "adminDashboard": {
+        "overview": "Overview",
+        "manageusers":  "Manage users",
+        "settings": "Settings",
+        "managejobs": "Manage Job Postings",
+        "complaints": "Complaints",
+        "payments": "Payments",
+        "myprofile": "My Profile"
     }
 }

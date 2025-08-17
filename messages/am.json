@@ -50,5 +50,14 @@
         "interviews": "ቃለመጠይቅ",
         "subscriptionplan": "የደንበኝነት ምዝገባ እቅድ",
         "myprofile": "የእኔ መለያ"
+    },
+    "adminDashboard": {
+        "overview": "አጠቃላይ እይታ",
+        "manageusers":  "ተጠቃሚዎችን ያስተዳድሩ",
+        "settings": "ማስተካከያዎች",
+        "managejobs": "የስራ ማስታወቂያዎችን አስተዳድር",
+        "complaints": "ቅሬታዎች",
+        "payments": "ክፍያዎች",
+        "myprofile": "የእኔ መለያ"
     }
 }
