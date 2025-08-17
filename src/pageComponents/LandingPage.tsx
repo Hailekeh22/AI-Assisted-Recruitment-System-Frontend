@@ -126,14 +126,14 @@ const LandingPage: React.FC = () => {
         {/* CTA Section */}
         <section id="cta" className=" dark:bg-gray-900 py-20 sm:py-24">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">Ready to Revolutionize Your Hiring?</h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">Join thousands of companies and professionals finding their perfect match.</p>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">{t("ctaheader")}</h3>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">{t("ctabody")}</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto">
-                Create Your Employer profile
+                {t("ctabtnemp")}
               </button>
               <button className="bg-transparent border-2 border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-400 font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-50 dark:hover:bg-blue-900/30 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto">
-                Create Your Job Seeker Profile
+                {t("ctabtnjs")}
               </button>
             </div>
             

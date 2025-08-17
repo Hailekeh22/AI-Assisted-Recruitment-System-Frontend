@@ -36,8 +36,11 @@
         "Esecondstep": "2. AI-Powered Application Reviews",
         "Esecondstepdesc": "Receive a shortlist of qualified candidates perfectly matched to your role.",
         "Ethirdstep": "3. Interview & Hire",
-        "Ethirdstepdesc": "Schedule interviews and hire the best talent with confidence and speed."
-
+        "Ethirdstepdesc": "Schedule interviews and hire the best talent with confidence and speed.",
+        "ctaheader": "Ready to Revolutionize Your Hiring?",
+        "ctabody": "Join thousands of companies and professionals finding their perfect matches.",
+        "ctabtnemp": "Create Your Employer profile",
+        "ctabtnjs": "Create Your Job Seeker Profile"
     },
     "loginPage": {
         "title": "Login to Your Account",
