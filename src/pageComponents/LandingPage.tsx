@@ -57,34 +57,34 @@ const LandingPage: React.FC = () => {
         <section id="how-it-works" className="py-16 sm:py-20 bg-gray-100 dark:bg-black/50">
           <div className="container mx-auto px-4 text-center">
             <h3 className="how-it-works-title text-3xl md:text-4xl font-bold mb-4">{t("howitworks")}</h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16">A simple, streamlined process for candidates and employers.</p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16">{t("info")}</p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {/* For Job Seekers */}
               <div>
-                <h4 className="text-2xl font-semibold mb-8 text-blue-600 dark:text-blue-400">For Job Seekers</h4>
+                <h4 className="text-2xl font-semibold mb-8 text-blue-600 dark:text-blue-400">{t("forjobseekers")}</h4>
                 <div className="steps-container space-y-8 relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-dashed border-gray-300 dark:border-gray-700 hidden md:block" style={{top: '2rem', height: 'calc(100% - 4rem)'}}></div>
                   
                   <div className="step-card flex items-center md:flex-col text-left md:text-center md:relative">
                     <div className="bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 p-4 rounded-full mr-6 md:mr-0 md:mb-4 z-10"><FileText size={32}/></div>
                     <div>
-                      <h5 className="font-bold text-xl">1. Create Profile & Apply</h5>
-                      <p className="text-gray-600 dark:text-gray-400">Build your profile once and apply to jobs with a single click.</p>
+                      <h5 className="font-bold text-xl">{t("JSfirststep")}</h5>
+                      <p className="text-gray-600 dark:text-gray-400">{t("JSfirststepdesc")}</p>
                     </div>
                   </div>
                   <div className="step-card flex items-center md:flex-col text-left md:text-center md:relative">
                     <div className="bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 p-4 rounded-full mr-6 md:mr-0 md:mb-4 z-10"><UserCheck size={32}/></div>
                     <div>
-                      <h5 className="font-bold text-xl">2. Get AI Suppoert</h5>
-                      <p className="text-gray-600 dark:text-gray-400">Our AI analyzes your resume to find jobs that are the perfect fit for you.</p>
+                      <h5 className="font-bold text-xl">{t("JSsecondstep")}</h5>
+                      <p className="text-gray-600 dark:text-gray-400">{t("JSsecondstepdesc")}</p>
                     </div>
                   </div>
                    <div className="step-card flex items-center md:flex-col text-left md:text-center md:relative">
                     <div className="bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 p-4 rounded-full mr-6 md:mr-0 md:mb-4 z-10"><Handshake size={32}/></div>
                     <div>
-                      <h5 className="font-bold text-xl">3. Interview & Get Hired</h5>
-                      <p className="text-gray-600 dark:text-gray-400">Connect with top employers, ace the interview, and land your dream job.</p>
+                      <h5 className="font-bold text-xl">{t("JSthirdstep")}</h5>
+                      <p className="text-gray-600 dark:text-gray-400">{t("JSthirdstepdesc")}</p>
                     </div>
                   </div>
                 </div>
@@ -92,29 +92,29 @@ const LandingPage: React.FC = () => {
 
               {/* For Employers */}
               <div>
-                <h4 className="text-2xl font-semibold mb-8 text-indigo-600 dark:text-indigo-400">For Employers</h4>
+                <h4 className="text-2xl font-semibold mb-8 text-indigo-600 dark:text-indigo-400">{t("foremployers")}</h4>
                 <div className="steps-container space-y-8 relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-dashed border-gray-300 dark:border-gray-700 hidden md:block" style={{top: '2rem', height: 'calc(100% - 4rem)'}}></div>
 
                   <div className="step-card flex items-center md:flex-col text-left md:text-center md:relative">
                     <div className="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 p-4 rounded-full mr-6 md:mr-0 md:mb-4 z-10"><Briefcase size={32}/></div>
                     <div>
-                      <h5 className="font-bold text-xl">1. Post a Job</h5>
-                      <p className="text-gray-600 dark:text-gray-400">Describe your ideal candidate and let our platform handle the heavy lifting.</p>
+                      <h5 className="font-bold text-xl">{t("Efirststep")}</h5>
+                      <p className="text-gray-600 dark:text-gray-400">{t("Efirststepdesc")}</p>
                     </div>
                   </div>
                    <div className="step-card flex items-center md:flex-col text-left md:text-center md:relative">
                     <div className="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 p-4 rounded-full mr-6 md:mr-0 md:mb-4 z-10"><Search size={32}/></div>
                     <div>
-                      <h5 className="font-bold text-xl">2. AI-Powered Application Reviews</h5>
-                      <p className="text-gray-600 dark:text-gray-400">Receive a shortlist of qualified candidates perfectly matched to your role.</p>
+                      <h5 className="font-bold text-xl">{t("Esecondstep")}</h5>
+                      <p className="text-gray-600 dark:text-gray-400">{t("Esecondstepdesc")}</p>
                     </div>
                   </div>
                   <div className="step-card flex items-center md:flex-col text-left md:text-center md:relative">
                     <div className="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300 p-4 rounded-full mr-6 md:mr-0 md:mb-4 z-10"><Building size={32}/></div>
                     <div>
-                      <h5 className="font-bold text-xl">3. Interview & Hire</h5>
-                      <p className="text-gray-600 dark:text-gray-400">Schedule interviews and hire the best talent with confidence and speed.</p>
+                      <h5 className="font-bold text-xl">{t("Ethirdstep")}</h5>
+                      <p className="text-gray-600 dark:text-gray-400">{t("Ethirdstepdesc")}</p>
                     </div>
                   </div>
                 </div>

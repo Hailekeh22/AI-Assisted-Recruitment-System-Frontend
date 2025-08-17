@@ -21,7 +21,22 @@
     "LandingPage": {
         "moto": "Find Your Next Hire, Faster Than Ever.",
         "description" : "Our AI intelligently matches the right talent with the right opportunities, saving you time and effort.",
-        "howitworks": "How It Works?"
+        "howitworks": "How It Works?",
+        "info": "A simple, streamlined process for job seekers and employers.",
+        "forjobseekers": "For Job Seekers",
+        "JSfirststep": "1. Create Profile & Apply",
+        "JSfirststepdesc": "Build your profile once and apply to jobs with a single click.",
+        "JSsecondstep": "2. Get AI Support",
+        "JSsecondstepdesc": "Our AI analyzes your resume to find jobs that are the perfect fit for you.",
+        "JSthirdstep": "Get Interviews",
+        "JSthirdstepdesc": "Connect with top employers, ace the interview, and land your dream job.",
+        "foremployers": "For Employers",
+        "Efirststep": "1. Post a Job",
+        "Efirststepdesc": "Describe your ideal candidate and let our platform handle the heavy lifting.",
+        "Esecondstep": "2. AI-Powered Application Reviews",
+        "Esecondstepdesc": "Receive a shortlist of qualified candidates perfectly matched to your role.",
+        "Ethirdstep": "3. Interview & Hire",
+        "Ethirdstepdesc": "Schedule interviews and hire the best talent with confidence and speed."
 
     },
     "loginPage": {
