@@ -22,11 +22,14 @@ async function getUser() {
 
 const employerNavItems = [
   { href: "/employer", label: "Dashboard", iconName: "ChartNoAxesCombined" as const },
-  { href: "/employer/myjobs", label: "My Job", iconName: "FileText" as const },
+  { href: "/employer/myjobs", label: "My Jobs", iconName: "FileText" as const },
   { href: "/employer/postjob", label: "Post New Job", iconName: "BriefcaseBusiness" as const },
-  { href: "/employer/applications", label: "Job Applications", iconName: "FileUser" as const },
   { href: "/employer/notifications", label: "Notifications", iconName: "Bell" as const },
   { href: "/employer/messages", label: "Messages", iconName: "MessageSquareMore" as const },
+  { href: "/employer/complaint", label: "Submit Complaint", iconName: "Send" as const },
+  { href: "/employer/interviews", label: "Interviews", iconName: "Headset" as const },
+  { href: "/employer/subscription", label: "Subscription plans", iconName: "ShieldPlus" as const },
+  { href: "/employer/profile", label: "Profile", iconName: "CircleUser" as const },
 ];
 
 export default async function EmployerDashboardLayout({

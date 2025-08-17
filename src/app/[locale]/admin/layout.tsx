@@ -25,8 +25,9 @@ const adminNavItems = [
   { href: "/admin/users", label: "Manage Users", iconName: "Users" as const },
   { href: "/admin/settings", label: "Settings", iconName: "Settings" as const },
   { href: "/admin/managejobs", label: "Manage Job Postings", iconName: "Briefcase" as const },
-  { href: "/admin/complients", label: "Complients", iconName: "Settings" as const },
-  { href: "/admin/payments", label: "Manage Payments", iconName: "DollarSign" as const },
+  { href: "/admin/complients", label: "Complients", iconName: "Send" as const },
+  { href: "/admin/payments", label: "Payments", iconName: "DollarSign" as const },
+  { href: "/admin/profile", label: "My Profile", iconName: "CircleUser" as const }
 ];
 
 export default async function AdminDashboardLayout({

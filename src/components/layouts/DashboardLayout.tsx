@@ -40,6 +40,10 @@ const iconMap: { [key: string]: React.ElementType } = {
   MessageSquareMore: Icons.MessageSquareMore,
   ChartNoAxesCombined: Icons.ChartNoAxesCombined,
   DollarSign: Icons.DollarSign,
+  CircleUser: Icons.CircleUser,  
+  Send: Icons.Send,
+  Headset: Icons.Headset, 
+  ShieldPlus: Icons.ShieldPlus, 
 };
 
 interface UserProfile {
