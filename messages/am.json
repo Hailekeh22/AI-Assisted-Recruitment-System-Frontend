@@ -33,5 +33,22 @@
         "crateaccount":"አካውንት ይፍጠሩ -",
         "forjobseekers":"ለ ስራ ፈላጊዎች",
         "foremployers":"ለ ቀጣሪዎች"
+    },
+    "dashboardLayout": {
+        "title": "የስራ ድህረ ገጽ",
+        "profile": "የእኔ መለያ",
+        "setting": "ማስተካከያ",
+        "logout": "ውጣ"
+    },
+    "employerDashboard": {
+        "dashboard": "ዳሽ ቦርድ",
+        "myjobs":"የኔ ስራዎች",
+        "postjob":"አዲስ ሥራ ለጥፍ",
+        "notifications": "ማሳወቂያዎች",
+        "messages": "መልዕክቶች",
+        "submitcompliant": "ቅሬታ አቅርብ",
+        "interviews": "ቃለመጠይቅ",
+        "subscriptionplan": "የደንበኝነት ምዝገባ እቅድ",
+        "myprofile": "የእኔ መለያ"
     }
 }

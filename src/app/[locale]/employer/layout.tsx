@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
+import { getTranslations } from "next-intl/server";
+
 
 async function getUser() {
   const token = (await cookies()).get("token")?.value;
@@ -20,17 +22,7 @@ async function getUser() {
   }
 }
 
-const employerNavItems = [
-  { href: "/employer", label: "Dashboard", iconName: "ChartNoAxesCombined" as const },
-  { href: "/employer/myjobs", label: "My Jobs", iconName: "FileText" as const },
-  { href: "/employer/postjob", label: "Post New Job", iconName: "BriefcaseBusiness" as const },
-  { href: "/employer/notifications", label: "Notifications", iconName: "Bell" as const },
-  { href: "/employer/messages", label: "Messages", iconName: "MessageSquareMore" as const },
-  { href: "/employer/complaint", label: "Submit Complaint", iconName: "Send" as const },
-  { href: "/employer/interviews", label: "Interviews", iconName: "Headset" as const },
-  { href: "/employer/subscription", label: "Subscription plans", iconName: "ShieldPlus" as const },
-  { href: "/employer/profile", label: "Profile", iconName: "CircleUser" as const },
-];
+
 
 export default async function EmployerDashboardLayout({
   children,
@@ -38,6 +30,19 @@ export default async function EmployerDashboardLayout({
   children: React.ReactNode;
 }) {
   const user = await getUser();
+  const t = await getTranslations("employerDashboard");
+
+  const employerNavItems = [
+  { href: "/employer", label: t("dashboard"), iconName: "ChartNoAxesCombined" as const },
+  { href: "/employer/myjobs", label: t("myjobs"), iconName: "FileText" as const },
+  { href: "/employer/postjob", label: t("postjob"), iconName: "BriefcaseBusiness" as const },
+  { href: "/employer/notifications", label: t("notifications"), iconName: "Bell" as const },
+  { href: "/employer/messages", label: t("messages"), iconName: "MessageSquareMore" as const },
+  { href: "/employer/complaint", label: t("submitcompliant"), iconName: "Send" as const },
+  { href: "/employer/interviews", label: t("interviews"), iconName: "Headset" as const },
+  { href: "/employer/subscription", label: t("subscriptionplan"), iconName: "ShieldPlus" as const },
+  { href: "/employer/profile", label: t("myprofile"), iconName: "CircleUser" as const },
+];
 
   if (!user) {
     return null;

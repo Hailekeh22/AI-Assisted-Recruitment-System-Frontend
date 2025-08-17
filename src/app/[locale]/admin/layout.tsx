@@ -9,6 +9,8 @@ async function getUser() {
   try {
     const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
     const { payload } = await jwtVerify(token, secret);
+    console.log(payload);
+    
     return {
       name: (payload.name as string) || "Admin",
       email: payload.email as string,

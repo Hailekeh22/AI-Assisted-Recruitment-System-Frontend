@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import * as Icons from "lucide-react"; // Import all icons
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -25,6 +25,8 @@ import { Button } from "@/components/ui/button";
 import { useLogoutUserMutation } from "@/services/authAPI";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
+import { useTranslations } from "next-intl";
+
 
 // a map of icon names to components
 const iconMap: { [key: string]: React.ElementType } = {
@@ -80,6 +82,7 @@ export default function DashboardLayout({
       .toUpperCase();
 
   const [logoutUser] = useLogoutUserMutation();
+  const t = useTranslations("dashboardLayout");
 
   const logout = async () => {
     try {
@@ -110,7 +113,7 @@ export default function DashboardLayout({
               className="flex items-center gap-2 font-semibold"
             >
               <IconBriefcaseBusiness className="h-6 w-6" />
-              <span className="">Job Website</span>
+              <span className="">{t("title")}</span>
             </Link>
           </div>
           <div className="flex-1">
@@ -156,7 +159,7 @@ export default function DashboardLayout({
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
                       <IconBriefcaseBusiness className="h-6 w-6" />
-                      <span>Job Website</span>
+                      <span>{t("title")}</span>
                     </Link>
                   </SheetTitle>
                   <SheetDescription className="sr-only">
@@ -217,12 +220,12 @@ export default function DashboardLayout({
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <Link href={`${basePath}/profile`} className="w-full">
-                    Profile
+                    {t("profile")}
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href={`${basePath}/setting`} className="w-full">
-                    Setting
+                    {t("setting")}
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -232,7 +235,7 @@ export default function DashboardLayout({
                     variant="destructive"
                     className=" w-full"
                   >
-                    Logout
+                   {t("logout")}
                   </Button>
                 </DropdownMenuItem>
               </DropdownMenuContent>

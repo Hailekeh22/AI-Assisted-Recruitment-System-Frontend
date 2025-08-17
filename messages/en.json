@@ -35,5 +35,22 @@
         "crateaccount":" Create your account -",
         "forjobseekers":"for Job Seekers",
         "foremployers":"for Employers"
+    },
+    "dashboardLayout": {
+        "title": "Job Website",
+        "profile": "My account",
+        "setting": "Setting",
+        "logout": "Logout"
+    },
+    "employerDashboard": {
+        "dashboard": "Dashboard",
+        "myjobs":"My Jobs",
+        "postjob":"Post New Job",
+        "notifications": "Notifications",
+        "messages": "Messages",
+        "submitcompliant": "Submit Complaint",
+        "interviews": "Interviews",
+        "subscriptionplan": "Subscription Plans",
+        "myprofile": "My Profile"
     }
 }
