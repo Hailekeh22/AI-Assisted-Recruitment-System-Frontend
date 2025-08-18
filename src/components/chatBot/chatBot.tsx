@@ -7,6 +7,8 @@ import { MessageSquare, Send } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { RootState } from "../../store/store";
+import { useTranslations } from "next-intl";
+
 
 interface Message {
   id: number;
@@ -15,6 +17,7 @@ interface Message {
 }
 
 export const ChatBot = () => {
+  const t = useTranslations("chatbot");
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
@@ -65,7 +68,7 @@ export const ChatBot = () => {
       <div className={`fixed bottom-24 right-5 z-40 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
           <Card className="w-full max-w-sm h-[60vh] flex flex-col sm:max-w-md md:h-[60vh] lg:max-w-sm max-h-[calc(100vh-7rem)]">
             <CardHeader className="flex flex-row items-center justify-center p-2 border-b">
-              <CardTitle className="text-lg">👋 Chat with us!</CardTitle>
+              <CardTitle className="text-lg">{t("title")}</CardTitle>
             </CardHeader>
             <CardContent className="flex-1 p-4 overflow-y-auto">
               <div className="space-y-4">
@@ -91,7 +94,7 @@ export const ChatBot = () => {
                 <Input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Type a message..."
+                  placeholder={t("inputplaceholder")}
                   className="flex-1"
                   disabled={isLoading}
                 />

@@ -12,7 +12,7 @@ interface ChatState {
 
 const initialState: ChatState = {
   messages: [
-    { id: 1, text: "Hello! What can I help you with today?", sender: 'bot' }
+    { id: 1, text: "👋 Hello! What can I help you with today?", sender: 'bot' }
   ]
 };
 

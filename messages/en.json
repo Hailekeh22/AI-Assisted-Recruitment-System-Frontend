@@ -95,5 +95,12 @@
         "resolved":"Resolved",
         "rejected":"Rejected",
         "opened":"Opened"
+    },
+    "chatbot": {
+        "title": "Customer Support Bot",
+        "inputplaceholder": "Type a message..."
     }
 }
+
+
+

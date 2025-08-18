@@ -96,6 +96,10 @@
         "resolved":"ተፈቷል",
         "rejected":"ውድቅ ተደርጓል",
         "opened":"ተከፍቷል"
+    },
+    "chatbot": {
+        "title": "የደንበኛ ድጋፍ ቦት",
+        "inputplaceholder": "መልዕክት ይጻፉ..."
     }
 }
 
