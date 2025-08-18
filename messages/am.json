@@ -80,5 +80,23 @@
         "complaints": "ቅሬታዎች",
         "payments": "ክፍያዎች",
         "myprofile": "የእኔ መለያ"
+    },
+    "complaint": {
+        "title": "ቅሬታዎን ያስገቡ",
+        "details": "የቅሬታ ዝርዝሮች",
+        "inputplaceholder": "ቅሬታዎን እዚህ ይጻፉ...",
+        "wordcount": "ቃላት",
+        "limitexceeded": "የቃል ገደብ አልፏል!",
+        "submit": "ቅሬታ አስገባ",
+        "mycomplaints": "የኔ ቅሬታዎች",
+        "content": "ይዘት",
+        "status": "ሁኔታ",
+        "filedat": "የተሞላበት ቀን",
+        "resolution": "የመፍትሄ መልስ",
+        "resolved":"ተፈቷል",
+        "rejected":"ውድቅ ተደርጓል",
+        "opened":"ተከፍቷል"
     }
 }
+
+

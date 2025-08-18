@@ -79,5 +79,21 @@
         "complaints": "Complaints",
         "payments": "Payments",
         "myprofile": "My Profile"
+    },
+    "complaint": {
+        "title": "Submit Your Complaint",
+        "details": "Complaint Details",
+        "inputplaceholder": "Write your complaint here...",
+        "wordcount": "words",
+        "limitexceeded": "Word limit exceeded!",
+        "submit": "Submit Complaint",
+        "mycomplaints": "My Complaints",
+        "content": "Content",
+        "status": "Status",
+        "filedat": "Filed At",
+        "resolution": "Resolution Note",
+        "resolved":"Resolved",
+        "rejected":"Rejected",
+        "opened":"Opened"
     }
 }
