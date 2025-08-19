@@ -1,8 +1,12 @@
+import AdminComplaintsTable from '@/components/complaints/AdminComplaint'
 import React from 'react'
+
 
 const page = () => {
   return (
-    <div>Complents page</div>
+    <>
+      <AdminComplaintsTable />
+    </>
   )
 }
 

@@ -36,7 +36,32 @@ export const compliantApi = createApi({
         credentials: "include",
       }),
     }),
+    getAdminComplaints: builder.query<{ data: Complaint[]; pagination: any },number>({
+      query: (page = 1) => `/complaints?page=${page}`,
+    }),
+    respondToComplaint: builder.mutation({
+      query: ({ complaintId, resolutionNote, status }) => ({
+        url: "/complaint/respond",
+        method: "POST",
+        body: { complaintId, resolutionNote, status },
+        credentials: "include",
+      }),
+    }),
+    adminDeleteComplain: builder.mutation({
+      query: (id) => ({
+        url: `/admin/complaint/${id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+    })
   }),
 });
 
-export const { useGetMyCompliantsQuery, usePostComplaintMutation, useDeleteComplaintMutation } = compliantApi;
+export const {
+  useGetMyCompliantsQuery,
+  usePostComplaintMutation,
+  useDeleteComplaintMutation,
+  useGetAdminComplaintsQuery,
+  useRespondToComplaintMutation,
+  useAdminDeleteComplainMutation
+} = compliantApi;

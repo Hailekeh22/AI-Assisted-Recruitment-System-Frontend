@@ -97,7 +97,20 @@
         "resolved":"ተፈቷል",
         "rejected":"ውድቅ ተደርጓል",
         "opened":"ተከፍቷል",
-        "actions": "አጥፋ"
+        "actions": "አጥፋ",
+        "handledBy": "መልስ የሰጠው",
+        "handledAt": "የተመለሰበት ሰዐት",
+        "allComplaints": "ሁሉም የቀረቡ ቅሬታዎች",
+        "complaintdetails": "የቅሬታ ዝርዝሮች",
+        "complaintrespondplaceholder": "ምላዎን እዚህ ይጻፍ...",
+        "respondtocompliantbtn": "አስገባ",
+        "cancelbtn": "ይቅር",
+        "nextbtn": "ቀጣይ",
+        "previousbtn": "ያለፈው",
+        "closebtn": "ዝጋ",
+        "deletecomplianthead": "ቅሬታ ሰርዝ",
+        "verifydelete": "እርግጠኛ ነዎት ይህን ቅሬታ መሰረዝ ይፈልጋሉ?",
+        "deletebtn": "አጥፋ"
     },
     "chatbot": {
         "title": "የደንበኛ ድጋፍ ቦት",

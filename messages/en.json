@@ -96,7 +96,21 @@
         "resolved":"Resolved",
         "rejected":"Rejected",
         "opened":"Opened",
-        "actions":"delete"
+        "actions":"delete",
+        "handledBy": "Handled By",
+        "handledAt": "Handled At",
+        "allComplaints": "All Submitted Complaints",
+        "complaintdetails": "Complaint Details",
+        "complaintrespondplaceholder": "Write your response here...",
+        "respondtocompliantbtn": "Submit",
+        "cancelbtn": "Cancel",
+        "nextbtn": "Next",
+        "previousbtn": "Previous",
+        "closebtn": "Close",
+        "deletecomplianthead": "Delete Complaint",
+        "verifydelete": "Are you sure you want to delete this complaint?",
+        "deletebtn": "Delete"
+
     },
     "chatbot": {
         "title": "Customer Support Bot",
