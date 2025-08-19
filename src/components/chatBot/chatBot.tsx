@@ -1,3 +1,4 @@
+"use client"
 import { useAskchatbotMutation } from "@/services/chatAPI";
 import { addMessage } from "@/store/slices/ChatSlice";
 import { useEffect, useRef, useState } from "react";

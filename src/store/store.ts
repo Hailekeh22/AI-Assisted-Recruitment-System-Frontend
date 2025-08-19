@@ -4,6 +4,8 @@ import { userRegistrationApi } from '@/services/userRegisterAPI';
 import { authApi } from '@/services/authAPI';
 import { chatSlice } from './slices/ChatSlice';
 import { suportChatApi } from '@/services/chatAPI';
+import { compliantApi } from '@/services/compliantAPI';
+
 
 
 
@@ -12,9 +14,10 @@ export const store = configureStore({
     [userRegistrationApi.reducerPath]: userRegistrationApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [suportChatApi.reducerPath]: suportChatApi.reducer,
+    [compliantApi.reducerPath]: compliantApi.reducer,
     chat: chatSlice.reducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, authApi.middleware, suportChatApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, compliantApi.middleware, authApi.middleware, suportChatApi.middleware),
 
 });
 

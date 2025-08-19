@@ -48,7 +48,7 @@ const LandingPage: React.FC = () => {
               {t("description")}
             </p>
             <button className=" bg-blue-900 text-white dark:bg-white dark:text-blue-600 font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200 transform hover:scale-105 transition-all duration-300">
-              Get Started Now <ArrowRight className="inline-block ml-2" size={20} />
+              {t("ctabtnlandingpage")} <ArrowRight className="inline-block ml-2" size={20} />
             </button>
           </div>
         </section>
