@@ -22,34 +22,47 @@ export default function LoginForm() {
   const [errorMsg, setErrorMsg] = useState("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setErrorMsg("");
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setErrorMsg("");
 
-    try {
-      const result: LoginResponse = await loginUser({ email, password }).unwrap();
+  try {
+    const result: LoginResponse = await loginUser({ email, password }).unwrap();
 
-      // Redirect based on user role
-      const role = result.user?.role;
-      if (role === "admin") {
-        router.push("/admin");
-      } else if (role === "employer") {
-        router.push("/employer");
-      } else if (role === "jobseeker") {
-        router.push("/user");
-      } else {
-        router.push("/");
-      }
-    } catch (error) {
-      const err = error as FetchBaseQueryError | SerializedError;
+    // 💡 A cleaner way to map roles to their dashboard paths
+    const roleToPath = {
+      admin: "/admin",
+      employer: "/employer",
+      jobseeker: "/user",
+    };
 
-      if ("data" in err && err.data && typeof err.data === "object" && "message" in err.data) {
-        setErrorMsg((err.data as { message?: string }).message || "Login failed");
-      } else {
-        setErrorMsg("Login failed");
-      }
+    const role = result.user?.role;
+    // Determine the redirect path, defaulting to the homepage
+    const redirectTo = (role && roleToPath[role]) || "/";
+
+    // ✅ THE FIX IS HERE
+    // This check ensures the code only runs in the browser, preventing build errors.
+    if (typeof window !== "undefined") {
+      // This forces a full page refresh, which solves the cookie race condition.
+      window.location.href = redirectTo;
     }
-  };
+  } catch (error) {
+    const err = error as FetchBaseQueryError | SerializedError;
+
+    if (
+      "data" in err &&
+      err.data &&
+      typeof err.data === "object" &&
+      "message" in err.data
+    ) {
+      setErrorMsg(
+        (err.data as { message?: string }).message || "Login failed"
+      );
+    } else {
+      setErrorMsg("Login failed");
+    }
+  }
+};
 
   return (
     <>

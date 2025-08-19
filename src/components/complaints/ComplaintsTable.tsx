@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { CheckCircle, XCircle, Clock } from "lucide-react";
 import {
@@ -6,57 +6,19 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
 import { useGetMyCompliantsQuery } from "@/services/compliantAPI";
-
-
-
-interface Complaint {
-  complaint_id: number;
-  content: string;
-  status: "open" | "resolved" | "dismissed";
-  filed_at: string;
-  handled_by?: string;
-  handled_at?: string;
-  resolution_note?: string;
-}
+import type { Complaint } from "@/services/compliantAPI";
 
 const ComplaintsTable: React.FC = () => {
-   const t = useTranslations("complaint")
-   const { data: complaints = [] } = useGetMyCompliantsQuery();
+  const t = useTranslations("complaint");
+  const { data: complaints = [] } = useGetMyCompliantsQuery();
 
-   console.log(complaints);
-   
   const [selectedField, setSelectedField] = useState<{
     title: string;
     content: string;
   } | null>(null);
-
-  // const complaints: Complaint[] = [
-  //   // mock data for UI preview
-  //   {
-  //     complaint_id: 1,
-  //     content: "This is a sample very long complaint that should be truncated in the table but fully visible in the dialog when clicked...",
-  //     status: "open",
-  //     filed_at: "2025-08-18T09:29:23.732Z",
-  //   },
-  //   {
-  //     complaint_id: 2,
-  //     content: "Second complaint here",
-  //     status: "resolved",
-  //     filed_at: "2025-08-18T09:29:23.732Z",
-  //     resolution_note: "we had recieved your complaint thank you we will fix it very soon!",
-  //   },
-  //   {
-  //     complaint_id: 3,
-  //     content: "Third complaint here",
-  //     status: "dismissed",
-  //     filed_at: "2025-08-18T09:29:23.732Z",
-  //     resolution_note: "we had recieved your complaint thank you we will fix it very soon!",
-  //   },
-  // ];
 
   const truncate = (text: string, max = 40) =>
     text.length > max ? text.slice(0, max) + "..." : text;
@@ -108,7 +70,7 @@ const ComplaintsTable: React.FC = () => {
                 </td>
               </tr>
             ) : (
-              complaints.map((c:any) => (
+              complaints.map((c) => (
                 <tr
                   key={c.complaint_id}
                   className="border-b border-gray-200 dark:border-gray-700"
@@ -166,4 +128,3 @@ const ComplaintsTable: React.FC = () => {
 };
 
 export default ComplaintsTable;
-
