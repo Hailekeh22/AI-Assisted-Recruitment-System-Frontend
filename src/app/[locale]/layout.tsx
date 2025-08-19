@@ -5,6 +5,8 @@ import { ReduxProvider } from "./reduxProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/app/globals.css";
 import { ChatBot } from "@/components/chatBot/chatBot";
+import { Toaster } from "@/components/ui/sonner"
+
 
 
 export default async function LocaleLayout({
@@ -32,6 +34,7 @@ export default async function LocaleLayout({
               disableTransitionOnChange
             >
               {children}
+              <Toaster />
               <ChatBot />
             </ThemeProvider>
           </ReduxProvider>

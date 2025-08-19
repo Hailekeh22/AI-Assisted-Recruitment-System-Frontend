@@ -1,12 +1,14 @@
-"use client"
+"use client";
+import { usePostComplaintMutation } from "@/services/compliantAPI";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
-
+import { toast } from "sonner";
 
 const ComplaintInput: React.FC = () => {
   const t = useTranslations("complaint");
-  const [complaint, setComplaint] = useState("");
+  const [content, setComplaint] = useState("");
   const [wordCount, setWordCount] = useState(0);
+  const [submitCompliant] = usePostComplaintMutation();
 
   const MAX_WORDS = 1000;
 
@@ -20,11 +22,16 @@ const ComplaintInput: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (wordCount > 0 && wordCount <= MAX_WORDS) {
-      // Replace this with API call
-      console.log("Complaint submitted:", complaint.trim());
+      const result = await submitCompliant({ content }).unwrap();
+      if (result) {
+        window.location.reload();
+        toast(result.message);
+      } else if (result?.error) {
+        toast("Error submitting complaint");
+      }
 
       setComplaint("");
       setWordCount(0);
@@ -48,7 +55,7 @@ const ComplaintInput: React.FC = () => {
             </label>
             <textarea
               id="complaint"
-              value={complaint}
+              value={content}
               onChange={handleChange}
               placeholder={t("inputplaceholder")}
               rows={10}

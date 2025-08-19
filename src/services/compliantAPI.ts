@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { url } from "inspector";
 
 export interface Complaint {
   complaint_id: number;
@@ -20,7 +21,15 @@ export const compliantApi = createApi({
     getMyCompliants: builder.query<Complaint[],void>({
       query: () => "/mycomplaints",
     }),
+    postComplaint: builder.mutation({
+      query: (userData) => ({
+        url: "/submitcomplaint",
+        method: "POST",
+        body: userData,
+        credentials: "include"        
+      })
+    })
   }),
 });
 
-export const { useGetMyCompliantsQuery } = compliantApi;
+export const { useGetMyCompliantsQuery, usePostComplaintMutation } = compliantApi;
