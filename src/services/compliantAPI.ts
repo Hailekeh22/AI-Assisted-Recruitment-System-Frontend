@@ -15,10 +15,10 @@ export const compliantApi = createApi({
   reducerPath: "compliantAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_USERS_API_URL,
-    credentials: "include"
+    credentials: "include",
   }),
   endpoints: (builder) => ({
-    getMyCompliants: builder.query<Complaint[],void>({
+    getMyCompliants: builder.query<Complaint[], void>({
       query: () => "/mycomplaints",
     }),
     postComplaint: builder.mutation({
@@ -26,10 +26,17 @@ export const compliantApi = createApi({
         url: "/submitcomplaint",
         method: "POST",
         body: userData,
-        credentials: "include"        
-      })
-    })
+        credentials: "include",
+      }),
+    }),
+    deleteComplaint: builder.mutation({
+      query: (id) => ({
+        url: `/complaint/${id}`,
+        method: "DELETE",
+        credentials: "include",
+      }),
+    }),
   }),
 });
 
-export const { useGetMyCompliantsQuery, usePostComplaintMutation } = compliantApi;
+export const { useGetMyCompliantsQuery, usePostComplaintMutation, useDeleteComplaintMutation } = compliantApi;

@@ -96,7 +96,8 @@
         "resolution": "የመፍትሄ መልስ",
         "resolved":"ተፈቷል",
         "rejected":"ውድቅ ተደርጓል",
-        "opened":"ተከፍቷል"
+        "opened":"ተከፍቷል",
+        "actions": "አጥፋ"
     },
     "chatbot": {
         "title": "የደንበኛ ድጋፍ ቦት",

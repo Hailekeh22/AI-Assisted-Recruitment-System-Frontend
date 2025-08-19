@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { CheckCircle, XCircle, Clock } from "lucide-react";
+import { CheckCircle, XCircle, Clock, Trash2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -8,12 +8,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
-import { useGetMyCompliantsQuery } from "@/services/compliantAPI";
+import { useGetMyCompliantsQuery, useDeleteComplaintMutation } from "@/services/compliantAPI";
 import type { Complaint } from "@/services/compliantAPI";
+import { toast } from "sonner";
 
 const ComplaintsTable: React.FC = () => {
   const t = useTranslations("complaint");
-  const { data: complaints = [] } = useGetMyCompliantsQuery();
+  const { data: complaints = [], refetch } = useGetMyCompliantsQuery();
+  const [deleteComplaint] = useDeleteComplaintMutation();
 
   const [selectedField, setSelectedField] = useState<{
     title: string;
@@ -46,6 +48,17 @@ const ComplaintsTable: React.FC = () => {
     }
   };
 
+  const handleDelete = async (id: number) => {
+    if (!confirm("Are you sure you want to delete this complaint?")) return;
+    try {
+      await deleteComplaint(id).unwrap();
+      toast.success("Complaint deleted successfully");
+      refetch();
+    } catch (err) {
+      toast.error("Failed to delete complaint");
+    }
+  };
+
   return (
     <div className="w-full bg-blue-500/10 dark:bg-[#252525] rounded-2xl shadow-lg p-6 transition-colors">
       <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">
@@ -60,12 +73,13 @@ const ComplaintsTable: React.FC = () => {
               <th className="p-3 text-gray-200">{t("status")}</th>
               <th className="p-3 text-gray-200">{t("filedat")}</th>
               <th className="p-3 text-gray-200">{t("resolution")}</th>
+              <th className="p-3 text-gray-200">{t("actions")}</th>
             </tr>
           </thead>
           <tbody>
             {complaints.length === 0 ? (
               <tr>
-                <td colSpan={4} className="p-4 text-center text-black dark:text-gray-400">
+                <td colSpan={5} className="p-4 text-center text-black dark:text-gray-400">
                   No complaints submitted yet.
                 </td>
               </tr>
@@ -104,6 +118,14 @@ const ComplaintsTable: React.FC = () => {
                     }
                   >
                     {c.resolution_note ? truncate(c.resolution_note) : "—"}
+                  </td>
+
+                  {/* Actions */}
+                  <td className="p-3 text-red-600 cursor-pointer">
+                    <Trash2
+                      className="w-5 h-5 hover:text-red-800"
+                      onClick={() => handleDelete(c.complaint_id)}
+                    />
                   </td>
                 </tr>
               ))

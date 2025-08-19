@@ -95,7 +95,8 @@
         "resolution": "Resolution Note",
         "resolved":"Resolved",
         "rejected":"Rejected",
-        "opened":"Opened"
+        "opened":"Opened",
+        "actions":"delete"
     },
     "chatbot": {
         "title": "Customer Support Bot",

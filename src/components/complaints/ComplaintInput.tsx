@@ -1,5 +1,5 @@
 "use client";
-import { usePostComplaintMutation } from "@/services/compliantAPI";
+import { useGetMyCompliantsQuery, usePostComplaintMutation } from "@/services/compliantAPI";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
 import { toast } from "sonner";
@@ -9,6 +9,7 @@ const ComplaintInput: React.FC = () => {
   const [content, setComplaint] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [submitCompliant] = usePostComplaintMutation();
+  const { refetch } = useGetMyCompliantsQuery();
 
   const MAX_WORDS = 1000;
 
@@ -27,8 +28,8 @@ const ComplaintInput: React.FC = () => {
     if (wordCount > 0 && wordCount <= MAX_WORDS) {
       const result = await submitCompliant({ content }).unwrap();
       if (result) {
-        window.location.reload();
         toast(result.message);
+        refetch()
       } else if (result?.error) {
         toast("Error submitting complaint");
       }
