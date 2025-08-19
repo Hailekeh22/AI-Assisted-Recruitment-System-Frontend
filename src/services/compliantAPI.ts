@@ -1,5 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { url } from "inspector";
+
+export interface Pagination {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+}
 
 export interface Complaint {
   complaint_id: number;
@@ -36,7 +44,7 @@ export const compliantApi = createApi({
         credentials: "include",
       }),
     }),
-    getAdminComplaints: builder.query<{ data: Complaint[]; pagination: any },number>({
+    getAdminComplaints: builder.query<{ data: Complaint[]; pagination: Pagination },number>({
       query: (page = 1) => `/complaints?page=${page}`,
     }),
     respondToComplaint: builder.mutation({
