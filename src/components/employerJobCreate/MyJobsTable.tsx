@@ -8,12 +8,16 @@ import {
   DialogTitle,
   DialogDescription,
   DialogTrigger,
-} from "@/components/ui/dialog"; // shadcn/ui
+} from "@/components/ui/dialog";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { useGetMyJobsQuery, useUpdateJobMutation, useDeleteJobMutation } from "@/services/jobsAPI";
+import {
+  useGetMyJobsQuery,
+  useUpdateJobMutation,
+  useDeleteJobMutation,
+} from "@/services/jobsAPI";
 import { useTranslations } from "next-intl";
-import { Trash } from 'lucide-react';
-
+import { Trash } from "lucide-react";
 
 interface Job {
   job_id: number;
@@ -35,7 +39,7 @@ const MyJobsTable: React.FC = () => {
   const t = useTranslations("jobpost");
   const { data, refetch } = useGetMyJobsQuery();
   const [updateJob] = useUpdateJobMutation();
-  const [deleteJob] = useDeleteJobMutation(); 
+  const [deleteJob] = useDeleteJobMutation();
 
   const [editingJob, setEditingJob] = useState<Job | null>(null);
   const [formState, setFormState] = useState<Partial<Job>>({});
@@ -72,6 +76,7 @@ const MyJobsTable: React.FC = () => {
     }).unwrap();
 
     if (result?.message) {
+      toast.success(result.message);
       setEditingJob(null);
       refetch();
     }
@@ -85,6 +90,7 @@ const MyJobsTable: React.FC = () => {
     if (deletingJobId === null) return;
     const result = await deleteJob(deletingJobId).unwrap();
     if (result?.message) {
+      toast.success(result.message);
       setDeletingJobId(null);
       refetch();
     }
@@ -117,18 +123,17 @@ const MyJobsTable: React.FC = () => {
                 {/* description with dialog */}
                 <td className="p-3">
                   <Dialog>
-                    <DialogTrigger>
+                    <DialogTrigger asChild>
                       <Button variant="link" className="p-0 h-auto">
-                      {truncate(job.description, 60)}
-                    </Button>
+                        {truncate(job.description, 60)}
+                      </Button>
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
-                        <DialogTitle>Description</DialogTitle>
+                        <DialogTitle>{t("jobdescription")}</DialogTitle>
                       </DialogHeader>
                       <p className="text-sm">{job.description}</p>
                     </DialogContent>
-                    
                   </Dialog>
                 </td>
 
@@ -166,7 +171,9 @@ const MyJobsTable: React.FC = () => {
             {/* First row: Short inputs using a responsive grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300">{t("edittitle")}</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  {t("edittitle")}
+                </span>
                 <input
                   name="title"
                   value={formState.title || ""}
@@ -176,7 +183,9 @@ const MyJobsTable: React.FC = () => {
                 />
               </label>
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300">{t("editsalary")}</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  {t("editsalary")}
+                </span>
                 <input
                   name="salary"
                   value={formState.salary || ""}
@@ -186,27 +195,33 @@ const MyJobsTable: React.FC = () => {
                 />
               </label>
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300">{t("editjobtype")}</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  {t("editjobtype")}
+                </span>
                 <select
                   name="job_type"
                   value={formState.job_type || ""}
                   onChange={handleChange}
                   className="mt-1 block w-full bg-white dark:bg-black text-black dark:text-white p-2 border rounded"
                 >
-                  <option value="">Select Job Type</option>
-                  <option value="on_site">On Site</option>
-                  <option value="remote">Remote</option>
-                  <option value="hybrid">Hybrid</option>
+                  <option value="">{t("selectjobtype")}</option>
+                  <option value="on_site">{t("onsite")}</option>
+                  <option value="remote">{t("remote")}</option>
+                  <option value="hybrid">{t("hybrid")}</option>
                 </select>
               </label>
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300">{t("editdeadline")}</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  {t("editdeadline")}
+                </span>
                 <input
                   type="date"
                   name="application_deadline"
                   value={
                     formState.application_deadline
-                      ? new Date(formState.application_deadline).toISOString().split("T")[0]
+                      ? new Date(formState.application_deadline)
+                          .toISOString()
+                          .split("T")[0]
                       : ""
                   }
                   onChange={handleChange}
@@ -214,7 +229,9 @@ const MyJobsTable: React.FC = () => {
                 />
               </label>
               <label className="block">
-                <span className="text-gray-700 dark:text-gray-300">{t("editstatus")}</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  {t("editstatus")}
+                </span>
                 <input
                   name="status"
                   value={formState.status || ""}
@@ -227,7 +244,9 @@ const MyJobsTable: React.FC = () => {
 
             {/* Second row: Description */}
             <label className="block">
-              <span className="text-gray-700 dark:text-gray-300">{t("editdescription")}</span>
+              <span className="text-gray-700 dark:text-gray-300">
+                {t("editdescription")}
+              </span>
               <textarea
                 name="description"
                 value={formState.description || ""}
@@ -240,7 +259,9 @@ const MyJobsTable: React.FC = () => {
 
             {/* Third row: Requirements */}
             <label className="block">
-              <span className="text-gray-700 dark:text-gray-300">{t("editreq")}</span>
+              <span className="text-gray-700 dark:text-gray-300">
+                {t("editreq")}
+              </span>
               <textarea
                 name="requirements"
                 value={formState.requirements || ""}
@@ -259,22 +280,20 @@ const MyJobsTable: React.FC = () => {
       </Dialog>
 
       {/* Delete Confirmation Dialog */}
-      <Dialog open={!!deletingJobId} onOpenChange={() => setDeletingJobId(null)}>
+      <Dialog
+        open={!!deletingJobId}
+        onOpenChange={() => setDeletingJobId(null)}
+      >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>{t("deletedialogtitle")}</DialogTitle>
-            <DialogDescription>
-                  {t("deleteconfirmation")}
-            </DialogDescription>
+            <DialogDescription>{t("deleteconfirmation")}</DialogDescription>
           </DialogHeader>
           <div className="flex justify-end space-x-2 mt-4">
             <Button variant="outline" onClick={() => setDeletingJobId(null)}>
               {t("canceldeletebtn")}
             </Button>
-            <Button
-              className="bg-red-600 text-white"
-              onClick={confirmDelete}
-            >
+            <Button className="bg-red-600 text-white" onClick={confirmDelete}>
               {t("confirmdeletebtn")}
             </Button>
           </div>

@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { usePostJobMutation, useGetMyJobsQuery } from "@/services/jobsAPI";
 
-
 const JobPostInput: React.FC = () => {
   const t = useTranslations("jobpost");
 
@@ -106,15 +105,19 @@ const JobPostInput: React.FC = () => {
             >
               {t("jobtype")}
             </label>
-            <input
+            {/* The input has been replaced with a select element as requested */}
+            <select
               id="job-type"
-              type="text"
               value={jobType}
               onChange={(e) => setJobType(e.target.value)}
-              placeholder={t("jobtypeplaceholder")}
               className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
-              bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
-            />
+    bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
+            >
+              <option value="">{t("jobtypeplaceholder")}</option>
+              <option value="on_site">On-site</option>
+              <option value="remote">Remote</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
           </div>
 
           {/* Requirements */}
@@ -176,7 +179,9 @@ const JobPostInput: React.FC = () => {
           {/* Submit */}
           <button
             type="submit"
-            disabled={isLoading || !title || !description || !jobType || !deadline}
+            disabled={
+              isLoading || !title || !description || !jobType || !deadline
+            }
             className="w-full py-3 bg-blue-600 text-white font-medium text-lg rounded-lg shadow-md 
             hover:bg-blue-700 transition disabled:bg-gray-400 dark:disabled:bg-gray-600"
           >
