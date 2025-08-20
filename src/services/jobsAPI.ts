@@ -5,6 +5,15 @@ export interface PostJobResponse {
   data?: unknown;
 }
 
+export interface Job {
+  id: string;
+  title: string;
+  description: string;
+  jobType: "on_site" | "remote" | "hybrid";
+  createdAt: string;
+  updatedAt: string;
+}
+
 export const jobAPI = createApi({
   reducerPath: "jobAPI",
   baseQuery: fetchBaseQuery({
@@ -13,7 +22,7 @@ export const jobAPI = createApi({
   }),
   endpoints: (builder) => ({
     //GEt Posted Jobs
-    getMyJobs: builder.query<any, void>({
+    getMyJobs: builder.query<Job[], void>({
       query: () => ({
         url: "jobs/myjobs",
         method: "GET",
