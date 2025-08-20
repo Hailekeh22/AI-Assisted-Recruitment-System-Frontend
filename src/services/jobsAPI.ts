@@ -5,13 +5,21 @@ export interface PostJobResponse {
   data?: unknown;
 }
 
-export interface Job {
-  id: string;
+interface Job {
+  job_id: number;
+  employer_id: string;
   title: string;
   description: string;
-  jobType: "on_site" | "remote" | "hybrid";
-  createdAt: string;
-  updatedAt: string;
+  job_type: string;
+  requirements: string;
+  salary: string;
+  application_deadline: string;
+  status: string;
+  created_at: string;
+}
+
+interface MyJobsResponse {
+  myJobs: Job[];
 }
 
 export const jobAPI = createApi({
@@ -22,7 +30,7 @@ export const jobAPI = createApi({
   }),
   endpoints: (builder) => ({
     //GEt Posted Jobs
-    getMyJobs: builder.query<Job[], void>({
+    getMyJobs: builder.query<MyJobsResponse, void>({
       query: () => ({
         url: "jobs/myjobs",
         method: "GET",

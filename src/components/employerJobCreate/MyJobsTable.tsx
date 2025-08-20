@@ -107,7 +107,7 @@ const MyJobsTable: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.myJobs?.map((job: Job) => (
+            {data?.myJobs?.map((job) => (
               <tr
                 key={job.job_id}
                 className="border-b border-gray-200 dark:border-neutral-700"
@@ -191,7 +191,7 @@ const MyJobsTable: React.FC = () => {
                   name="job_type"
                   value={formState.job_type || ""}
                   onChange={handleChange}
-                  className="mt-1 block w-full p-2 border rounded"
+                  className="mt-1 block w-full bg-white dark:bg-black text-black dark:text-white p-2 border rounded"
                 >
                   <option value="">Select Job Type</option>
                   <option value="on_site">On Site</option>
