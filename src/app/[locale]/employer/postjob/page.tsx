@@ -1,7 +1,11 @@
+import JobPostInput from "@/components/employerJobCreate/JobPostInput"
+
 
 const page = () => {
   return (
-    <div>Post Job Page</div>
+    <>
+      <JobPostInput />
+    </>
   )
 }
 

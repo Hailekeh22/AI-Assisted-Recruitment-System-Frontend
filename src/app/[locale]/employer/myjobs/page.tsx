@@ -1,7 +1,12 @@
+import MyJobsTable from "@/components/employerJobCreate/MyJobsTable"
+
+
 
 const page = () => {
   return (
-    <div>Jobs page</div>
+    <>
+      <MyJobsTable />
+    </>
   )
 }
 

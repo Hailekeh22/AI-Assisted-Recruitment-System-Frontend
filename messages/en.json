@@ -1,122 +1,157 @@
 {
-    "HomePage":{
-        "title": "Welcome to the Smart Recruitment System",
-        "about": "Your one-stop solution for efficient recruitment management."
-    },
-    "About": {
-        "title": "This is our site"
-    },
-    "Login": {
-        "title": "login to your account"
-    },
-    "Nav": {
-        "title": "Job Website",
-        "findJob": "Find Job",
-        "forEmployers": "For Employers",
-        "about": "About Us",
-        "logIn": "Login",
-        "contactUs": "Contact Us"
-
-    },
-    "LandingPage": {
-        "moto": "Find Your Next Hire, Faster Than Ever.",
-        "description" : "Our AI intelligently matches the right talent with the right opportunities, saving you time and effort.",
-        "howitworks": "How It Works?",
-        "ctabtnlandingpage": "Get Started Now",
-        "info": "A simple, streamlined process for job seekers and employers.",
-        "forjobseekers": "For Job Seekers",
-        "JSfirststep": "1. Create Profile & Apply",
-        "JSfirststepdesc": "Build your profile once and apply to jobs with a single click.",
-        "JSsecondstep": "2. Get AI Support",
-        "JSsecondstepdesc": "Our AI analyzes your resume to find jobs that are the perfect fit for you.",
-        "JSthirdstep": "Get Interviews",
-        "JSthirdstepdesc": "Connect with top employers, ace the interview, and land your dream job.",
-        "foremployers": "For Employers",
-        "Efirststep": "1. Post a Job",
-        "Efirststepdesc": "Describe your ideal candidate and let our platform handle the heavy lifting.",
-        "Esecondstep": "2. AI-Powered Application Reviews",
-        "Esecondstepdesc": "Receive a shortlist of qualified candidates perfectly matched to your role.",
-        "Ethirdstep": "3. Interview & Hire",
-        "Ethirdstepdesc": "Schedule interviews and hire the best talent with confidence and speed.",
-        "ctaheader": "Ready to Revolutionize Your Hiring?",
-        "ctabody": "Join thousands of companies and professionals finding their perfect matches.",
-        "ctabtnemp": "Create Your Employer profile",
-        "ctabtnjs": "Create Your Job Seeker Profile"
-    },
-    "loginPage": {
-        "title": "Login to Your Account",
-        "email": "Email",
-        "emailplaceholder": "Enter your email",
-        "password": "Password",
-        "passwordplaceholder": "Enter your password",
-        "btntext": "Login",
-        "btntextloading": "Logging in...",
-        "crateaccount":" Create your account -",
-        "forjobseekers":"for Job Seekers",
-        "foremployers":"for Employers"
-    },
-    "dashboardLayout": {
-        "title": "Job Website",
-        "profile": "My account",
-        "setting": "Setting",
-        "logout": "Logout"
-    },
-    "employerDashboard": {
-        "dashboard": "Dashboard",
-        "myjobs":"My Jobs",
-        "postjob":"Post New Job",
-        "notifications": "Notifications",
-        "messages": "Messages",
-        "submitcompliant": "Submit Complaint",
-        "interviews": "Interviews",
-        "subscriptionplan": "Subscription Plans",
-        "myprofile": "My Profile"
-    },
-    "adminDashboard": {
-        "overview": "Overview",
-        "manageusers":  "Manage users",
-        "settings": "Settings",
-        "managejobs": "Manage Job Postings",
-        "complaints": "Complaints",
-        "payments": "Payments",
-        "myprofile": "My Profile"
-    },
-    "complaint": {
-        "title": "Submit Your Complaint",
-        "details": "Complaint Details",
-        "inputplaceholder": "Write your complaint here...",
-        "wordcount": "words",
-        "limitexceeded": "Word limit exceeded!",
-        "submit": "Submit Complaint",
-        "mycomplaints": "My Complaints",
-        "content": "Content",
-        "status": "Status",
-        "filedat": "Filed At",
-        "resolution": "Resolution Note",
-        "resolved":"Resolved",
-        "rejected":"Rejected",
-        "opened":"Opened",
-        "actions":"delete",
-        "handledBy": "Handled By",
-        "handledAt": "Handled At",
-        "allComplaints": "All Submitted Complaints",
-        "complaintdetails": "Complaint Details",
-        "complaintrespondplaceholder": "Write your response here...",
-        "respondtocompliantbtn": "Submit",
-        "cancelbtn": "Cancel",
-        "nextbtn": "Next",
-        "previousbtn": "Previous",
-        "closebtn": "Close",
-        "deletecomplianthead": "Delete Complaint",
-        "verifydelete": "Are you sure you want to delete this complaint?",
-        "deletebtn": "Delete"
-
-    },
-    "chatbot": {
-        "title": "Customer Support Bot",
-        "inputplaceholder": "Type a message..."
-    }
+  "HomePage": {
+    "title": "Welcome to the Smart Recruitment System",
+    "about": "Your one-stop solution for efficient recruitment management."
+  },
+  "About": {
+    "title": "This is our site"
+  },
+  "Login": {
+    "title": "login to your account"
+  },
+  "Nav": {
+    "title": "Job Website",
+    "findJob": "Find Job",
+    "forEmployers": "For Employers",
+    "about": "About Us",
+    "logIn": "Login",
+    "contactUs": "Contact Us"
+  },
+  "LandingPage": {
+    "moto": "Find Your Next Hire, Faster Than Ever.",
+    "description": "Our AI intelligently matches the right talent with the right opportunities, saving you time and effort.",
+    "howitworks": "How It Works?",
+    "ctabtnlandingpage": "Get Started Now",
+    "info": "A simple, streamlined process for job seekers and employers.",
+    "forjobseekers": "For Job Seekers",
+    "JSfirststep": "1. Create Profile & Apply",
+    "JSfirststepdesc": "Build your profile once and apply to jobs with a single click.",
+    "JSsecondstep": "2. Get AI Support",
+    "JSsecondstepdesc": "Our AI analyzes your resume to find jobs that are the perfect fit for you.",
+    "JSthirdstep": "Get Interviews",
+    "JSthirdstepdesc": "Connect with top employers, ace the interview, and land your dream job.",
+    "foremployers": "For Employers",
+    "Efirststep": "1. Post a Job",
+    "Efirststepdesc": "Describe your ideal candidate and let our platform handle the heavy lifting.",
+    "Esecondstep": "2. AI-Powered Application Reviews",
+    "Esecondstepdesc": "Receive a shortlist of qualified candidates perfectly matched to your role.",
+    "Ethirdstep": "3. Interview & Hire",
+    "Ethirdstepdesc": "Schedule interviews and hire the best talent with confidence and speed.",
+    "ctaheader": "Ready to Revolutionize Your Hiring?",
+    "ctabody": "Join thousands of companies and professionals finding their perfect matches.",
+    "ctabtnemp": "Create Your Employer profile",
+    "ctabtnjs": "Create Your Job Seeker Profile"
+  },
+  "loginPage": {
+    "title": "Login to Your Account",
+    "email": "Email",
+    "emailplaceholder": "Enter your email",
+    "password": "Password",
+    "passwordplaceholder": "Enter your password",
+    "btntext": "Login",
+    "btntextloading": "Logging in...",
+    "crateaccount": " Create your account -",
+    "forjobseekers": "for Job Seekers",
+    "foremployers": "for Employers"
+  },
+  "dashboardLayout": {
+    "title": "Job Website",
+    "profile": "My account",
+    "setting": "Setting",
+    "logout": "Logout"
+  },
+  "employerDashboard": {
+    "dashboard": "Dashboard",
+    "myjobs": "My Jobs",
+    "postjob": "Post New Job",
+    "notifications": "Notifications",
+    "messages": "Messages",
+    "submitcompliant": "Submit Complaint",
+    "interviews": "Interviews",
+    "subscriptionplan": "Subscription Plans",
+    "myprofile": "My Profile"
+  },
+  "adminDashboard": {
+    "overview": "Overview",
+    "manageusers": "Manage users",
+    "settings": "Settings",
+    "managejobs": "Manage Job Postings",
+    "complaints": "Complaints",
+    "payments": "Payments",
+    "myprofile": "My Profile"
+  },
+  "complaint": {
+    "title": "Submit Your Complaint",
+    "details": "Complaint Details",
+    "inputplaceholder": "Write your complaint here...",
+    "wordcount": "words",
+    "limitexceeded": "Word limit exceeded!",
+    "submit": "Submit Complaint",
+    "mycomplaints": "My Complaints",
+    "content": "Content",
+    "status": "Status",
+    "filedat": "Filed At",
+    "resolution": "Resolution Note",
+    "resolved": "Resolved",
+    "rejected": "Rejected",
+    "opened": "Opened",
+    "actions": "delete",
+    "handledBy": "Handled By",
+    "handledAt": "Handled At",
+    "allComplaints": "All Submitted Complaints",
+    "complaintdetails": "Complaint Details",
+    "complaintrespondplaceholder": "Write your response here...",
+    "respondtocompliantbtn": "Submit",
+    "cancelbtn": "Cancel",
+    "nextbtn": "Next",
+    "previousbtn": "Previous",
+    "closebtn": "Close",
+    "deletecomplianthead": "Delete Complaint",
+    "verifydelete": "Are you sure you want to delete this complaint?",
+    "deletebtn": "Delete"
+  },
+  "chatbot": {
+    "title": "Customer Support Bot",
+    "inputplaceholder": "Type a message..."
+  },
+  "jobpost": {
+    "title": "Post New Job",
+    "jobtitle": "Enter Job Title Here",
+    "jobtitleplaceholder": "Job Title ...",
+    "description": "Enter Job Description Here",
+    "descriptionplaceholder": "Job Description ...",
+    "jobtype": "Insert Job Type Here",
+    "jobtypeplaceholder": "Job Type..",
+    "requirements": "Enter Job Requirements",
+    "requirementsplaceholder": "Job requirements ...",
+    "salary": "Enter Salary Here",
+    "salaryplaceholder": "Salary ...",
+    "deadline": "Enter Application Deadline here",
+    "submit": "Post Job",
+    "myjobposts": "My Job Posts",
+    "tabletitle": "Title",
+    "tabledescription": "Description",
+    "tablesalary": "Salary",
+    "tableactions": "Actions",
+    "dialogtitle": "Description",
+    "editbtn": "Edit",
+    "editjob": "Edit Job",
+    "edittitle": "Title:",
+    "edittitleplaceholder": "Title",
+    "editsalary": "Salary:",
+    "editsalaryplaceholder": "Salary",
+    "editjobtype": "Job Type:",
+    "editdeadline": "Deadline:",
+    "editstatus": "Status:",
+    "editstatusplaceholder": "Status",
+    "editdescription": "Description:",
+    "editdescriptionplaceholder": "Description:",
+    "editreq": "Requirements:",
+    "editreqplaceholder": "Requirements",
+    "saveeditbtn": "Save Changes",
+    "deletedialogtitle": "Confirm Deletion",
+    "deleteconfirmation": "Are you sure you want to delete this job post? This action cannot be undone.",
+    "canceldeletebtn": "Cancel",
+    "confirmdeletebtn": "Delete"
+  }
 }
-
-
-

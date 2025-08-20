@@ -1,121 +1,158 @@
 {
-    "HomePage": {
-        "title": "እንዃን ወደ ስማርት ሪክሩትመንት ሲስተም መጡ",
-        "about": "የተሻለ ሪክሩትመንት አስተዳደር መሣሪያዎች።"
-    },
-    "About": {
-        "title": "ይህ የኛ ዌብሳይት ነው"
-    },
-    "Login": {
-        "title": "ወደ አካውንትዎ ግባ"
-    },
-    "Nav": {
-        "title": "የስራ ድህረ ገጽ",
-        "findJob": "ስራ ፈልግ",
-        "forEmployers": "ለቀጣሪዎች",
-        "about": "ስለ እኛ",
-        "logIn": "ግባ",
-        "contactUs": "አግኙን"
-    },
-    "LandingPage": {
-        "moto": "ቀጣዩን ቅጥር ያግኙ፣ ከመቸውም በፈጠነ ጊዜ!",
-        "description" : "በ ሰው ሰራሽ አስተውሎት የታገዘው ሲስተማችን በመታገዝ የስራ ቅጥር ሂደትዎን ያዘምኑ፣ ጊዜዎንና ልፋትዎን ይቀንሱ።",
-        "howitworks": "እንዴት ይሰራል?",
-        "ctabtnlandingpage": "አሁኑኑ ይመዝገቡ",
-        "info": "ለስራ ፈላጊዎች እና አሰሪዎች ቀላል፣ የተስተካከለ ሂደት።",
-        "forjobseekers": "ለስራ ፈላጊዎች",
-        "JSfirststep": "1. መገለጫ ይፍጠሩ እና ያመልክቱ",
-        "JSfirststepdesc": "መገለጫዎን አንዴ ይገንቡ እና በአንዲት ጠቅታ ወደ ስራዎች ያመልክቱ።",
-        "JSsecondstep": "2. AI ድጋፍ ያግኙ",
-        "JSsecondstepdesc": "የእኛ AI ለእርስዎ ተስማሚ የሆኑ ስራዎችን ለማግኘት የእርስዎን የስራ ሒሳብ ይመረምራል።",
-        "JSthirdstep": "3. ቃለ መጠይቅ  ያግኙ",
-        "JSthirdstepdesc": "ከከፍተኛ ቀጣሪዎች ጋር ይገናኙ፣ ቃለመጠይቁን ያግኙ እና ህልምዎን ስራ ያግኙ።",
-        "foremployers": "ለቀጣሪዎች",
-        "Efirststep": "1. ሥራ ይለጥፉ",
-        "Efirststepdesc": "ተስማሚ እጩዎን ይግለጹ እና የእኛ መድረክ ከባድ ማንሳትን እንዲይዝ ያድርጉ።",
-        "Esecondstep": "2. AI-የተጎላበተው የሥራ ማመልከቻ ግምገማዎች",
-        "Esecondstepdesc": "ከእርስዎ ሚና ጋር በትክክል የሚዛመዱ ብቁ እጩዎችን ዝርዝር ይቀበሉ።",
-        "Ethirdstep": "3. ቃለ መጠይቅ እና መቅጠር",
-        "Ethirdstepdesc": "ቃለ-መጠይቆችን መርሐግብር አውጣ እና በልበ ሙሉነት እና በፍጥነት ምርጡን ተሰጥኦ መቅጠር።",
-        "ctaheader": "የቅጥር ሂደትዎን ለመቀየር ዝግጁ ነዎት?",
-        "ctabody": "ፍጹም ፍላጎታቸውን የሚያገኙ በሺዎች የሚቆጠሩ ኩባንያዎችን እና ባለሙያዎችን ይቀላቀሉ።",
-        "ctabtnemp": "የስራ ቀጣሪ አካውንት ይፍጠሩ",
-        "ctabtnjs": "የስራ ፈላጊ አካውንት ይፍጠሩ"
+  "HomePage": {
+    "title": "እንዃን ወደ ስማርት ሪክሩትመንት ሲስተም መጡ",
+    "about": "የተሻለ ሪክሩትመንት አስተዳደር መሣሪያዎች።"
+  },
+  "About": {
+    "title": "ይህ የኛ ዌብሳይት ነው"
+  },
+  "Login": {
+    "title": "ወደ አካውንትዎ ግባ"
+  },
+  "Nav": {
+    "title": "የስራ ድህረ ገጽ",
+    "findJob": "ስራ ፈልግ",
+    "forEmployers": "ለቀጣሪዎች",
+    "about": "ስለ እኛ",
+    "logIn": "ግባ",
+    "contactUs": "አግኙን"
+  },
+  "LandingPage": {
+    "moto": "ቀጣዩን ቅጥር ያግኙ፣ ከመቸውም በፈጠነ ጊዜ!",
+    "description": "በ ሰው ሰራሽ አስተውሎት የታገዘው ሲስተማችን በመታገዝ የስራ ቅጥር ሂደትዎን ያዘምኑ፣ ጊዜዎንና ልፋትዎን ይቀንሱ።",
+    "howitworks": "እንዴት ይሰራል?",
+    "ctabtnlandingpage": "አሁኑኑ ይመዝገቡ",
+    "info": "ለስራ ፈላጊዎች እና አሰሪዎች ቀላል፣ የተስተካከለ ሂደት።",
+    "forjobseekers": "ለስራ ፈላጊዎች",
+    "JSfirststep": "1. መገለጫ ይፍጠሩ እና ያመልክቱ",
+    "JSfirststepdesc": "መገለጫዎን አንዴ ይገንቡ እና በአንዲት ጠቅታ ወደ ስራዎች ያመልክቱ።",
+    "JSsecondstep": "2. AI ድጋፍ ያግኙ",
+    "JSsecondstepdesc": "የእኛ AI ለእርስዎ ተስማሚ የሆኑ ስራዎችን ለማግኘት የእርስዎን የስራ ሒሳብ ይመረምራል።",
+    "JSthirdstep": "3. ቃለ መጠይቅ  ያግኙ",
+    "JSthirdstepdesc": "ከከፍተኛ ቀጣሪዎች ጋር ይገናኙ፣ ቃለመጠይቁን ያግኙ እና ህልምዎን ስራ ያግኙ።",
+    "foremployers": "ለቀጣሪዎች",
+    "Efirststep": "1. ሥራ ይለጥፉ",
+    "Efirststepdesc": "ተስማሚ እጩዎን ይግለጹ እና የእኛ መድረክ ከባድ ማንሳትን እንዲይዝ ያድርጉ።",
+    "Esecondstep": "2. AI-የተጎላበተው የሥራ ማመልከቻ ግምገማዎች",
+    "Esecondstepdesc": "ከእርስዎ ሚና ጋር በትክክል የሚዛመዱ ብቁ እጩዎችን ዝርዝር ይቀበሉ።",
+    "Ethirdstep": "3. ቃለ መጠይቅ እና መቅጠር",
+    "Ethirdstepdesc": "ቃለ-መጠይቆችን መርሐግብር አውጣ እና በልበ ሙሉነት እና በፍጥነት ምርጡን ተሰጥኦ መቅጠር።",
+    "ctaheader": "የቅጥር ሂደትዎን ለመቀየር ዝግጁ ነዎት?",
+    "ctabody": "ፍጹም ፍላጎታቸውን የሚያገኙ በሺዎች የሚቆጠሩ ኩባንያዎችን እና ባለሙያዎችን ይቀላቀሉ።",
+    "ctabtnemp": "የስራ ቀጣሪ አካውንት ይፍጠሩ",
+    "ctabtnjs": "የስራ ፈላጊ አካውንት ይፍጠሩ"
+  },
 
-    },
-    
-    "loginPage": {
-        "title": "ወደ አካውንትዎ ይግቡ",
-        "email": "ኢሜይል",
-        "emailplaceholder": "ኢሜይል አድራሻዎን ያስገቡ",
-        "password": "የሚስጥር ቁጥር",
-        "passwordplaceholder": "የሚስጥር ቁጥርዎን ያስገቡ",
-        "btntext": "ግባ",
-        "btntextloading": "በመግባት ላይ...",
-        "crateaccount":"አካውንት ይፍጠሩ -",
-        "forjobseekers":"ለ ስራ ፈላጊዎች",
-        "foremployers":"ለ ቀጣሪዎች"
-    },
-    "dashboardLayout": {
-        "title": "የስራ ድህረ ገጽ",
-        "profile": "የእኔ መለያ",
-        "setting": "ማስተካከያ",
-        "logout": "ውጣ"
-    },
-    "employerDashboard": {
-        "dashboard": "ዳሽ ቦርድ",
-        "myjobs":"የኔ ስራዎች",
-        "postjob":"አዲስ ሥራ ለጥፍ",
-        "notifications": "ማሳወቂያዎች",
-        "messages": "መልዕክቶች",
-        "submitcompliant": "ቅሬታ አቅርብ",
-        "interviews": "ቃለመጠይቅ",
-        "subscriptionplan": "የደንበኝነት ምዝገባ እቅድ",
-        "myprofile": "የእኔ መለያ"
-    },
-    "adminDashboard": {
-        "overview": "አጠቃላይ እይታ",
-        "manageusers":  "ተጠቃሚዎችን ያስተዳድሩ",
-        "settings": "ማስተካከያዎች",
-        "managejobs": "የስራ ማስታወቂያዎችን አስተዳድር",
-        "complaints": "ቅሬታዎች",
-        "payments": "ክፍያዎች",
-        "myprofile": "የእኔ መለያ"
-    },
-    "complaint": {
-        "title": "ቅሬታዎን ያስገቡ",
-        "details": "የቅሬታ ዝርዝሮች",
-        "inputplaceholder": "ቅሬታዎን እዚህ ይጻፉ...",
-        "wordcount": "ቃላት",
-        "limitexceeded": "የቃል ገደብ አልፏል!",
-        "submit": "ቅሬታ አስገባ",
-        "mycomplaints": "የኔ ቅሬታዎች",
-        "content": "ይዘት",
-        "status": "ሁኔታ",
-        "filedat": "የተሞላበት ቀን",
-        "resolution": "የመፍትሄ መልስ",
-        "resolved":"ተፈቷል",
-        "rejected":"ውድቅ ተደርጓል",
-        "opened":"ተከፍቷል",
-        "actions": "አጥፋ",
-        "handledBy": "መልስ የሰጠው",
-        "handledAt": "የተመለሰበት ሰዐት",
-        "allComplaints": "ሁሉም የቀረቡ ቅሬታዎች",
-        "complaintdetails": "የቅሬታ ዝርዝሮች",
-        "complaintrespondplaceholder": "ምላዎን እዚህ ይጻፍ...",
-        "respondtocompliantbtn": "አስገባ",
-        "cancelbtn": "ይቅር",
-        "nextbtn": "ቀጣይ",
-        "previousbtn": "ያለፈው",
-        "closebtn": "ዝጋ",
-        "deletecomplianthead": "ቅሬታ ሰርዝ",
-        "verifydelete": "እርግጠኛ ነዎት ይህን ቅሬታ መሰረዝ ይፈልጋሉ?",
-        "deletebtn": "አጥፋ"
-    },
-    "chatbot": {
-        "title": "የደንበኛ ድጋፍ ቦት",
-        "inputplaceholder": "መልዕክት ይጻፉ..."
-    }
+  "loginPage": {
+    "title": "ወደ አካውንትዎ ይግቡ",
+    "email": "ኢሜይል",
+    "emailplaceholder": "ኢሜይል አድራሻዎን ያስገቡ",
+    "password": "የሚስጥር ቁጥር",
+    "passwordplaceholder": "የሚስጥር ቁጥርዎን ያስገቡ",
+    "btntext": "ግባ",
+    "btntextloading": "በመግባት ላይ...",
+    "crateaccount": "አካውንት ይፍጠሩ -",
+    "forjobseekers": "ለ ስራ ፈላጊዎች",
+    "foremployers": "ለ ቀጣሪዎች"
+  },
+  "dashboardLayout": {
+    "title": "የስራ ድህረ ገጽ",
+    "profile": "የእኔ መለያ",
+    "setting": "ማስተካከያ",
+    "logout": "ውጣ"
+  },
+  "employerDashboard": {
+    "dashboard": "ዳሽ ቦርድ",
+    "myjobs": "የኔ ስራዎች",
+    "postjob": "አዲስ ሥራ ለጥፍ",
+    "notifications": "ማሳወቂያዎች",
+    "messages": "መልዕክቶች",
+    "submitcompliant": "ቅሬታ አቅርብ",
+    "interviews": "ቃለመጠይቅ",
+    "subscriptionplan": "የደንበኝነት ምዝገባ እቅድ",
+    "myprofile": "የእኔ መለያ"
+  },
+  "adminDashboard": {
+    "overview": "አጠቃላይ እይታ",
+    "manageusers": "ተጠቃሚዎችን ያስተዳድሩ",
+    "settings": "ማስተካከያዎች",
+    "managejobs": "የስራ ማስታወቂያዎችን አስተዳድር",
+    "complaints": "ቅሬታዎች",
+    "payments": "ክፍያዎች",
+    "myprofile": "የእኔ መለያ"
+  },
+  "complaint": {
+    "title": "ቅሬታዎን ያስገቡ",
+    "details": "የቅሬታ ዝርዝሮች",
+    "inputplaceholder": "ቅሬታዎን እዚህ ይጻፉ...",
+    "wordcount": "ቃላት",
+    "limitexceeded": "የቃል ገደብ አልፏል!",
+    "submit": "ቅሬታ አስገባ",
+    "mycomplaints": "የኔ ቅሬታዎች",
+    "content": "ይዘት",
+    "status": "ሁኔታ",
+    "filedat": "የተሞላበት ቀን",
+    "resolution": "የመፍትሄ መልስ",
+    "resolved": "ተፈቷል",
+    "rejected": "ውድቅ ተደርጓል",
+    "opened": "ተከፍቷል",
+    "actions": "አጥፋ",
+    "handledBy": "መልስ የሰጠው",
+    "handledAt": "የተመለሰበት ሰዐት",
+    "allComplaints": "ሁሉም የቀረቡ ቅሬታዎች",
+    "complaintdetails": "የቅሬታ ዝርዝሮች",
+    "complaintrespondplaceholder": "ምላዎን እዚህ ይጻፍ...",
+    "respondtocompliantbtn": "አስገባ",
+    "cancelbtn": "ይቅር",
+    "nextbtn": "ቀጣይ",
+    "previousbtn": "ያለፈው",
+    "closebtn": "ዝጋ",
+    "deletecomplianthead": "ቅሬታ ሰርዝ",
+    "verifydelete": "እርግጠኛ ነዎት ይህን ቅሬታ መሰረዝ ይፈልጋሉ?",
+    "deletebtn": "አጥፋ"
+  },
+  "chatbot": {
+    "title": "የደንበኛ ድጋፍ ቦት",
+    "inputplaceholder": "መልዕክት ይጻፉ..."
+  },
+  "jobpost": {
+    "title": "አዲስ ሥራ ይለጥፉ",
+    "jobtitle": "የስራ ርዕስ እዚህ ያስገቡ",
+    "jobtitleplaceholder": "የስራ ርዕስ ...",
+    "description": "የስራ መግለጫ እዚህ ያስገቡ",
+    "descriptionplaceholder": "የስራ መግለጫ ...",
+    "jobtype": "የስራ አይነት እዚህ አስገባ",
+    "jobtypeplaceholder": "የስራ አይነት..",
+    "requirements": "የሥራ መስፈርቶችን ያስገቡ",
+    "requirementsplaceholder": "የሥራ መስፈርቶች ...",
+    "salary": "ደሞዝ እዚህ ያስገቡ",
+    "salaryplaceholder": "ደሞዝ ...",
+    "deadline": "የስራ ማመልከቻ ቀነ ገደብ እዚህ ያስገቡ",
+    "submit": "ሥራውን ይለጥፉ",
+    "myjobposts": "የእኔ የስራ ማስታወቂያዎች",
+    "tabletitle": "ርዕስ",
+    "tabledescription": "መግለጫ",
+    "tablesalary": "ደመወዝ",
+    "tableactions": "ድርጊቶች",
+    "dialogtitle": "መግለጫ",
+    "editbtn": "አስተካክል",
+    "editjob": "ስራን አስተካክል",
+    "edittitle": "ርዕስ:",
+    "edittitleplaceholder": "ርዕስ",
+    "editsalary": "ደመወዝ:",
+    "editsalaryplaceholder": "ደመወዝ",
+    "editjobtype": "የስራ አይነት:",
+    "editdeadline": "የመጨረሻ ቀን:",
+    "editstatus": "ሁኔታ:",
+    "editstatusplaceholder": "ሁኔታ",
+    "editdescription": "መግለጫ:",
+    "editdescriptionplaceholder": "መግለጫ",
+    "editreq": "መስፈርቶች:",
+    "editreqplaceholder": "መስፈርቶች",
+    "saveeditbtn": "ለውጦችን አስቀምጥ",
+    "deletedialogtitle": "የማስወገጃ ማረጋገጫ",
+    "deleteconfirmation": "ይህን የስራ ማስታወቂያ መሰረዝ እርግጠኛ ነዎት? ይህ ተግባር ሊቀለበስ አይችልም።",
+    "canceldeletebtn": "ይቅር",
+    "confirmdeletebtn": "ሰርዝ"
+  }
 }
-
-
