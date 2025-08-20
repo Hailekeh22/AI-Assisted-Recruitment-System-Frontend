@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import { CheckCircle, XCircle, Clock, Trash2 } from "lucide-react";
 import {
@@ -25,9 +26,7 @@ const AdminComplaintsTable: React.FC = () => {
   const [respondToComplaint] = useRespondToComplaintMutation();
   const [deleteComplaint] = useAdminDeleteComplainMutation();
 
-  const [selectedComplaint, setSelectedComplaint] = useState<Complaint | null>(
-    null
-  );
+  const [selectedComplaint, setSelectedComplaint] = useState<Complaint | null>(null);
   const [responseNote, setResponseNote] = useState("");
   const [responseStatus, setResponseStatus] = useState<"resolved" | "dismissed">("resolved");
 
@@ -72,8 +71,8 @@ const AdminComplaintsTable: React.FC = () => {
       setSelectedComplaint(null);
       refetch();
       setResponseNote("");
-      setResponseStatus("resolved"); // Reset status state on success
-    } catch (error) {
+      setResponseStatus("resolved");
+    } catch {
       toast.error("Failed to submit response");
     }
   };
@@ -83,10 +82,13 @@ const AdminComplaintsTable: React.FC = () => {
       await deleteComplaint(id).unwrap();
       toast.success("Complaint deleted successfully");
       refetch();
-    } catch (err) {
+    } catch {
       toast.error("Failed to delete complaint");
     }
   };
+
+  const totalPages = data?.pagination.totalPages || 1;
+  const currentPage = data?.pagination.page || 1;
 
   return (
     <div className="w-full bg-blue-500/10 dark:bg-[#252525] rounded-2xl shadow-lg p-6 transition-colors">
@@ -96,7 +98,6 @@ const AdminComplaintsTable: React.FC = () => {
 
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
-          {/* Table Head */}
           <thead>
             <tr className="bg-blue-600 dark:bg-gray-700">
               <th className="p-3 text-gray-200">{t("content")}</th>
@@ -108,7 +109,6 @@ const AdminComplaintsTable: React.FC = () => {
               <th className="p-3 text-gray-200">{t("actions")}</th>
             </tr>
           </thead>
-          {/* Table Body */}
           <tbody>
             {isLoading ? (
               <tr>
@@ -144,13 +144,9 @@ const AdminComplaintsTable: React.FC = () => {
                   >
                     {c.resolution_note ? truncate(c.resolution_note) : "—"}
                   </td>
-                  <td className="p-3 text-black dark:text-gray-400">
-                    {c.handled_by || "—"}
-                  </td>
+                  <td className="p-3 text-black dark:text-gray-400">{c.handled_by || "—"}</td>
                   <td className="p-3 text-black dark:text-gray-400 text-sm">
-                    {c.handled_at
-                      ? new Date(c.handled_at).toLocaleString()
-                      : "—"}
+                    {c.handled_at ? new Date(c.handled_at).toLocaleString() : "—"}
                   </td>
                   <td className="p-3 text-red-600">
                     <Trash2
@@ -168,21 +164,38 @@ const AdminComplaintsTable: React.FC = () => {
         </table>
       </div>
 
-      {/* Pagination */}
-      <div className="flex justify-between mt-4">
-        <Button
-          disabled={!data?.pagination.hasPrevPage}
-          onClick={() => setPage((prev) => prev - 1)}
-        >
-          {t("previousbtn")}
-        </Button>
-        <Button
-          disabled={!data?.pagination.hasNextPage}
-          onClick={() => setPage((prev) => prev + 1)}
-        >
-          {t("nextbtn")}
-        </Button>
-      </div>
+      {/* Pagination with current/total page */}
+      {data?.pagination && (
+        <div className="flex justify-between items-center gap-4 mt-4">
+          <Button
+            disabled={!data.pagination.hasPrevPage}
+            onClick={() => setPage((prev) => prev - 1)}
+            className={`px-3 py-1 rounded ${
+              !data.pagination.hasPrevPage
+                ? "bg-gray-300 dark:bg-gray-600 cursor-not-allowed text-gray-500"
+                : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
+            }`}
+          >
+            {t("previousbtn")}
+          </Button>
+
+          <span className="text-gray-800 dark:text-gray-300">
+            Page {currentPage} of {totalPages}
+          </span>
+
+          <Button
+            disabled={!data.pagination.hasNextPage}
+            onClick={() => setPage((prev) => prev + 1)}
+            className={`px-3 py-1 rounded ${
+              !data.pagination.hasNextPage
+                ? "bg-gray-300 dark:bg-gray-600 cursor-not-allowed text-gray-500"
+                : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
+            }`}
+          >
+            {t("nextbtn")}
+          </Button>
+        </div>
+      )}
 
       {/* Dialog for Viewing Full Complaint and Response */}
       <Dialog
@@ -190,7 +203,7 @@ const AdminComplaintsTable: React.FC = () => {
         onOpenChange={() => {
           setSelectedComplaint(null);
           setResponseNote("");
-          setResponseStatus("resolved"); // Reset status when closing dialog
+          setResponseStatus("resolved");
         }}
       >
         <DialogContent className="max-w-lg">
@@ -201,10 +214,8 @@ const AdminComplaintsTable: React.FC = () => {
             {selectedComplaint?.content}
           </div>
 
-          {/* Admin Response Section for open complaints */}
           {selectedComplaint?.status === "open" && (
             <div className="space-y-4 mt-4">
-              {/* Status Selector Dropdown */}
               <div>
                 <label
                   htmlFor="status-select"
@@ -217,9 +228,7 @@ const AdminComplaintsTable: React.FC = () => {
                   className="w-full p-2 border rounded-md dark:bg-gray-800 dark:border-gray-600"
                   value={responseStatus}
                   onChange={(e) =>
-                    setResponseStatus(
-                      e.target.value as "resolved" | "dismissed"
-                    )
+                    setResponseStatus(e.target.value as "resolved" | "dismissed")
                   }
                 >
                   <option value="resolved">Resolved</option>
@@ -227,7 +236,6 @@ const AdminComplaintsTable: React.FC = () => {
                 </select>
               </div>
 
-              {/* Response Note Textarea */}
               <textarea
                 className="w-full h-24 p-2 border rounded-md dark:bg-gray-800 dark:border-gray-600"
                 placeholder={t("complaintrespondplaceholder")}
@@ -248,7 +256,6 @@ const AdminComplaintsTable: React.FC = () => {
             </div>
           )}
 
-          {/* Close button if already handled */}
           {selectedComplaint?.status !== "open" && (
             <DialogFooter className="flex justify-end mt-4">
               <Button

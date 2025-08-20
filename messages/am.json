@@ -160,5 +160,25 @@
     "deleteconfirmation": "ይህን የስራ ማስታወቂያ መሰረዝ እርግጠኛ ነዎት? ይህ ተግባር ሊቀለበስ አይችልም።",
     "canceldeletebtn": "ይቅር",
     "confirmdeletebtn": "ሰርዝ"
+  },
+  "jobs": {
+    "allJobs": "ሁሉም የቀረቡ ስራዎች",
+    "title": "ርዕስ",
+    "description": "መግለጫ",
+    "requirements": "ስራ መስፈርቶች",
+    "salary": "ደመወዝ",
+    "employer": "የቀጣሪው መታወቂያ",
+    "actions": "ድርጊቶች",
+    "loadingjobs": "ስራዎች በመጫን ላይ...",
+    "nojob": "ምንም ስራ የለም።",
+    "prevbtn": "ያለፈ",
+    "nextbtn": "ቀጣይ",
+    "page": "ገጽ",
+    "of": "ከ",
+    "confirmdelete": "የመሰረዝ ማረጋገጫ",
+    "deletetxt": "ይህን ስራ መሰረዝ እርግጠኛ ነዎት? ይህ ተግባር ሊቀለበስ አይችልም።",
+    "cancelbtn": "ይቅር",
+    "deleteing": "በመሰረዝ ላይ...",
+    "delete": "ሰርዝ"
   }
 }

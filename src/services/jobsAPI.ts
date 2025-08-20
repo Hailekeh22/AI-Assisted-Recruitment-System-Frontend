@@ -5,7 +5,7 @@ export interface PostJobResponse {
   data?: unknown;
 }
 
-interface Job {
+export interface Job {
   job_id: number;
   employer_id: string;
   title: string;
@@ -16,6 +16,22 @@ interface Job {
   application_deadline: string;
   status: string;
   created_at: string;
+}
+
+// Define the correct Pagination type based on your API response
+interface Pagination {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+}
+
+// Define the correct GetAllJobsResponse type
+export interface GetAllJobsResponse {
+  data: Job[];
+  pagination: Pagination;
 }
 
 interface MyJobsResponse {
@@ -46,8 +62,8 @@ export const jobAPI = createApi({
       }),
     }),
 
-    //Update Posted Jobs
-   updateJob: builder.mutation({
+    // Update Posted Jobs
+    updateJob: builder.mutation({
       query: ({ id, body }) => ({
         url: `/jobs/updatejob/${id}`,
         method: "PUT",
@@ -55,14 +71,28 @@ export const jobAPI = createApi({
       }),
     }),
 
-     deleteJob: builder.mutation<{ message: string }, number>({ 
+    deleteJob: builder.mutation<{ message: string }, number>({
       query: (id) => ({
         url: `/jobs/deletejob/${id}`,
         method: 'DELETE',
       }),
     }),
- 
+
+    admindeleteJob: builder.mutation<{ message: string }, number>({
+      query: (id) => ({
+        url: `/jobs/admindeletejob/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+
+    // Admin Get all JObs 
+    getAllJobs: builder.query<GetAllJobsResponse, number>({
+      query: (page = 1) => ({
+        url: `jobs/getalljobs?page=${page}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { usePostJobMutation, useGetMyJobsQuery, useUpdateJobMutation, useDeleteJobMutation } = jobAPI;
+export const { usePostJobMutation, useGetMyJobsQuery, useUpdateJobMutation, useDeleteJobMutation, useGetAllJobsQuery, useAdmindeleteJobMutation } = jobAPI;

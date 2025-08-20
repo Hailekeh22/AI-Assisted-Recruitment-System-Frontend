@@ -1,8 +1,11 @@
-import React from 'react'
+import JobsTable from "@/components/AdminFetchJobs/JobsTable"
+
 
 const page = () => {
   return (
-    <div>Manage Job Postings page</div>
+    <>
+      <JobsTable />
+    </>
   )
 }
 
