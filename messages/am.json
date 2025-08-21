@@ -126,7 +126,7 @@
     "requirements": "የሥራ መስፈርቶችን ያስገቡ",
     "requirementsplaceholder": "የሥራ መስፈርቶች ...",
     "salary": "ደሞዝ እዚህ ያስገቡ",
-    "jobdescription":"የስራ መግለጫ",
+    "jobdescription": "የስራ መግለጫ",
     "selectjobtype": "ስራ አይነት ይምረጡ",
     "onsite": "በቦታው ላይ",
     "remote": "ከየትኛውም ቦታ",
@@ -139,6 +139,7 @@
     "tabletitle": "ርዕስ",
     "tabledescription": "መግለጫ",
     "tablesalary": "ደመወዝ",
+    "nojobsposted": "ምንም ስራ አለጠፉም!",
     "tableactions": "ድርጊቶች",
     "dialogtitle": "መግለጫ",
     "editbtn": "አስተካክል",
@@ -180,5 +181,30 @@
     "cancelbtn": "ይቅር",
     "deleteing": "በመሰረዝ ላይ...",
     "delete": "ሰርዝ"
+  }, 
+  "employerForm": {
+    "employerRegistration": "የቀጣሪዎች ምዝገባ",
+    "firstName": "የመጀመርያ ስም",
+    "lastName": "የአባት ስም",
+    "email": "ኢሜይል",
+    "password": "የይለፍ ቃል",
+    "companyName": "የድርጅት ስም",
+    "profilePicture": "የፕሮፋይል ፎቶ",
+    "register": "ይመዝገቡ",
+    "registering": "በማመዝገብ ላይ...",
+    "registrationSuccess": "የቀጣሪው አድራሻ በተሳካ ሁኔታ ተመዝግቧል!",
+    "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።"
+  },
+  "jobseekerForm": {
+    "jobseekerRegistration": "የሥራ ፈላጊ መመዝገቢያ",
+    "firstName": "የመጀመርያ ስም",
+    "lastName": "የአባት ስም",
+    "email": "ኢሜይል",
+    "password": "የይለፍ ቃል",
+    "profilePicture": "የፕሮፋይል ፎቶ",
+    "register": "ይመዝገቡ",
+    "registering": "በማመዝገብ ላይ...",
+    "registrationSuccess": "የሥራ ፈላጊ በተሳካ ሁኔታ ተመዝግቧል!",
+    "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።"
   }
 }

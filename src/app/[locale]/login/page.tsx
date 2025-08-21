@@ -29,7 +29,6 @@ export default function LoginForm() {
     try {
       const result: LoginResponse = await loginUser({ email, password }).unwrap();
 
-      // Redirect based on user role
       const role = result.user?.role;
       if (role === "admin") {
         router.push("/admin");
@@ -43,7 +42,12 @@ export default function LoginForm() {
     } catch (error) {
       const err = error as FetchBaseQueryError | SerializedError;
 
-      if ("data" in err && err.data && typeof err.data === "object" && "message" in err.data) {
+      if (
+        "data" in err &&
+        err.data &&
+        typeof err.data === "object" &&
+        "message" in err.data
+      ) {
         setErrorMsg((err.data as { message?: string }).message || "Login failed");
       } else {
         setErrorMsg("Login failed");
@@ -55,40 +59,50 @@ export default function LoginForm() {
     <>
       <Nav />
       <div className="flex items-center min-h-[70vh] justify-center lg:min-h-screen px-4">
-        <div className="w-full max-w-md bg-white dark:bg-[#141414] rounded-xl shadow-md dark:shadow-white/20 p-4 lg:p-8">
-          <h2 className="text-2xl font-bold text-center mb-6">{t("title")}</h2>
+        <div className="w-full max-w-md mx-auto mt-8 p-6 border rounded-lg shadow-md bg-white dark:bg-[#141414]">
+          <h2 className="text-2xl font-semibold mb-6 text-center">
+            {t("title")}
+          </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-50 mb-1">{t("email")}</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-50 mb-1">
+                {t("email")}
+              </label>
               <input
                 type="email"
                 placeholder={t("emailplaceholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 outline-none"
+                className="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
+            {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-50 mb-1">{t("password")}</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-50 mb-1">
+                {t("password")}
+              </label>
               <input
                 type="password"
                 placeholder={t("passwordplaceholder")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 outline-none"
+                className="w-full border p-2 rounded focus:ring-2 focus:ring-blue-500 outline-none"
               />
             </div>
 
-            {errorMsg && <p className="text-red-500 text-sm">{errorMsg}</p>}
+            {errorMsg && (
+              <p className="text-red-600 text-sm">{errorMsg}</p>
+            )}
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition duration-200 disabled:opacity-60"
+              className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-800 transition disabled:opacity-50"
             >
               {isLoading ? t("btntextloading") : t("btntext")}
             </button>
@@ -96,11 +110,10 @@ export default function LoginForm() {
 
           <p className="text-sm text-gray-500 text-center mt-6">
             {t("crateaccount")}{" "}
-            <Link href="/signup" className="text-blue-600 hover:underline">
+            <Link href="/foremployers" className="text-blue-600 hover:underline">
               {t("foremployers")}
-            </Link>
-            {"   "}
-            <Link href="/signup" className="text-blue-600 hover:underline">
+            </Link>{" "}
+            <Link href="/forjobseekers" className="text-blue-600 hover:underline">
               {t("forjobseekers")}
             </Link>
           </p>

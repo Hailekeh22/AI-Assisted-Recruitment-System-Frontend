@@ -12,7 +12,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { Toaster } from "@/components/ui/sonner";
 import { useGetAllJobsQuery, useAdmindeleteJobMutation } from "@/services/jobsAPI";
 import type { Job } from "@/services/jobsAPI";
 
@@ -76,7 +75,6 @@ const JobsTable: React.FC = () => {
 
   return (
     <div className="w-full bg-blue-500/10 dark:bg-[#252525] rounded-2xl shadow-lg p-6 transition-colors">
-      <Toaster />
       <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">
         {t("allJobs")}
       </h2>

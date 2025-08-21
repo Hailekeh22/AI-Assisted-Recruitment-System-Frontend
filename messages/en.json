@@ -138,6 +138,7 @@
     "tabletitle": "Title",
     "tabledescription": "Description",
     "tablesalary": "Salary",
+    "nojobsposted": "No jobs posted yet.",
     "tableactions": "Actions",
     "dialogtitle": "Description",
     "editbtn": "Edit",
@@ -179,5 +180,30 @@
     "cancelbtn": "Cancel",
     "deleteing": "Deleting...",
     "delete": "Delete"
+  },
+  "employerForm": {
+    "employerRegistration": "Employer Registration",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "companyName": "Company Name",
+    "profilePicture": "Profile Picture",
+    "register": "Register",
+    "registering": "Registering...",
+    "registrationSuccess": "Employer registered successfully!",
+    "registrationError": "Something went wrong. Please try again."
+  },
+  "jobseekerForm": {
+    "jobseekerRegistration": "Jobseeker Registration",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "profilePicture": "Profile Picture",
+    "register": "Register",
+    "registering": "Registering...",
+    "registrationSuccess": "Jobseeker registered successfully!",
+    "registrationError": "Something went wrong. Please try again."
   }
 }
