@@ -82,7 +82,7 @@ const EmployerProfilePage = () => {
 
   return (
     <div className="min-h-screen w-full p-8 flex justify-center bg-gray-50 dark:bg-gray-950">
-      <Card className="w-full max-w-6xl rounded-2xl shadow-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+      <Card className="w-full max-w-6xl rounded-2xl shadow-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#141414]">
         <CardHeader className="flex flex-col md:flex-row items-center md:items-start gap-8 p-10">
           {/* Profile Picture */}
           <div className="relative w-40 h-40">

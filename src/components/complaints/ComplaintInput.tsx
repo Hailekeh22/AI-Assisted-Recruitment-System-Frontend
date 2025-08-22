@@ -41,7 +41,7 @@ const ComplaintInput: React.FC = () => {
 
   return (
     <div className="  w-full justify-center transition-colors">
-      <div className="w-full max-w-3xl bg-blue-500/10 dark:bg-[#252525] rounded-2xl shadow- p-8 transition-colors">
+      <div className="w-full max-w-3xl bg-blue-500/10 dark:bg-[#141414] rounded-2xl shadow- p-8 transition-colors">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
           {t("title")}
         </h1>
@@ -76,8 +76,8 @@ const ComplaintInput: React.FC = () => {
           <button
             type="submit"
             disabled={wordCount === 0 || wordCount > MAX_WORDS}
-            className="w-full py-3 bg-blue-600 text-white font-medium text-lg rounded-lg shadow-md 
-            hover:bg-blue-700 transition disabled:bg-gray-400 dark:disabled:bg-gray-600"
+            className="w-full py-3 bg-green-600 text-white font-medium text-lg rounded-lg shadow-md 
+            hover:bg-green-700 transition disabled:bg-gray-400 dark:disabled:bg-gray-600"
           >
             {t("submit")}
           </button>

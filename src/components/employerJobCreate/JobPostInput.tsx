@@ -53,7 +53,7 @@ const JobPostInput: React.FC = () => {
 
   return (
     <div className="w-full flex justify-center transition-colors">
-      <div className="w-full max-w-4xl bg-blue-500/10 dark:bg-[#252525] rounded-2xl shadow p-8 transition-colors">
+      <div className="w-full max-w-4xl bg-blue-500/10 dark:bg-[#141414] rounded-2xl shadow p-8 border transition-colors">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
           {t("title")}
         </h1>
