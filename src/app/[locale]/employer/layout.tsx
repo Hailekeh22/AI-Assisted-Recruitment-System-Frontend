@@ -36,7 +36,6 @@ export default async function EmployerDashboardLayout({
   { href: "/employer", label: t("dashboard"), iconName: "ChartNoAxesCombined" as const },
   { href: "/employer/myjobs", label: t("myjobs"), iconName: "FileText" as const },
   { href: "/employer/postjob", label: t("postjob"), iconName: "BriefcaseBusiness" as const },
-  { href: "/employer/notifications", label: t("notifications"), iconName: "Bell" as const },
   { href: "/employer/messages", label: t("messages"), iconName: "MessageSquareMore" as const },
   { href: "/employer/complaint", label: t("submitcompliant"), iconName: "Send" as const },
   { href: "/employer/interviews", label: t("interviews"), iconName: "Headset" as const },
