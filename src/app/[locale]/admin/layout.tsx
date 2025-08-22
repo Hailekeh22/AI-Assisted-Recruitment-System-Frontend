@@ -35,7 +35,6 @@ export default async function AdminDashboardLayout({
   const adminNavItems = [
   { href: "/admin", label: t("overview"), iconName: "BarChart" as const },
   { href: "/admin/users", label: t("manageusers") , iconName: "Users" as const },
-  { href: "/admin/settings", label: t("settings"), iconName: "Settings" as const },
   { href: "/admin/managejobs", label: t("managejobs"), iconName: "Briefcase" as const },
   { href: "/admin/complients", label: t("complaints"), iconName: "Send" as const },
   { href: "/admin/payments", label: t("payments"), iconName: "DollarSign" as const },

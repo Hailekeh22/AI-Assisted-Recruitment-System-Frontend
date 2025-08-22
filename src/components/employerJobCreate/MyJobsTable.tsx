@@ -112,63 +112,72 @@ const MyJobsTable: React.FC = () => {
               <th className="p-3">{t("tableactions")}</th>
             </tr>
           </thead>
-         <tbody>
-  {data?.myJobs && data.myJobs.length > 0 ? (
-    data.myJobs.map((job) => (
-      <tr
-        key={job.job_id}
-        className="border-b border-gray-200 dark:border-neutral-700"
-      >
-        <td className="p-3 font-medium">{job.title}</td>
+          <tbody>
+            {data?.myJobs && data.myJobs.length > 0 ? (
+              data.myJobs.map((job) => (
+                <tr
+                  key={job.job_id}
+                  className="border-b border-gray-200 dark:border-neutral-700"
+                >
+                  <td className="p-3 font-medium">{job.title}</td>
 
-        {/* description with dialog */}
-        <td className="p-3">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="link" className="p-0 h-auto">
-                {truncate(job.description, 60)}
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>{t("jobdescription")}</DialogTitle>
-              </DialogHeader>
-              <p className="text-sm">{job.description}</p>
-            </DialogContent>
-          </Dialog>
-        </td>
+                  {/* description with dialog */}
+                  <td className="p-3">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="link" className="p-0 h-auto">
+                          {truncate(job.description, 60)}
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>{t("jobdescription")}</DialogTitle>
+                        </DialogHeader>
+                        <p className="text-sm">{job.description}</p>
+                      </DialogContent>
+                    </Dialog>
+                  </td>
 
-        <td className="p-3">{job.salary}</td>
+                  <td className="p-3">{job.salary}</td>
 
-        <td className="p-3 flex space-x-2 items-center">
-          <Button
-            size="sm"
-            onClick={() => handleEdit(job)}
-            className="bg-blue-600 text-white"
-          >
-            {t("editbtn")}
-          </Button>
-          <Button
-            size="sm"
-            onClick={() => handleDelete(job.job_id)}
-            className="bg-red-600 text-white"
-          >
-            <Trash />
-          </Button>
-        </td>
-      </tr>
-    ))
-  ) : (
-    <tr>
-      <td
-        colSpan={4}
-        className="p-3 text-center text-gray-500 dark:text-gray-400"
-      >
-        {t("nojobsposted")}
-      </td>
-    </tr>
-  )}
-</tbody>
+                  <td className="p-3 flex space-x-2 items-center">
+                    <Button
+                      size="sm"
+                      onClick={() => handleEdit(job)}
+                      className="bg-blue-600 text-white"
+                    >
+                      {t("editbtn")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      onClick={() => handleDelete(job.job_id)}
+                      className="bg-red-600 text-white"
+                    >
+                      <Trash />
+                    </Button>
+                    <Button
+                      size="sm"
+                      onClick={() =>
+                        (window.location.href = `/employer/applications/${job.job_id}`)
+                      }
+                      className="bg-green-600 text-white"
+                    >
+                      Applications
+                    </Button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={4}
+                  className="p-3 text-center text-gray-500 dark:text-gray-400"
+                >
+                  {t("nojobsposted")}
+                </td>
+              </tr>
+            )}
+          </tbody>
         </table>
       </div>
 

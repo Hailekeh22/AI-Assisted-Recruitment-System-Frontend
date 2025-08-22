@@ -1,0 +1,83 @@
+"use client";
+
+import { useParams } from "next/navigation";
+import { Card, CardContent } from "@/components/ui/card";
+import { useGetApplicationsByJobQuery } from "@/services/applicationAPI";
+
+const ApplicationsPage = () => {
+  const { jobId } = useParams();
+  const { data, isLoading, error } = useGetApplicationsByJobQuery(Number(jobId));
+
+  if (isLoading) return <p className="p-6">Loading applications...</p>;
+  if (error) return <p className="p-6 text-red-500">Failed to load applications</p>;
+
+  // function to get score style
+  const getScoreStyle = (score: number) => {
+    if (score >= 80) return "text-green-600 text-xl font-bold";
+    if (score >= 60) return "text-yellow-500 text-xl font-bold";
+    return "text-red-600 text-xl font-bold";
+  };
+
+  return (
+    <div className="p-6 space-y-4">
+      <h2 className="text-2xl font-bold">Applications for Job #{jobId}</h2>
+
+      {data?.data?.length > 0 ? (
+        data.data.map((app: any) => (
+          <Card key={app.application_id} className="shadow-lg rounded-2xl border border-gray-200 dark:border-black">
+            <CardContent className="p-6 space-y-3">
+              <p>
+                <span className="font-semibold">Applicant:</span> {app.first_name}
+              </p>
+              <p>
+                <span className="font-semibold">Cover Letter:</span>{" "}
+                {app.cover_letter || "N/A"}
+              </p>
+              <p>
+                <span className="font-semibold">Applied At:</span>{" "}
+                {new Date(app.applied_at).toLocaleDateString()}
+              </p>
+              <p>
+                <span className="font-semibold">CV:</span>{" "}
+                {app.cv_path ? (
+                  <a
+                    href={app.cv_path}
+                    target="_blank"
+                    className="text-blue-600 underline hover:text-blue-800"
+                  >
+                    View CV
+                  </a>
+                ) : (
+                  "Not uploaded"
+                )}
+              </p>
+
+              {app.analysisresults?.length > 0 && (
+                <div className="mt-4 bg-gray-50 dark:bg-green-950 p-4 rounded-xl border border-gray-200 dark:border-black">
+                  <p className="font-semibold text-lg mb-2">AI Analysis Results:</p>
+                  {app.analysisresults.map((ar: any, idx: number) => (
+                    <div
+                      key={idx}
+                      className="ml-2 p-3 rounded-lg bg-white dark:bg-[#0a0a0a] shadow-sm border "
+                    >
+                      <p className={getScoreStyle(Number(ar.score))}>
+                        Suitability Score: {ar.score}%
+                      </p>
+                      <p className="text-gray-700 dark:text-white mt-1 leading-relaxed">
+                         {ar.highlights}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        ))
+      ) : (
+        <p>No applications yet.</p>
+      )}
+    </div>
+  );
+};
+
+export default ApplicationsPage;

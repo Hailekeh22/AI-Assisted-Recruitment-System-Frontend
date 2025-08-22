@@ -7,7 +7,9 @@ import { suportChatApi } from '@/services/chatAPI';
 import { compliantApi } from '@/services/compliantAPI';
 import { jobAPI } from '@/services/jobsAPI';
 import { emailSlice } from './slices/emailSlice';
-
+import { applicationsApi } from '@/services/applicationAPI';
+import { profilesApi } from '@/services/profileAPI';
+import { paymentAPI } from '@/services/paymentAPI';
 
 
 
@@ -18,10 +20,13 @@ export const store = configureStore({
     [suportChatApi.reducerPath]: suportChatApi.reducer,
     [compliantApi.reducerPath]: compliantApi.reducer,
     [jobAPI.reducerPath]: jobAPI.reducer,
+    [applicationsApi.reducerPath]: applicationsApi.reducer,
+    [profilesApi.reducerPath]: profilesApi.reducer,
+    [paymentAPI.reducerPath]: paymentAPI.reducer,
     chat: chatSlice.reducer,
     email: emailSlice.reducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, jobAPI.middleware, compliantApi.middleware, authApi.middleware, suportChatApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, jobAPI.middleware,paymentAPI.middleware ,compliantApi.middleware, authApi.middleware, suportChatApi.middleware,profilesApi.middleware, applicationsApi.middleware),
 
 });
 
