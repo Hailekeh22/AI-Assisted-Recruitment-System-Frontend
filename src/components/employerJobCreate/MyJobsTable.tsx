@@ -25,6 +25,7 @@ interface Job {
   title: string;
   description: string;
   job_type: string;
+  category: string; 
   requirements: string;
   salary: string;
   application_deadline: string;
@@ -35,6 +36,21 @@ interface Job {
 const truncate = (text: string, limit = 40) =>
   text.length > limit ? text.slice(0, limit) + "..." : text;
 
+const categories = [
+  "Sales",
+  "Technology",
+  "Engineering",
+  "Health",
+  "Marketing",
+  "Finance",
+  "Education",
+  "Agriculture",
+  "Legal",
+  "Hospitality",
+  "Design",
+  "others"
+];
+
 const MyJobsTable: React.FC = () => {
   const t = useTranslations("jobpost");
   const { data, refetch } = useGetMyJobsQuery();
@@ -43,7 +59,7 @@ const MyJobsTable: React.FC = () => {
 
   const [editingJob, setEditingJob] = useState<Job | null>(null);
   const [formState, setFormState] = useState<Partial<Job>>({});
-  const [deletingJobId, setDeletingJobId] = useState<number | null>(null); // State to manage delete confirmation
+  const [deletingJobId, setDeletingJobId] = useState<number | null>(null);
 
   const handleEdit = (job: Job) => {
     setEditingJob(job);
@@ -120,8 +136,6 @@ const MyJobsTable: React.FC = () => {
                   className="border-b border-gray-200 dark:border-neutral-700"
                 >
                   <td className="p-3 font-medium">{job.title}</td>
-
-                  {/* description with dialog */}
                   <td className="p-3">
                     <Dialog>
                       <DialogTrigger asChild>
@@ -137,9 +151,7 @@ const MyJobsTable: React.FC = () => {
                       </DialogContent>
                     </Dialog>
                   </td>
-
                   <td className="p-3">{job.salary}</td>
-
                   <td className="p-3 flex space-x-2 items-center">
                     <Button
                       size="sm"
@@ -170,7 +182,7 @@ const MyJobsTable: React.FC = () => {
             ) : (
               <tr>
                 <td
-                  colSpan={4}
+                  colSpan={5} // Increase colspan because we added a column
                   className="p-3 text-center text-gray-500 dark:text-gray-400"
                 >
                   {t("nojobsposted")}
@@ -181,14 +193,13 @@ const MyJobsTable: React.FC = () => {
         </table>
       </div>
 
-      {/* Edit Job Dialog - Updated with a better grid layout */}
+      {/* Edit Job Dialog */}
       <Dialog open={!!editingJob} onOpenChange={() => setEditingJob(null)}>
         <DialogContent className="max-w-4xl">
           <DialogHeader>
             <DialogTitle>{t("editjob")}</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            {/* First row: Short inputs using a responsive grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <label className="block">
                 <span className="text-gray-700 dark:text-gray-300">
@@ -202,6 +213,26 @@ const MyJobsTable: React.FC = () => {
                   placeholder={t("edittitleplaceholder")}
                 />
               </label>
+
+              <label className="block">
+                <span className="text-gray-700 dark:text-gray-300">
+                  {t("editcategory")}
+                </span>
+                <select
+                  name="category"
+                  value={formState.category || ""}
+                  onChange={handleChange}
+                  className="mt-1 block w-full p-2 border rounded bg-white dark:bg-black text-black dark:text-white"
+                >
+                  <option value="">{t("selectcategory")}</option>
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
               <label className="block">
                 <span className="text-gray-700 dark:text-gray-300">
                   {t("editsalary")}
@@ -214,6 +245,7 @@ const MyJobsTable: React.FC = () => {
                   placeholder={t("editsalaryplaceholder")}
                 />
               </label>
+
               <label className="block">
                 <span className="text-gray-700 dark:text-gray-300">
                   {t("editjobtype")}
@@ -230,6 +262,7 @@ const MyJobsTable: React.FC = () => {
                   <option value="hybrid">{t("hybrid")}</option>
                 </select>
               </label>
+
               <label className="block">
                 <span className="text-gray-700 dark:text-gray-300">
                   {t("editdeadline")}
@@ -248,6 +281,7 @@ const MyJobsTable: React.FC = () => {
                   className="mt-1 block w-full p-2 border rounded"
                 />
               </label>
+
               <label className="block">
                 <span className="text-gray-700 dark:text-gray-300">
                   {t("editstatus")}
@@ -262,7 +296,6 @@ const MyJobsTable: React.FC = () => {
               </label>
             </div>
 
-            {/* Second row: Description */}
             <label className="block">
               <span className="text-gray-700 dark:text-gray-300">
                 {t("editdescription")}
@@ -277,7 +310,6 @@ const MyJobsTable: React.FC = () => {
               />
             </label>
 
-            {/* Third row: Requirements */}
             <label className="block">
               <span className="text-gray-700 dark:text-gray-300">
                 {t("editreq")}

@@ -10,6 +10,8 @@ import { emailSlice } from './slices/emailSlice';
 import { applicationsApi } from '@/services/applicationAPI';
 import { profilesApi } from '@/services/profileAPI';
 import { paymentAPI } from '@/services/paymentAPI';
+import { authSlice } from './slices/authSlice';
+
 
 
 
@@ -24,7 +26,8 @@ export const store = configureStore({
     [profilesApi.reducerPath]: profilesApi.reducer,
     [paymentAPI.reducerPath]: paymentAPI.reducer,
     chat: chatSlice.reducer,
-    email: emailSlice.reducer
+    email: emailSlice.reducer,
+    auth: authSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, jobAPI.middleware,paymentAPI.middleware ,compliantApi.middleware, authApi.middleware, suportChatApi.middleware,profilesApi.middleware, applicationsApi.middleware),
 

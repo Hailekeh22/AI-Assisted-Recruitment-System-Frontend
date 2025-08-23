@@ -7,11 +7,22 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "@/store/slices/authSlice";
+
+
+interface User {
+  id: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  role: "admin" | "employer" | "jobseeker";
+  photo: string;
+}
 
 interface LoginResponse {
-  user?: {
-    role?: "admin" | "employer" | "jobseeker";
-  };
+  user: User;
+  token: string; // Assuming the backend also sends a token
 }
 
 export default function LoginForm() {
@@ -21,6 +32,7 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +40,8 @@ export default function LoginForm() {
 
     try {
       const result: LoginResponse = await loginUser({ email, password }).unwrap();
+      
+      dispatch(setCredentials({ user: result.user, token: result.token }));
 
       const role = result.user?.role;
       if (role === "admin") {

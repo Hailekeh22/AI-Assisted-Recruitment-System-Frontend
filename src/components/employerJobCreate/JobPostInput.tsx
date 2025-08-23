@@ -12,6 +12,7 @@ const JobPostInput: React.FC = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [jobType, setJobType] = useState("");
+  const [category, setCategory] = useState(""); // New category state
   const [requirements, setRequirements] = useState("");
   const [salary, setSalary] = useState("");
   const [deadline, setDeadline] = useState("");
@@ -22,7 +23,7 @@ const JobPostInput: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!title || !description || !jobType || !deadline) {
+    if (!title || !description || !jobType || !category || !deadline) {
       toast(t("missingfields")); // "Missing required fields"
       return;
     }
@@ -31,6 +32,7 @@ const JobPostInput: React.FC = () => {
     formData.append("title", title);
     formData.append("description", description);
     formData.append("job_type", jobType);
+    formData.append("category", category); // append category
     formData.append("requirements", requirements);
     if (salary) formData.append("salary", salary);
     formData.append("application_deadline", deadline);
@@ -43,6 +45,7 @@ const JobPostInput: React.FC = () => {
       setTitle("");
       setDescription("");
       setJobType("");
+      setCategory("");
       setRequirements("");
       setSalary("");
       setDeadline("");
@@ -105,18 +108,48 @@ const JobPostInput: React.FC = () => {
             >
               {t("jobtype")}
             </label>
-            {/* The input has been replaced with a select element as requested */}
             <select
               id="job-type"
               value={jobType}
               onChange={(e) => setJobType(e.target.value)}
               className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
-    bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
+              bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
             >
               <option value="">{t("jobtypeplaceholder")}</option>
               <option value="on_site">On-site</option>
               <option value="remote">Remote</option>
               <option value="hybrid">Hybrid</option>
+            </select>
+          </div>
+
+          {/* Job Category */}
+          <div>
+            <label
+              htmlFor="category"
+              className="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2"
+            >
+              {t("category")}
+            </label>
+            <select
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
+              bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
+            >
+              <option value="">{t("categoryplaceholder")}</option>
+              <option value="Sales">Sales</option>
+              <option value="Technology">Technology</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Health">Health</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Education">Education</option>
+              <option value="Finance">Finance</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Legal">Legal</option>
+              <option value="Design">Design</option>
+              <option value="others">Others</option>
             </select>
           </div>
 
@@ -179,9 +212,7 @@ const JobPostInput: React.FC = () => {
           {/* Submit */}
           <button
             type="submit"
-            disabled={
-              isLoading || !title || !description || !jobType || !deadline
-            }
+            disabled={isLoading || !title || !description || !jobType || !category || !deadline}
             className="w-full py-3 bg-blue-600 text-white font-medium text-lg rounded-lg shadow-md 
             hover:bg-blue-700 transition disabled:bg-gray-400 dark:disabled:bg-gray-600"
           >

@@ -11,6 +11,7 @@ export interface Job {
   title: string;
   description: string;
   job_type: string;
+  category: string;
   requirements: string;
   salary: string;
   application_deadline: string;
