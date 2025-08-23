@@ -83,7 +83,7 @@ export default function DashboardLayout({
 
   const logout = async () => {
     try {
-      await logoutUser("logout").unwrap();
+      await logoutUser({}).unwrap();
       window.location.href = "/";
     } catch (error) {
       const err = error as FetchBaseQueryError | SerializedError;

@@ -15,7 +15,15 @@
     "forEmployers": "For Employers",
     "about": "About Us",
     "logIn": "Login",
-    "contactUs": "Contact Us"
+    "contactUs": "Contact Us",
+    "quickJobs": "Quick Jobs",
+    "messages": "Messages",
+    "myApplications": "My Applications",
+    "jobs": "Find Job",
+    "profile": "My Profile",
+    "setting": "Settings",
+    "logout": "Logout"
+    
   },
   "LandingPage": {
     "moto": "Find Your Next Hire, Faster Than Ever.",

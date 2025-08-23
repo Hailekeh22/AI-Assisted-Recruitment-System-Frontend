@@ -15,7 +15,14 @@
     "forEmployers": "ለቀጣሪዎች",
     "about": "ስለ እኛ",
     "logIn": "ግባ",
-    "contactUs": "አግኙን"
+    "contactUs": "አግኙን",
+    "quickJobs": "ፈጣን ስራዎች",
+    "messages": "መልዕክቶች",
+    "myApplications": "የእኔ ማመልከቻዎች",
+    "jobs": "ስራዎች",
+    "profile": "የእኔ ፕሮፋይል",
+    "setting": "ማስተካከያዎች",
+    "logout": "ውጣ"
   },
   "LandingPage": {
     "moto": "ቀጣዩን ቅጥር ያግኙ፣ ከመቸውም በፈጠነ ጊዜ!",
