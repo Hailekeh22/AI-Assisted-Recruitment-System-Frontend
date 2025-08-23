@@ -26,6 +26,7 @@ import { useLogoutUserMutation } from "@/services/authAPI";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { useTranslations } from "next-intl";
+import type {User} from "@/store/slices/authSlice";
 
 
 // a map of icon names to components
@@ -48,11 +49,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   ShieldPlus: Icons.ShieldPlus, 
 };
 
-interface UserProfile {
-  name: string;
-  email: string;
-  imageUrl: string;
-}
+
 
 interface NavItem {
   href: string;
@@ -63,7 +60,7 @@ interface NavItem {
 interface DashboardLayoutProps {
   navItems: NavItem[];
   children: React.ReactNode;
-  user: UserProfile;
+  user: User;
   basePath: string;
 }
 
@@ -200,8 +197,8 @@ export default function DashboardLayout({
                   className="rounded-full shadow-md"
                 >
                   <Avatar>
-                    <AvatarImage src={user.imageUrl} alt={user.name} />
-                    <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
+                    <AvatarImage src={user.photo} alt={user.firstname} />
+                    <AvatarFallback>{getInitials(user.firstname)}</AvatarFallback>
                   </Avatar>
                   <span className="sr-only">Toggle user menu</span>
                 </Button>
@@ -210,7 +207,7 @@ export default function DashboardLayout({
                 <DropdownMenuLabel>
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium leading-none">
-                      {user.name}
+                      {user.firstname}
                     </p>
                     <p className="text-xs leading-none text-muted-foreground">
                       {user.email}

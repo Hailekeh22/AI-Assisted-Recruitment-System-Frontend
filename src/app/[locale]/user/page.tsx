@@ -1,5 +1,7 @@
 "use client";
+import JobSeekersNav from "@/components/Nav/JobSeekersNav";
 import { useLogoutUserMutation } from "@/services/authAPI";
+
 
 const UserPage = () => {
   const [userLogout] = useLogoutUserMutation();
@@ -15,6 +17,7 @@ const UserPage = () => {
 
   return (
     <>
+    <JobSeekersNav />
       <div> THis is End users page</div>
       <button onClick={handleLogout}>Logout</button>
     </>

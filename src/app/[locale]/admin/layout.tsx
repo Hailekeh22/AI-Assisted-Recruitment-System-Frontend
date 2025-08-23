@@ -1,36 +1,25 @@
-import { cookies } from "next/headers";
-import { jwtVerify } from "jose";
+"use client"
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import { getTranslations } from "next-intl/server";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { hydrateUser } from "@/store/slices/authSlice";
+import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 
-async function getUser() {
-  const token = (await cookies()).get("token")?.value;
-  if (!token) return null;
 
-  try {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
-    const { payload } = await jwtVerify(token, secret);
-    
-    return {
-      name: (payload.name as string) || "Admin",
-      email: payload.email as string,
-      imageUrl: (payload.imageUrl as string) || "/default-avatar.png",
-    };
-  } catch (e) {
-    console.error("Admin token verification failed:", e);
-    return null;
-  }
-}
-
-
-export default async function AdminDashboardLayout({
+export default  function AdminDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const user = await getUser();
-  const t = await getTranslations("adminDashboard")
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(hydrateUser());
+  }, [dispatch]);
+  const user = useSelector((state: RootState) => state.auth.user);
+  const t =  useTranslations("adminDashboard")
 
   const adminNavItems = [
   { href: "/admin", label: t("overview"), iconName: "BarChart" as const },

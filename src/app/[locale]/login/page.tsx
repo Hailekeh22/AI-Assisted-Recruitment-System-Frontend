@@ -8,31 +8,24 @@ import { useRouter } from "next/navigation";
 import type { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { SerializedError } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "@/store/slices/authSlice";
+import { setUser } from "@/store/slices/authSlice";
+import type { User } from "../../../store/slices/authSlice.ts"
 
 
-interface User {
-  id: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  role: "admin" | "employer" | "jobseeker";
-  photo: string;
-}
-
-interface LoginResponse {
+export interface LoginResponse {
+  status: number;
+  message: string;
   user: User;
-  token: string; // Assuming the backend also sends a token
 }
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
   const t = useTranslations("loginPage");
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [loginUser, { isLoading }] = useLoginUserMutation();
-  const dispatch = useDispatch();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,9 +33,11 @@ export default function LoginForm() {
 
     try {
       const result: LoginResponse = await loginUser({ email, password }).unwrap();
-      
-      dispatch(setCredentials({ user: result.user, token: result.token }));
 
+      if(!result.user) {
+        return "user not found";
+      }
+      dispatch(setUser(result.user))
       const role = result.user?.role;
       if (role === "admin") {
         router.push("/admin");
