@@ -1,5 +1,6 @@
 "use client";
 
+import Nav from "@/components/Nav/Nav";
 import { hydrateUser } from "@/store/slices/authSlice";
 import { ReactNode, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -16,6 +17,7 @@ export default function UserLayout({ children }: Props) {
 
   return (
     <div>
+      <Nav />
       <main>{children}</main>
     </div>
   );

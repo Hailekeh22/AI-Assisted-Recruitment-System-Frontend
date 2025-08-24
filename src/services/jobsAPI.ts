@@ -75,25 +75,53 @@ export const jobAPI = createApi({
     deleteJob: builder.mutation<{ message: string }, number>({
       query: (id) => ({
         url: `/jobs/deletejob/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
     }),
 
     admindeleteJob: builder.mutation<{ message: string }, number>({
       query: (id) => ({
         url: `/jobs/admindeletejob/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
     }),
 
-    // Admin Get all JObs 
+    // Admin Get all JObs
     getAllJobs: builder.query<GetAllJobsResponse, number>({
       query: (page = 1) => ({
         url: `jobs/getalljobs?page=${page}`,
         method: "GET",
       }),
     }),
+
+    // JOb seeker get all Jobs
+    jobSeekerGetAllJObs: builder.query<GetAllJobsResponse, number>({
+      query: (page = 1) => ({
+        url: `/jobs/alljobs?page=${page}`,
+        method: "GET",
+      }),
+    }),
+
+    //Job Seeker Apply to jobs
+    applyToJob: builder.mutation(
+      {
+        query: ({ job_id, cover_letter }) => ({
+          url: "/job/apply",
+          method: "POST",
+          body: { job_id, cover_letter },
+        }),
+      }
+    ),
   }),
 });
 
-export const { usePostJobMutation, useGetMyJobsQuery, useUpdateJobMutation, useDeleteJobMutation, useGetAllJobsQuery, useAdmindeleteJobMutation } = jobAPI;
+export const {
+  usePostJobMutation,
+  useGetMyJobsQuery,
+  useUpdateJobMutation,
+  useDeleteJobMutation,
+  useGetAllJobsQuery,
+  useAdmindeleteJobMutation,
+  useJobSeekerGetAllJObsQuery,
+  useApplyToJobMutation
+} = jobAPI;

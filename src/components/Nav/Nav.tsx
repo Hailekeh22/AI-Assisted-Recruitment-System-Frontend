@@ -41,10 +41,10 @@ const Nav = () => {
 
   // Jobseeker nav
   const JobSeekerNavLinks = [
-    { name: t("jobs"), href: "/jobs" },
-    { name: t("myApplications"), href: "/applications" },
-    { name: t("messages"), href: "/messages" },
-    { name: t("quickJobs"), href: "/quick-jobs" },
+    { name: t("jobs"), href: "/user/jobs" },
+    { name: t("myApplications"), href: "/user/applications" },
+    { name: t("messages"), href: "/user/messages" },
+    { name: t("quickJobs"), href: "/user/quickjobs" },
   ];
 
   const handleLogout = () => {
