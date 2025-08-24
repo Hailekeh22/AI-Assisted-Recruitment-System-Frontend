@@ -41,9 +41,9 @@ const Nav = () => {
 
   // Jobseeker nav
   const JobSeekerNavLinks = [
-    { name: t("complaints"), href: "/user/complaints" },
     { name: t("myApplications"), href: "/user/applications" },
     { name: t("messages"), href: "/user/messages" },
+    { name: t("complaints"), href: "/user/complaints" },
     { name: t("quickJobs"), href: "/user/quickjobs" },
   ];
 
