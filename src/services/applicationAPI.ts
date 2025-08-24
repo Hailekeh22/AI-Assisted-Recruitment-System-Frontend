@@ -9,6 +9,7 @@ export const applicationsApi = createApi({
   }),
   tagTypes: ["Applications"],
   endpoints: (builder) => ({
+
     // fetch all applications for a job
     getApplicationsByJob: builder.query<any, number>({
       query: (jobId) => `jobs/${jobId}/applications`,
@@ -16,18 +17,18 @@ export const applicationsApi = createApi({
     }),
 
     //  update application status 
-    updateApplicationStatus: builder.mutation<
-      any,
-      { applicationId: number; status: string }
-    >({
+    updateApplicationStatus: builder.mutation({
       query: ({ applicationId, status }) => ({
         url: `/applications/${applicationId}/status`,
         method: "PATCH",
         body: { status },
-      }),
-      invalidatesTags: (result, error, { applicationId }) => [
-        { type: "Applications", id: applicationId },
-      ],
+      })
+    }),
+
+    getApplications: builder.query({
+      query: () => ({
+        url: "/job/myapplications"
+      })
     }),
   }),
 });
@@ -35,4 +36,5 @@ export const applicationsApi = createApi({
 export const {
   useGetApplicationsByJobQuery,
   useUpdateApplicationStatusMutation,
+  useGetApplicationsQuery
 } = applicationsApi;

@@ -1,23 +1,12 @@
 "use client";
-import { useLogoutUserMutation } from "@/services/authAPI";
-
+import JobsListing from "@/components/JobSeekersJobApplication/JobListing";
 
 const UserPage = () => {
-  const [userLogout] = useLogoutUserMutation();
-
-  const handleLogout = async () => {
-    try {
-      await userLogout(null).unwrap();
-      window.location.href = "/";
-    } catch (e) {
-      console.log("Error happend while logging out", e);
-    }
-  };
-
   return (
     <>
-      <div> THis is End users page</div>
-      <button onClick={handleLogout}>Logout</button>
+      <div className="flex w-full">
+        <JobsListing />
+      </div>
     </>
   );
 };
