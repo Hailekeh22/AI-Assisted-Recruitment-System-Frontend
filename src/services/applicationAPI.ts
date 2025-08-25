@@ -41,6 +41,11 @@ export const applicationsApi = createApi({
         body: { applicationId, seekerId, scheduledTime, location },
       }),
     }),
+
+    //Employer fetching their scheduled interviews
+    getEmployerInterviews: builder.query({
+      query: () => "/employer/interviews",
+    }),
   }),
 });
 
@@ -48,5 +53,6 @@ export const {
   useGetApplicationsByJobQuery,
   useUpdateApplicationStatusMutation,
   useGetApplicationsQuery,
-  useScheduleInterviewMutation
+  useScheduleInterviewMutation,
+  useGetEmployerInterviewsQuery
 } = applicationsApi;
