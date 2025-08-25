@@ -5,30 +5,32 @@ export const applicationsApi = createApi({
   reducerPath: "applicationsApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_USERS_API_URL,
-    credentials: "include"
+    credentials: "include",
   }),
   tagTypes: ["Applications"],
   endpoints: (builder) => ({
-
     // fetch all applications for a job
     getApplicationsByJob: builder.query<any, number>({
       query: (jobId) => `jobs/${jobId}/applications`,
-      providesTags: (result, error, jobId) => [{ type: "Applications", id: jobId }],
+      providesTags: (result, error, jobId) => [
+        { type: "Applications", id: jobId },
+      ],
     }),
 
-    //  update application status 
+    //  update application status
     updateApplicationStatus: builder.mutation({
       query: ({ applicationId, status }) => ({
         url: `/applications/${applicationId}/status`,
         method: "PATCH",
         body: { status },
-      })
+      }),
+      invalidatesTags: ["Applications"],
     }),
 
     getApplications: builder.query({
       query: () => ({
-        url: "/job/myapplications"
-      })
+        url: "/job/myapplications",
+      }),
     }),
   }),
 });
@@ -36,5 +38,5 @@ export const applicationsApi = createApi({
 export const {
   useGetApplicationsByJobQuery,
   useUpdateApplicationStatusMutation,
-  useGetApplicationsQuery
+  useGetApplicationsQuery,
 } = applicationsApi;

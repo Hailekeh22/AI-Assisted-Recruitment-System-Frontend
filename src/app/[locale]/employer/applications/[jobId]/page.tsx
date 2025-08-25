@@ -2,21 +2,30 @@
 
 import { useParams } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
-import { useGetApplicationsByJobQuery } from "@/services/applicationAPI";
+import {
+  useGetApplicationsByJobQuery,
+  useUpdateApplicationStatusMutation,
+} from "@/services/applicationAPI";
+
 
 const ApplicationsPage = () => {
   const { jobId } = useParams();
-  const { data, isLoading, error } = useGetApplicationsByJobQuery(Number(jobId));
+  const { data, isLoading, error } = useGetApplicationsByJobQuery(
+    Number(jobId)
+  );
+  const [updateStatus] = useUpdateApplicationStatusMutation();
 
   if (isLoading) return <p className="p-6">Loading applications...</p>;
-  if (error) return <p className="p-6 text-red-500">Failed to load applications</p>;
+  if (error)
+    return <p className="p-6 text-red-500">Failed to load applications</p>;
 
-  // function to get score style
   const getScoreStyle = (score: number) => {
     if (score >= 80) return "text-green-600 text-xl font-bold";
     if (score >= 60) return "text-yellow-500 text-xl font-bold";
     return "text-red-600 text-xl font-bold";
   };
+
+  const statuses = ["pending", "waitlisted", "accepted", "rejected"];
 
   return (
     <div className="p-6 space-y-4">
@@ -24,10 +33,14 @@ const ApplicationsPage = () => {
 
       {data?.data?.length > 0 ? (
         data.data.map((app: any) => (
-          <Card key={app.application_id} className="shadow-lg rounded-2xl border border-gray-200 dark:border-black">
+          <Card
+            key={app.application_id}
+            className="shadow-lg rounded-2xl border border-gray-200 dark:border-black"
+          >
             <CardContent className="p-6 space-y-3">
               <p>
-                <span className="font-semibold">Applicant:</span> {app.first_name}
+                <span className="font-semibold">Applicant:</span>{" "}
+                {app.first_name}
               </p>
               <p>
                 <span className="font-semibold">Cover Letter:</span>{" "}
@@ -52,9 +65,32 @@ const ApplicationsPage = () => {
                 )}
               </p>
 
+              {/* --- STATUS SELECT --- */}
+              <div className="mt-2">
+                <label className="font-semibold mr-2">Status:</label>
+                <select
+                  value={app.status}
+                  onChange={(e) =>
+                    updateStatus({
+                      applicationId: app.application_id,
+                      status: e.target.value,
+                    })
+                  }
+                  className="border rounded-md p-2 bg-white dark:bg-gray-900"
+                >
+                  {statuses.map((s) => (
+                    <option key={s} value={s}>
+                      {s.charAt(0).toUpperCase() + s.slice(1)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               {app.analysisresults?.length > 0 && (
                 <div className="mt-4 bg-gray-50 dark:bg-green-950 p-4 rounded-xl border border-gray-200 dark:border-black">
-                  <p className="font-semibold text-lg mb-2">AI Analysis Results:</p>
+                  <p className="font-semibold text-lg mb-2">
+                    AI Analysis Results:
+                  </p>
                   {app.analysisresults.map((ar: any, idx: number) => (
                     <div
                       key={idx}
@@ -64,7 +100,7 @@ const ApplicationsPage = () => {
                         Suitability Score: {ar.score}%
                       </p>
                       <p className="text-gray-700 dark:text-white mt-1 leading-relaxed">
-                         {ar.highlights}
+                        {ar.highlights}
                       </p>
                     </div>
                   ))}
