@@ -47,6 +47,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   Send: Icons.Send,
   Headset: Icons.Headset, 
   ShieldPlus: Icons.ShieldPlus, 
+  Inbox: Icons.Inbox 
 };
 
 

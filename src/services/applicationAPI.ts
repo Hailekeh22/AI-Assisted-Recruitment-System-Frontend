@@ -32,6 +32,15 @@ export const applicationsApi = createApi({
         url: "/job/myapplications",
       }),
     }),
+
+    //Employer scheduling interviews based on applications
+    scheduleInterview: builder.mutation({
+      query: ({ applicationId, seekerId, scheduledTime, location }) => ({
+        url: `/interview/schedule`,
+        method: "POST",
+        body: { applicationId, seekerId, scheduledTime, location },
+      }),
+    }),
   }),
 });
 
@@ -39,4 +48,5 @@ export const {
   useGetApplicationsByJobQuery,
   useUpdateApplicationStatusMutation,
   useGetApplicationsQuery,
+  useScheduleInterviewMutation
 } = applicationsApi;
