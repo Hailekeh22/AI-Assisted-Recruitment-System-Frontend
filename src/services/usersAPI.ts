@@ -6,6 +6,7 @@ export interface User {
   last_name: string;
   email: string;
   created_at: string;
+  role: "employer" | "jobseeker" | "admin;"
   profile_picture: string | null;
   isVerified: boolean;
 }

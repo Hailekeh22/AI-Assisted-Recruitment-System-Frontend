@@ -84,6 +84,7 @@ const UsersTable: React.FC = () => {
               <th className="p-3">Profile</th>
               <th className="p-3">Full Name</th>
               <th className="p-3">Email</th>
+              <th className="p-3">Role</th>
               <th className="p-3">Created At</th>
               <th className="p-3">Verified</th>
               <th className="p-3">Actions</th>
@@ -147,6 +148,9 @@ const UsersTable: React.FC = () => {
                   </td>
                   <td className="p-3 text-black dark:text-gray-100">
                     {user.email}
+                  </td>
+                  <td className="p-3 text-black dark:text-gray-100">
+                    {user.role}
                   </td>
                   <td className="p-3 text-black dark:text-gray-100">
                     {formatDate(user.created_at)}
