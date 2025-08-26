@@ -11,6 +11,8 @@ import { applicationsApi } from '@/services/applicationAPI';
 import { profilesApi } from '@/services/profileAPI';
 import { paymentAPI } from '@/services/paymentAPI';
 import { authSlice } from './slices/authSlice';
+import { usersAPI } from '@/services/usersAPI';
+
 
 
 
@@ -25,11 +27,12 @@ export const store = configureStore({
     [applicationsApi.reducerPath]: applicationsApi.reducer,
     [profilesApi.reducerPath]: profilesApi.reducer,
     [paymentAPI.reducerPath]: paymentAPI.reducer,
+    [usersAPI.reducerPath]: usersAPI.reducer,
     chat: chatSlice.reducer,
     email: emailSlice.reducer,
     auth: authSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, jobAPI.middleware,paymentAPI.middleware ,compliantApi.middleware, authApi.middleware, suportChatApi.middleware,profilesApi.middleware, applicationsApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userRegistrationApi.middleware, usersAPI.middleware, jobAPI.middleware,paymentAPI.middleware ,compliantApi.middleware, authApi.middleware, suportChatApi.middleware,profilesApi.middleware, applicationsApi.middleware),
 
 });
 

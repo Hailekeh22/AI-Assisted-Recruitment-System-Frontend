@@ -1,7 +1,10 @@
+import UsersTable from "@/components/AdminFetchUsers/UsersTable"
 
 const page = () => {
   return (
-    <div>Users Page</div>
+    <>
+      <UsersTable />
+    </>
   )
 }
 
