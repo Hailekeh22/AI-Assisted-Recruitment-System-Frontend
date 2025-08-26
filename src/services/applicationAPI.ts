@@ -46,6 +46,14 @@ export const applicationsApi = createApi({
     getEmployerInterviews: builder.query({
       query: () => "/employer/interviews",
     }),
+
+    //Get job seeker interviews
+    getJobSeekerInterviews: builder.query({
+      query: () => ({
+        url: "/jobseeker/interviews",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -54,5 +62,6 @@ export const {
   useUpdateApplicationStatusMutation,
   useGetApplicationsQuery,
   useScheduleInterviewMutation,
-  useGetEmployerInterviewsQuery
+  useGetEmployerInterviewsQuery,
+  useGetJobSeekerInterviewsQuery
 } = applicationsApi;
