@@ -36,11 +36,6 @@ export default function EmployerDashboardLayout({
       iconName: "BriefcaseBusiness" as const,
     },
     {
-      href: "/employer/inbox",
-      label: t("messages"),
-      iconName: "Inbox" as const,
-    },
-    {
       href: "/employer/complaint",
       label: t("submitcompliant"),
       iconName: "Send" as const,

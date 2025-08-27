@@ -14,12 +14,12 @@ import { useInitializeEmployerPaymentMutation } from "@/services/paymentAPI";
 import { toast } from "sonner";
 
 const pricingPlans = [
-  { title: "Basic", description: "Post 1 job, 7-day visibility", amount: 200, features: ["1 Job Posting", "7 Days Duration", "Basic Support"] },
-  { title: "Standard", description: "Post 3 jobs, 14-day visibility", amount: 500, features: ["3 Job Postings", "14 Days Duration", "Priority Support"] },
-  { title: "Pro", description: "Post 10 jobs, 30-day visibility", amount: 1500, features: ["10 Job Postings", "30 Days Duration", "Priority Support"] },
-  { title: "Enterprise", description: "Unlimited postings for 1 month", amount: 3000, features: ["Unlimited Postings", "1 Month Duration", "Dedicated Support"] },
-  { title: "Premium Enterprise", description: "Unlimited postings for 3 months", amount: 8000, features: ["Unlimited Postings", "3 Months Duration", "Dedicated Manager"] },
-  { title: "Annual", description: "Unlimited postings for 1 year", amount: 20000, features: ["Unlimited Postings", "1 Year Duration", "Dedicated Account Manager"] },
+  { title: "Basic", description: "Post 6 job, six Months Subscription", amount: 7000, features: ["6 Job Posting", "6 Months Duration", "Basic Support"] },
+  { title: "Standard", description: "Post 10 jobs, One year Subscription", amount: 9000, features: ["10 Job Postings", "1 Year Duration", "Priority Support"] },
+  { title: "Pro", description: "Post 15 jobs, One Year Subscription", amount: 13000, features: ["15 Job Postings", "1 Year Duration", "Priority Support"] },
+  { title: "Enterprise", description: "Post 20 jobs, One Year Subscription", amount: 16000, features: ["20 job Postings", "1 Year Duration", "Dedicated Support"] },
+  { title: "Premium Enterprise", description: "Post 30 jobs, 18 Months Subscription", amount: 20000, features: ["30 job Postings", "18 Months Subscription", "Dedicated Manager"] },
+  { title: "Premium Plus", description: "Post 50 jobs, 18 Months Subscription", amount: 30000, features: ["50 job Postings", "18 Months Subscription", "Dedicated Account Manager"] },
 ];
 
 export default function PricingCards() {

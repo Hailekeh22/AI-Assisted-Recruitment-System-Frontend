@@ -54,6 +54,17 @@ export const applicationsApi = createApi({
         method: "GET",
       }),
     }),
+
+    sendMessage: builder.mutation<
+      { success: boolean; message: string },
+      { seekerId: string; message: string }
+    >({
+      query: ({ seekerId, message }) => ({
+        url: "/sendmessage",
+        method: "POST",
+        body: { seekerId, message },
+      }),
+    }),
   }),
 });
 
@@ -63,5 +74,6 @@ export const {
   useGetApplicationsQuery,
   useScheduleInterviewMutation,
   useGetEmployerInterviewsQuery,
-  useGetJobSeekerInterviewsQuery
+  useGetJobSeekerInterviewsQuery,
+  useSendMessageMutation
 } = applicationsApi;

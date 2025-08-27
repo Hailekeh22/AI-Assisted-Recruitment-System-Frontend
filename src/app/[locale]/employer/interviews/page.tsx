@@ -1,13 +1,34 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { useGetEmployerInterviewsQuery } from "@/services/applicationAPI";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { useGetEmployerInterviewsQuery, useSendMessageMutation } from "@/services/applicationAPI";
 
 const InterviewsPage = () => {
   const { data, isLoading, error } = useGetEmployerInterviewsQuery({});
+  const [sendMessage] = useSendMessageMutation();
+  const [message, setMessage] = useState("");
+  const [openDialogId, setOpenDialogId] = useState<string | null>(null);
 
   if (isLoading) return <p className="p-6">Loading interviews...</p>;
   if (error) return <p className="p-6 text-red-500">Failed to load interviews</p>;
+
+  const handleSend = async (seekerId: string) => {
+    if (!message.trim()) return;
+    await sendMessage({ seekerId, message }).unwrap();
+    setMessage("");
+    setOpenDialogId(null);
+  };
 
   return (
     <div className="p-6 space-y-4">
@@ -40,6 +61,35 @@ const InterviewsPage = () => {
                 <span className="font-semibold">Location:</span>{" "}
                 {interview.location || "did not specified"}
               </p>
+
+              {/* Send Message Dialog */}
+              <Dialog
+                open={openDialogId === interview.interview_id}
+                onOpenChange={(isOpen) =>
+                  setOpenDialogId(isOpen ? interview.interview_id : null)
+                }
+              >
+                <DialogTrigger asChild>
+                  <Button variant="outline">Send Message</Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>
+                      Message to {interview.applications.jobseekers.users.first_name}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <Textarea
+                    placeholder="Type your message here..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                  <DialogFooter>
+                    <Button onClick={() => handleSend(interview.applications.jobseekers.user_id)}>
+                      Send
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
             </CardContent>
           </Card>
         ))
