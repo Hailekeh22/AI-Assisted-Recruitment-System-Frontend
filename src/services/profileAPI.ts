@@ -87,7 +87,7 @@ export const profilesApi = createApi({
 
     // get the employer profile
     getEmployerProfile: builder.query<ApiResponse<EmployerData>, void>({
-      query: () => '/user/employer/profile', // Assuming this is the correct URL
+      query: () => '/user/employer/profile',
     }),
 
     // Update Employer Profile
@@ -107,8 +107,24 @@ export const profilesApi = createApi({
     }),
 
     //  get the jobseeker profile
-    getJobseekerProfile: builder.query<ApiResponse<JobseekerProfile>, void>({
-      query: () => '/user/jobseeker/profile', // Assuming this is the correct URL
+    getJobSeekerProfile: builder.query<any, void>({
+      query: () => "user/employee/profile",
+    }),
+
+     completeJobSeekerProfile: builder.mutation<any, FormData>({
+      query: (formData) => ({
+        url: "user/employee/completeprofile",
+        method: "POST",
+        body: formData,
+      }),
+    }),
+
+    updateJobSeekerProfile: builder.mutation<any, { id: string; formData: FormData }>({
+      query: ({ id, formData }) => ({
+        url: `user/employee/updateprofile/${id}`,
+        method: "PUT",
+        body: formData,
+      }),
     }),
   }),
 });
@@ -117,7 +133,9 @@ export const profilesApi = createApi({
 export const { 
     useGetAdminProfileQuery,
     useGetEmployerProfileQuery,
-    useGetJobseekerProfileQuery,
+    useGetJobSeekerProfileQuery,
     useUpdateAdminProfileMutation,
-    useUpdateEmployerProfileMutation
+    useUpdateEmployerProfileMutation,
+    useCompleteJobSeekerProfileMutation,
+    useUpdateJobSeekerProfileMutation
 } = profilesApi;

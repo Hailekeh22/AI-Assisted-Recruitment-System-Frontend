@@ -14,7 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import {
   DropdownMenu,
@@ -131,13 +131,8 @@ const Nav = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link href="/profile" className="w-full">
+                  <Link href="/user/profile" className="w-full">
                     {t("profile")}
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/setting" className="w-full">
-                    {t("setting")}
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />

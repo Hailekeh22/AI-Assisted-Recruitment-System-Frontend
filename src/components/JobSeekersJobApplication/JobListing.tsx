@@ -23,6 +23,8 @@ import {
   SheetFooter,
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+
 
 export default function JobsListing() {
   const [page, setPage] = useState(1);
@@ -56,11 +58,13 @@ export default function JobsListing() {
         job_id: selectedJob.job_id,
         cover_letter: coverLetter,
       }).unwrap();
-      alert("Application submitted successfully!");
+      toast("Application submitted successfully!");
       setSheetOpen(false);
       setCoverLetter("");
     } catch (err) {
-      alert("Failed to submit application.");
+      const errorMessage = (err as any)?.data?.message || (err as any)?.error || (err as any)?.message || "Failed to submit application.";
+
+      toast(errorMessage);
     }
   };
 
