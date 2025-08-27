@@ -17,13 +17,13 @@
     "logIn": "Login",
     "contactUs": "Contact Us",
     "quickJobs": "Quick Jobs",
+    "interviews": "My Interviews",
     "messages": "Messages",
     "myApplications": "My Applications",
     "complaints": "Complaints",
     "profile": "My Profile",
     "setting": "Settings",
     "logout": "Logout"
-    
   },
   "LandingPage": {
     "moto": "Find Your Next Hire, Faster Than Ever.",
@@ -137,7 +137,7 @@
     "editcategory": "Edit Job Category",
     "selectcategory": "Select Job Category",
     "categoryplaceholder": "Select Job Category...",
-    "jobdescription":"Job Description",
+    "jobdescription": "Job Description",
     "selectjobtype": "Select Job Type",
     "onsite": "On Site",
     "remote": "Remote",

@@ -55,6 +55,7 @@ export const applicationsApi = createApi({
       }),
     }),
 
+    //send email message to the job seeker
     sendMessage: builder.mutation<
       { success: boolean; message: string },
       { seekerId: string; message: string }
@@ -63,6 +64,18 @@ export const applicationsApi = createApi({
         url: "/sendmessage",
         method: "POST",
         body: { seekerId, message },
+      }),
+    }),
+
+    //send email message to the employer
+    sendMessageToEmployer: builder.mutation<
+      { success: boolean; message: string },
+      { employerId: string; message: string }
+    >({
+      query: ({ employerId, message }) => ({
+        url: "/sendmessagetoemployer",
+        method: "POST",
+        body: { employerId, message },
       }),
     }),
   }),
@@ -75,5 +88,6 @@ export const {
   useScheduleInterviewMutation,
   useGetEmployerInterviewsQuery,
   useGetJobSeekerInterviewsQuery,
-  useSendMessageMutation
+  useSendMessageMutation,
+  useSendMessageToEmployerMutation
 } = applicationsApi;

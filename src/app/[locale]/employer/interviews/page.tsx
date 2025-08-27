@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useGetEmployerInterviewsQuery, useSendMessageMutation } from "@/services/applicationAPI";
+import { toast } from "sonner";
 
 const InterviewsPage = () => {
   const { data, isLoading, error } = useGetEmployerInterviewsQuery({});
@@ -25,8 +26,9 @@ const InterviewsPage = () => {
 
   const handleSend = async (seekerId: string) => {
     if (!message.trim()) return;
-    await sendMessage({ seekerId, message }).unwrap();
+    const sendmessage = await sendMessage({ seekerId, message }).unwrap();
     setMessage("");
+    toast.success(sendmessage.message);
     setOpenDialogId(null);
   };
 
