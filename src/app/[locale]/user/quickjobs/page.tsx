@@ -3,40 +3,35 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Briefcase, User, PlusCircle, Search } from "lucide-react";
 
-export default async function QuickJobsPage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  const base = `/${params.locale}/user/quickjobs`;
+export default async function QuickJobsPage() {
 
   const cards = [
     {
       title: "Post Quick Job ",
       description: "Publish a short-term job and hire someone to do it.",
       icon: <PlusCircle className="w-14 h-14 text-blue-500" />,
-      link: `${base}/create`,
+      link: `/user/quickjobs/create`,
       buttonText: "Create Gig",
     },
     {
       title: "My Profile",
       description: "Offer your skills and services (e.g., Fixing, Tutoring, etc.).",
       icon: <User  className="w-14 h-14 text-green-500" />,
-      link: `${base}/myprofile`,
+      link: `/user/quickjobs/myprofile`,
       buttonText: "My Profile",
     },
     {
       title: "My Quick Jobs",
       description: "View and manage quick jobs you have posted.",
       icon: <Briefcase className="w-14 h-14 text-purple-500" />,
-      link: `${base}/listings`,
+      link: `/user/quickjobs/listings`,
       buttonText: "View Jobs",
     },
     {
       title: "Find Quick Job",
       description: "Browse gigs posted by other users to hire them.",
       icon: <Search className="w-14 h-14 text-orange-500" />,
-      link: `${base}/find`,
+      link: `/user/quickjobs/find`,
       buttonText: "Find Gigs",
     },
   ];
