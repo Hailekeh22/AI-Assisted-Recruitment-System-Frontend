@@ -33,6 +33,23 @@ export const quickJobsApi = createApi({
         body,
       }),
     }),
+
+    //ensure the quick job poster id is registed on quickjobposters table
+    ensurePoster: builder.query({
+      query: () => ({
+        url: "/ensurequickjobposterprofile",
+        method: "GET",
+      }),
+    }),
+
+    //quick job poster posts quickjobs
+    createQuickJob: builder.mutation({
+      query: (data) => ({
+        url: "/postquickjob",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -40,4 +57,6 @@ export const {
   useGetQuickJobProfileQuery,
   useCreateQuickJobProfileMutation,
   useUpdateQuickJobProfileMutation,
+  useEnsurePosterQuery,
+  useCreateQuickJobMutation
 } = quickJobsApi;
