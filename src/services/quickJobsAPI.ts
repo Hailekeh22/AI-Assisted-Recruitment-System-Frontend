@@ -50,6 +50,17 @@ export const quickJobsApi = createApi({
         body: data,
       }),
     }),
+
+     fetchQuickJobs: builder.query<any, number>({
+      query: (page = 1) => `/quickjobs?page=${page}`,
+      providesTags: ["quickJobs"],
+    }),
+
+    fetchMyQuickJobs: builder.query<any, number>({
+      query: (data) => ({
+        url: `/myquickjobs`,
+      })
+    }),
   }),
 });
 
@@ -58,5 +69,7 @@ export const {
   useCreateQuickJobProfileMutation,
   useUpdateQuickJobProfileMutation,
   useEnsurePosterQuery,
-  useCreateQuickJobMutation
+  useCreateQuickJobMutation,
+  useFetchQuickJobsQuery,
+  useFetchMyQuickJobsQuery
 } = quickJobsApi;
