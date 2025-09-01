@@ -61,7 +61,7 @@ export default function QuickJobsPage() {
                     <p className="text-sm text-gray-600">
                       Applications: {job.quickjobassignments?.length || 0}
                     </p>
-                    <Link href={`/myquickjobs/applications/${job.quick_job_id}`}>
+                    <Link href={`/user/quickjobs/listings/${job.quick_job_id}`}>
                       <Button size="sm" className="mt-2">
                         View Applications
                       </Button>

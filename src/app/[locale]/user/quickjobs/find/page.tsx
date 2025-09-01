@@ -1,5 +1,5 @@
 "use client";
-import { useFetchQuickJobsQuery } from "@/services/quickJobsAPI";
+import { useFetchQuickJobsQuery, useApplyQuickJobMutation } from "@/services/quickJobsAPI";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../store/store";
@@ -8,8 +8,19 @@ const QuickJobsPage = () => {
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = useFetchQuickJobsQuery(page);
 
+  const [applyQuickJob, { isLoading: isApplying }] = useApplyQuickJobMutation();
+
   const user = useSelector((state: RootState) => state.auth.user);
   const currentUserId = user?.id;
+
+  const handleApply = async (jobId: number) => {
+    try {
+      await applyQuickJob(jobId).unwrap();
+      alert("Applied successfully ✅");
+    } catch (err: any) {
+      alert(err?.data?.error || "Failed to apply ❌");
+    }
+  };
 
   if (isLoading)
     return <p className="text-gray-800 dark:text-gray-200">Loading...</p>;
@@ -63,14 +74,19 @@ const QuickJobsPage = () => {
               </div>
 
               <button
-                disabled={isMyJob}
+                disabled={isMyJob || job.status !== "open" || isApplying}
+                onClick={() => handleApply(job.quick_job_id)}
                 className={`mt-4 w-full py-2 rounded-lg font-semibold transition-colors ${
                   isMyJob
                     ? "bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 cursor-not-allowed"
                     : "bg-green-600 text-white hover:bg-green-700"
                 }`}
               >
-                {isMyJob ? "My Job" : "Apply"}
+                {isMyJob
+                  ? "My Job"
+                  : isApplying
+                  ? "Applying..."
+                  : "Apply"}
               </button>
             </div>
           );

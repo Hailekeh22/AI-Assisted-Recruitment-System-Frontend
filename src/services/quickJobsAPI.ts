@@ -51,7 +51,7 @@ export const quickJobsApi = createApi({
       }),
     }),
 
-     fetchQuickJobs: builder.query<any, number>({
+    fetchQuickJobs: builder.query<any, number>({
       query: (page = 1) => `/quickjobs?page=${page}`,
       providesTags: ["quickJobs"],
     }),
@@ -59,7 +59,43 @@ export const quickJobsApi = createApi({
     fetchMyQuickJobs: builder.query<any, number>({
       query: (data) => ({
         url: `/myquickjobs`,
-      })
+      }),
+    }),
+
+    fetchQuickJobApplications: builder.query<any, number>({
+      query: (jobId) => `/myquickjobs/applications/${jobId}`,
+    }),
+
+    applyQuickJob: builder.mutation<any, number>({
+      query: (quickJobId) => ({
+        url: "/quickjobs/apply",
+        method: "POST",
+        body: { quickJobId },
+      }),
+    }),
+
+    hireQuickJobSeeker: builder.mutation({
+      query: (assignmentId) => ({
+        url: `/quickjobs/applications/${assignmentId}/hire`,
+        method: "PUT",
+      }),
+      invalidatesTags: ["quickJobs"],
+    }),
+
+    updateQuickJobStatus: builder.mutation<
+      any,
+      {
+        assignmentId: number;
+        status: "completed" | "cancelled";
+        rating?: number;
+      }
+    >({
+      query: ({ assignmentId, status, rating }) => ({
+        url: `/quickjobs/${assignmentId}/status`,
+        method: "PUT",
+        body: { status, rating },
+      }),
+      invalidatesTags: ["quickJobs"],
     }),
   }),
 });
@@ -71,5 +107,9 @@ export const {
   useEnsurePosterQuery,
   useCreateQuickJobMutation,
   useFetchQuickJobsQuery,
-  useFetchMyQuickJobsQuery
+  useFetchMyQuickJobsQuery,
+  useFetchQuickJobApplicationsQuery,
+  useApplyQuickJobMutation,
+  useHireQuickJobSeekerMutation,
+  useUpdateQuickJobStatusMutation,
 } = quickJobsApi;
