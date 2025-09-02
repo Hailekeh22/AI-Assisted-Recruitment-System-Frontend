@@ -6,6 +6,7 @@ import { useState } from "react";
 import {
   useJobSeekerGetAllJObsQuery,
   useApplyToJobMutation,
+  useGetAiJobSummaryQuery,
 } from "@/services/jobsAPI";
 import {
   Dialog,
@@ -25,16 +26,21 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
-
 export default function JobsListing() {
   const [page, setPage] = useState(1);
   const [selectedJob, setSelectedJob] = useState<any | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [coverLetter, setCoverLetter] = useState("");
+  const [summaryJob, setSummaryJob] = useState<any | null>(null); // ✅ instead of summaryOpen
 
   const { data, isError } = useJobSeekerGetAllJObsQuery(page);
   const [applyToJob, { isLoading: applying }] = useApplyToJobMutation();
+
+  const { data: summaryData, isFetching: fetchingSummary } =
+    useGetAiJobSummaryQuery(summaryJob?.job_id, {
+      skip: !summaryJob, // only fetch when dialog opened
+    });
 
   if (isError) return <p>Failed to load jobs.</p>;
 
@@ -62,7 +68,11 @@ export default function JobsListing() {
       setSheetOpen(false);
       setCoverLetter("");
     } catch (err) {
-      const errorMessage = (err as any)?.data?.message || (err as any)?.error || (err as any)?.message || "Failed to submit application.";
+      const errorMessage =
+        (err as any)?.data?.message ||
+        (err as any)?.error ||
+        (err as any)?.message ||
+        "Failed to submit application.";
 
       toast(errorMessage);
     }
@@ -99,6 +109,16 @@ export default function JobsListing() {
                 <span className="font-semibold">Deadline:</span>{" "}
                 {new Date(job.application_deadline).toLocaleDateString()}
               </p>
+              <Button
+                variant="outline"
+                onClick={(e) => {
+                  e.stopPropagation(); // prevent opening job details
+                  setSummaryJob(job); // ✅ open only for this job
+                }}
+                className="w-full mt-2"
+              >
+                Get AI Job Summary
+              </Button>
             </CardContent>
           </Card>
         ))}
@@ -140,15 +160,11 @@ export default function JobsListing() {
               <div className=" mt-4">
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Description</h3>
-                  <p className="text-sm">
-                    {selectedJob.description}
-                  </p>
+                  <p className="text-sm">{selectedJob.description}</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Requirements</h3>
-                  <p className="text-sm">
-                    {selectedJob.requirements}
-                  </p>
+                  <p className="text-sm">{selectedJob.requirements}</p>
                 </div>
                 <div className="space-y-3">
                   <p>
@@ -177,7 +193,7 @@ export default function JobsListing() {
               </div>
             </div>
 
-            <DialogFooter className="mt-4">
+            <DialogFooter className="flex gap-2 mt-4">
               <Button className="w-full" onClick={() => setSheetOpen(true)}>
                 Apply
               </Button>
@@ -185,6 +201,32 @@ export default function JobsListing() {
           </DialogContent>
         </Dialog>
       )}
+
+      {/* AI Job Summary Dialog */}
+      <Dialog
+        open={!!summaryJob}
+        onOpenChange={(open) => !open && setSummaryJob(null)}
+      >
+        <DialogContent className="max-w-lg">
+          <DialogHeader>
+            <DialogTitle>
+              AI Job Summary {summaryJob ? `for ${summaryJob.title}` : ""}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="py-4">
+            {fetchingSummary ? (
+              <p>Generating summary...</p>
+            ) : summaryData ? (
+              <p className="text-sm whitespace-pre-line">{summaryData.summary}</p>
+            ) : (
+              <p>No summary available.</p>
+            )}
+          </div>
+          <DialogFooter>
+            <Button onClick={() => setSummaryJob(null)}>Close</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Apply Sheet */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>

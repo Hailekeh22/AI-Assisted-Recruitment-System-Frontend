@@ -112,6 +112,11 @@ export const jobAPI = createApi({
         }),
       }
     ),
+
+    //GEt Ai summary for a job
+     getAiJobSummary: builder.query<{ summary: string }, number>({
+      query: (jobId) => `/jobs/${jobId}/aisummary`,
+    }),
   }),
 });
 
@@ -123,5 +128,6 @@ export const {
   useGetAllJobsQuery,
   useAdmindeleteJobMutation,
   useJobSeekerGetAllJObsQuery,
-  useApplyToJobMutation
+  useApplyToJobMutation,
+  useGetAiJobSummaryQuery
 } = jobAPI;
