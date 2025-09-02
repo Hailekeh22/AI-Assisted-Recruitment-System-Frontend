@@ -16,9 +16,9 @@ const QuickJobsPage = () => {
   const handleApply = async (jobId: number) => {
     try {
       await applyQuickJob(jobId).unwrap();
-      alert("Applied successfully ✅");
+      alert("Applied successfully");
     } catch (err: any) {
-      alert(err?.data?.error || "Failed to apply ❌");
+      alert(err?.data?.error || "Failed to apply ");
     }
   };
 
@@ -26,6 +26,9 @@ const QuickJobsPage = () => {
     return <p className="text-gray-800 dark:text-gray-200">Loading...</p>;
   if (error)
     return <p className="text-red-600 dark:text-red-400">Error loading jobs</p>;
+
+  // ✅ Filter out completed jobs
+  const jobs = data?.data.filter((job: any) => job.status !== "completed");
 
   return (
     <div className="p-6 min-h-screen transition-colors">
@@ -35,7 +38,7 @@ const QuickJobsPage = () => {
 
       {/* Jobs Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data?.data.map((job: any) => {
+        {jobs?.map((job: any) => {
           const isMyJob = job.poster.user_id === currentUserId;
 
           return (
@@ -84,8 +87,6 @@ const QuickJobsPage = () => {
               >
                 {isMyJob
                   ? "My Job"
-                  : isApplying
-                  ? "Applying..."
                   : "Apply"}
               </button>
             </div>

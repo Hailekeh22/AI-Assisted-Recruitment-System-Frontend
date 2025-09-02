@@ -41,7 +41,7 @@ export default function QuickJobsPage() {
                       Location: {job.location}
                     </p>
                     <p className="text-sm text-gray-600">
-                      Fixed Price: ${job.fixed_price}
+                      Price: ETB {job.fixed_price}
                     </p>
                     <p
                       className={`text-sm font-medium mt-2 ${
