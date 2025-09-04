@@ -82,7 +82,6 @@
   },
 
   "loginPage": {
-    "title": "ወደ አካውንትዎ ይግቡ",
     "email": "ኢሜይል",
     "emailplaceholder": "ኢሜይል አድራሻዎን ያስገቡ",
     "password": "የሚስጥር ቁጥር",
@@ -91,7 +90,37 @@
     "btntextloading": "በመግባት ላይ...",
     "crateaccount": "አካውንት ይፍጠሩ -",
     "forjobseekers": "ለ ስራ ፈላጊዎች",
-    "foremployers": "ለ ቀጣሪዎች"
+    "foremployers": "ለ ቀጣሪዎች",
+    "title": "እንኳን ደህና መጡ",
+    "subtitle": "ለመቀጠል ወደ አካውንትዎ ይግቡ",
+    "hero": {
+      "title": "ከእድሎች ጋር ተገናኝ",
+      "subtitle": "ፍጹም መጣጣሞቻቸውን የሚያገኙ ብዙ ሺህ ባለሙያዎች እና ኩባንያዎች ጋር ይቀላቀሉ",
+      "features": {
+        "fast": {
+          "title": "ፈጣን መዳረሻ",
+          "description": "ወደ ግላዊ ዳሽቦርድዎ ፈጣን መግቢያ"
+        },
+        "community": {
+          "title": "ትልቅ ማህበረሰብ",
+          "description": "ከ50,000+ ባለሙያዎች ጋር ተገናኝ"
+        },
+        "matching": {
+          "title": "ብልህ መጣጣም",
+          "description": "በAI የሚነዳ የስራ እና የአመልካች መጣጣም"
+        },
+        "secure": {
+          "title": "ደህንነቱ የተጠበቀ መድረክ",
+          "description": "ውሂብዎ ሁልጊዜ የተጠበቀ ነው"
+        }
+      },
+      "stats": {
+        "users": "ንቁ ተጠቃሚዎች",
+        "companies": "ኩባንያዎች",
+        "satisfaction": "የርእሰ መረጃ መጠን"
+      }
+    },
+    "errorMessage": "መግባት አልተቻለም። እባክዎ የመግቢያ ማስረጃዎትን ያረጋግጡ።"
   },
   "dashboardLayout": {
     "title": "የስራ ድህረ ገጽ",
@@ -276,7 +305,7 @@
     "register": "ይመዝገቡ",
     "registering": "በማመዝገብ ላይ...",
     "hero": {
-      "title": "የምስለኔ ስራዎን ዛሬ ያግኙ",
+      "title": "ተስማሚ ስራዎን ዛሬውኑ ያግኙ",
       "subtitle": "በመድረካችን በኩል ፍጹም ሚናቸውን ያገኙ ብዙ ሺህ ባለሙያዎች ጋር ይቀላቀሉ",
       "features": {
         "opportunities": {
@@ -284,8 +313,8 @@
           "description": "ለሺህ የሚቆጠሩ የስራ ክፍት ቦታዎች መዳረሻ"
         },
         "matching": {
-          "title": "ብልህ መጣጣም",
-          "description": "በAI የሚነዳ የስራ መጣጣም ቴክኖሎጂ"
+          "title": "አስቸኳይ ስራ እድሎች",
+          "description": "በአካባቢዎ ያሉ የአጭር ጊዜ ስራዎችን ያግኙ"
         },
         "fast": {
           "title": "ፈጣን ሂደት",

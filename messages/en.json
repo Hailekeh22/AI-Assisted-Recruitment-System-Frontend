@@ -82,7 +82,6 @@
     }
   },
   "loginPage": {
-    "title": "Login to Your Account",
     "email": "Email",
     "emailplaceholder": "Enter your email",
     "password": "Password",
@@ -91,7 +90,37 @@
     "btntextloading": "Logging in...",
     "crateaccount": " Create your account -",
     "forjobseekers": "for Job Seekers",
-    "foremployers": "for Employers"
+    "foremployers": "for Employers",
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your account to continue",
+    "hero": {
+      "title": "Connect with Opportunities",
+      "subtitle": "Join thousands of professionals and companies finding their perfect matches",
+      "features": {
+        "fast": {
+          "title": "Fast Access",
+          "description": "Quick login to your personalized dashboard"
+        },
+        "community": {
+          "title": "Large Community",
+          "description": "Connect with 50,000+ professionals"
+        },
+        "matching": {
+          "title": "Smart Matching",
+          "description": "AI-powered job and candidate matching"
+        },
+        "secure": {
+          "title": "Secure Platform",
+          "description": "Your data is always protected"
+        }
+      },
+      "stats": {
+        "users": "Active Users",
+        "companies": "Companies",
+        "satisfaction": "Satisfaction Rate"
+      }
+    },
+    "errorMessage": "Login failed. Please check your credentials."
   },
   "dashboardLayout": {
     "title": "Job Website",
@@ -282,8 +311,8 @@
           "description": "Access to thousands of job openings"
         },
         "matching": {
-          "title": "Smart Matching",
-          "description": "AI-powered job matching technology"
+          "title": "Quick Job Opportunities",
+          "description": "Find quick job Opportunities near your area"
         },
         "fast": {
           "title": "Fast Process",

@@ -109,7 +109,7 @@ export default function JobseekerRegistrationForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded hover:bg-blue-700 cursor-pointer"
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded hover:bg-blue-700 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 cursor-pointer"
         >
           {isLoading ? "Registering..." : "Register"}
         </button>
