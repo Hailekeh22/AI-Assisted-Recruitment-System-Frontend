@@ -399,5 +399,46 @@
       "sendSuccess": "መልእክት በተሳካ ሁኔታ ተልኳል!",
       "sendError": "መልእክት ማስተላለፍ አልተቻለም። እባክዎ ደግመው ይሞክሩ።"
     }
+  },
+  "jobsListingPage": {
+    "pageTitle": "የስራ ዝርዝሮች",
+    "error": "ስራዎች ማምጫን አልተቻለም።",
+    "jobCard": {
+      "category": "ምድብ",
+      "salary": "ደመወዝ",
+      "deadline": "የመጨረሻ ቀን",
+      "aiSummary": "የAI የስራ ማጠቃለያ ያግኙ"
+    },
+    "jobDetails": {
+      "description": "መግለጫ",
+      "requirements": "መስፈርቶች",
+      "type": "ዓይነት",
+      "status": "ሁኔታ"
+    },
+    "buttons": {
+      "apply": "ያመልክቱ",
+      "previous": "ቀዳሚ",
+      "next": "ቀጣይ",
+      "close": "ዝጋ",
+      "submit": "ማመልከቻ አስገባ",
+      "submitting": "በማስገባት ላይ..."
+    },
+    "aiSummary": {
+      "title": "የAI የስራ ማጠቃለያ ለ{jobTitle}",
+      "generating": "ማጠቃለያ በመፍጠር ላይ...",
+      "noSummary": "ማጠቃለያ የለም።"
+    },
+    "applySheet": {
+      "title": "ለ{jobTitle} ይመዝገቡ",
+      "placeholder": "የሽፋን ደብዳቤዎን ይፃፉ..."
+    },
+    "pagination": {
+      "page": "ገጽ",
+      "of": "ከ"
+    },
+    "messages": {
+      "applySuccess": "የመመዝገቢያ ማመልከቻ በተሳካ ሁኔታ ተልኳል!",
+      "applyError": "የመመዝገቢያ ማመልከቻ ማስገባት አልተቻለም።"
+    }
   }
 }

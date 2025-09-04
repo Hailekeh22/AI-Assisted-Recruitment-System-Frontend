@@ -25,24 +25,26 @@ import {
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function JobsListing() {
+  const t = useTranslations("jobsListingPage");
   const [page, setPage] = useState(1);
   const [selectedJob, setSelectedJob] = useState<any | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [coverLetter, setCoverLetter] = useState("");
-  const [summaryJob, setSummaryJob] = useState<any | null>(null); // ✅ instead of summaryOpen
+  const [summaryJob, setSummaryJob] = useState<any | null>(null); 
 
   const { data, isError } = useJobSeekerGetAllJObsQuery(page);
   const [applyToJob, { isLoading: applying }] = useApplyToJobMutation();
 
   const { data: summaryData, isFetching: fetchingSummary } =
     useGetAiJobSummaryQuery(summaryJob?.job_id, {
-      skip: !summaryJob, // only fetch when dialog opened
+      skip: !summaryJob,
     });
 
-  if (isError) return <p>Failed to load jobs.</p>;
+  if (isError) return <p>{t("error")}</p>;
 
   const jobs = data?.data || [];
 
@@ -64,7 +66,7 @@ export default function JobsListing() {
         job_id: selectedJob.job_id,
         cover_letter: coverLetter,
       }).unwrap();
-      toast("Application submitted successfully!");
+      toast(t("messages.applySuccess"));
       setSheetOpen(false);
       setCoverLetter("");
     } catch (err) {
@@ -72,7 +74,7 @@ export default function JobsListing() {
         (err as any)?.data?.message ||
         (err as any)?.error ||
         (err as any)?.message ||
-        "Failed to submit application.";
+        t("messages.applyError");
 
       toast(errorMessage);
     }
@@ -80,7 +82,7 @@ export default function JobsListing() {
 
   return (
     <div className="p-6 w-full">
-      <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("pageTitle")}</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {jobs.map((job) => (
@@ -100,24 +102,24 @@ export default function JobsListing() {
                 {truncateDescription(job.description)}
               </p>
               <p className="mt-2">
-                <span className="font-semibold">Category:</span> {job.category}
+                <span className="font-semibold">{t("jobCard.category")}:</span> {job.category}
               </p>
               <p className="mt-1">
-                <span className="font-semibold">Salary:</span> {job.salary}
+                <span className="font-semibold">{t("jobCard.salary")}:</span> {job.salary}
               </p>
               <p className="mt-1 text-sm text-gray-500">
-                <span className="font-semibold">Deadline:</span>{" "}
+                <span className="font-semibold">{t("jobCard.deadline")}:</span>{" "}
                 {new Date(job.application_deadline).toLocaleDateString()}
               </p>
               <Button
                 variant="outline"
                 onClick={(e) => {
-                  e.stopPropagation(); // prevent opening job details
-                  setSummaryJob(job); // ✅ open only for this job
+                  e.stopPropagation(); 
+                  setSummaryJob(job); 
                 }}
                 className="w-full mt-2"
               >
-                Get AI Job Summary
+                {t("jobCard.aiSummary")}
               </Button>
             </CardContent>
           </Card>
@@ -131,16 +133,16 @@ export default function JobsListing() {
             onClick={() => setPage((prev) => prev - 1)}
             disabled={!data.pagination.hasPrevPage}
           >
-            Previous
+            {t("buttons.previous")}
           </Button>
           <span className="self-center">
-            Page {data.pagination.page} of {data.pagination.totalPages}
+            {t("pagination.page")} {data.pagination.page} {t("pagination.of")} {data.pagination.totalPages}
           </span>
           <Button
             onClick={() => setPage((prev) => prev + 1)}
             disabled={!data.pagination.hasNextPage}
           >
-            Next
+            {t("buttons.next")}
           </Button>
         </div>
       )}
@@ -148,7 +150,7 @@ export default function JobsListing() {
       {/* Job Details Dialog */}
       {selectedJob && (
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogContent className=" min-w-[50vh] h-[90vh] flex flex-col">
+          <DialogContent className="min-w-[50vh] h-[90vh] flex flex-col">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold">
                 {selectedJob.title}
@@ -157,36 +159,34 @@ export default function JobsListing() {
 
             {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto pr-4">
-              <div className=" mt-4">
+              <div className="mt-4">
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Description</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("jobDetails.description")}</h3>
                   <p className="text-sm">{selectedJob.description}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Requirements</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("jobDetails.requirements")}</h3>
                   <p className="text-sm">{selectedJob.requirements}</p>
                 </div>
                 <div className="space-y-3">
                   <p>
-                    <span className="font-semibold">Category:</span>{" "}
+                    <span className="font-semibold">{t("jobCard.category")}:</span>{" "}
                     {selectedJob.category}
                   </p>
                   <p>
-                    <span className="font-semibold">Type:</span>{" "}
+                    <span className="font-semibold">{t("jobDetails.type")}:</span>{" "}
                     {selectedJob.job_type.replace("_", " ")}
                   </p>
                   <p>
-                    <span className="font-semibold">Salary:</span>{" "}
+                    <span className="font-semibold">{t("jobCard.salary")}:</span>{" "}
                     {selectedJob.salary}
                   </p>
                   <p>
-                    <span className="font-semibold">Deadline:</span>{" "}
-                    {new Date(
-                      selectedJob.application_deadline
-                    ).toLocaleDateString()}
+                    <span className="font-semibold">{t("jobCard.deadline")}:</span>{" "}
+                    {new Date(selectedJob.application_deadline).toLocaleDateString()}
                   </p>
                   <p>
-                    <span className="font-semibold">Status:</span>{" "}
+                    <span className="font-semibold">{t("jobDetails.status")}:</span>{" "}
                     {selectedJob.status}
                   </p>
                 </div>
@@ -195,7 +195,7 @@ export default function JobsListing() {
 
             <DialogFooter className="flex gap-2 mt-4">
               <Button className="w-full" onClick={() => setSheetOpen(true)}>
-                Apply
+                {t("buttons.apply")}
               </Button>
             </DialogFooter>
           </DialogContent>
@@ -210,20 +210,22 @@ export default function JobsListing() {
         <DialogContent className="max-w-lg">
           <DialogHeader>
             <DialogTitle>
-              AI Job Summary {summaryJob ? `for ${summaryJob.title}` : ""}
+              {t("aiSummary.title", { jobTitle: summaryJob?.title || "" })}
             </DialogTitle>
           </DialogHeader>
           <div className="py-4">
             {fetchingSummary ? (
-              <p>Generating summary...</p>
+              <p>{t("aiSummary.generating")}</p>
             ) : summaryData ? (
               <p className="text-sm whitespace-pre-line">{summaryData.summary}</p>
             ) : (
-              <p>No summary available.</p>
+              <p>{t("aiSummary.noSummary")}</p>
             )}
           </div>
           <DialogFooter>
-            <Button onClick={() => setSummaryJob(null)}>Close</Button>
+            <Button onClick={() => setSummaryJob(null)}>
+              {t("buttons.close")}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -232,11 +234,13 @@ export default function JobsListing() {
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetContent side="right" className="w-[400px] sm:w-[500px]">
           <SheetHeader>
-            <SheetTitle>Apply for {selectedJob?.title}</SheetTitle>
+            <SheetTitle>
+              {t("applySheet.title", { jobTitle: selectedJob?.title || "" })}
+            </SheetTitle>
           </SheetHeader>
           <div className="mt-4 space-y-4">
             <Textarea
-              placeholder="Write your cover letter..."
+              placeholder={t("applySheet.placeholder")}
               value={coverLetter}
               onChange={(e) => setCoverLetter(e.target.value)}
               className="min-h-[150px]"
@@ -248,7 +252,7 @@ export default function JobsListing() {
               onClick={handleApplicationSubmit}
               disabled={applying}
             >
-              {applying ? "Submitting..." : "Submit Application"}
+              {applying ? t("buttons.submitting") : t("buttons.submit")}
             </Button>
           </SheetFooter>
         </SheetContent>

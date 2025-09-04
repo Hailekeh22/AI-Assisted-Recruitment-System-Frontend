@@ -400,5 +400,46 @@
       "sendSuccess": "Message sent successfully!",
       "sendError": "Failed to send message. Please try again."
     }
+  },
+  "jobsListingPage": {
+    "pageTitle": "Job Listings",
+    "error": "Failed to load jobs.",
+    "jobCard": {
+      "category": "Category",
+      "salary": "Salary",
+      "deadline": "Deadline",
+      "aiSummary": "Get AI Job Summary"
+    },
+    "jobDetails": {
+      "description": "Description",
+      "requirements": "Requirements",
+      "type": "Type",
+      "status": "Status"
+    },
+    "buttons": {
+      "apply": "Apply",
+      "previous": "Previous",
+      "next": "Next",
+      "close": "Close",
+      "submit": "Submit Application",
+      "submitting": "Submitting..."
+    },
+    "aiSummary": {
+      "title": "AI Job Summary for {jobTitle}",
+      "generating": "Generating summary...",
+      "noSummary": "No summary available."
+    },
+    "applySheet": {
+      "title": "Apply for {jobTitle}",
+      "placeholder": "Write your cover letter..."
+    },
+    "pagination": {
+      "page": "Page",
+      "of": "of"
+    },
+    "messages": {
+      "applySuccess": "Application submitted successfully!",
+      "applyError": "Failed to submit application."
+    }
   }
 }
