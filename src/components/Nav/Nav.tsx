@@ -33,10 +33,10 @@ const Nav = () => {
 
   // Public nav
   const PublicNavLinks = [
+    { name: t("home"), href: "/" },
     { name: t("findJob"), href: "/forjobseekers" },
     { name: t("forEmployers"), href: "/foremployers" },
     { name: t("about"), href: "/about" },
-    { name: t("contactUs"), href: "/contactus" },
   ];
 
   // Jobseeker nav

@@ -12,6 +12,7 @@
   "Nav": {
     "title": "የስራ ድህረ ገጽ",
     "findJob": "ስራ ፈልግ",
+    "home": "ዋና ማውጫ",
     "forEmployers": "ለቀጣሪዎች",
     "about": "ስለ እኛ",
     "logIn": "ግባ",
@@ -234,7 +235,36 @@
     "register": "ይመዝገቡ",
     "registering": "በማመዝገብ ላይ...",
     "registrationSuccess": "የቀጣሪው አድራሻ በተሳካ ሁኔታ ተመዝግቧል!",
-    "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።"
+    "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።",
+    "hero": {
+      "title": "ለኩባንያዎ ምርጥ ብቃት ያላቸውን ይቅጠሩ",
+      "subtitle": "በመድረካችን በኩል ፍጹም አመልካቾቻቸውን ያገኙ ብዙ ሺህ የሰራተኛ ባለቤቶች ጋር ይቀላቀሉ",
+      "features": {
+        "company": {
+          "title": "የኩባንያ መገለጫ",
+          "description": "የኩባንያ ባህልዎን እና እሴቶችዎን ያሳዩ"
+        },
+        "talent": {
+          "title": "ከፍተኛ ብቃት",
+          "description": "ለሺህ የሚቆጠሩ ብቁ ባለሙያዎች መዳረሻ"
+        },
+        "matching": {
+          "title": "ብልህ መጣጣም",
+          "description": "በAI የሚነዳ የአመልካች መጣጣም ቴክኖሎጂ"
+        },
+        "growth": {
+          "title": "በፍጥነት ዕድገት",
+          "description": "ቡድንዎን በትክክለኛ ሰዎች ያሳድጉ"
+        }
+      },
+      "stats": {
+        "companies": "ኩባንያዎች",
+        "hires": "የተሳካ ቅጥር",
+        "success": "የስኬት መጠን"
+      }
+    },
+    "formSubtitle": "የሰራተኛ ባለቤት አካውንትዎን ለመፍጠር ይጀምሩ",
+    "uploadText": "የግላዊ ፎቶ ለመጫን ይጫኑ"
   },
   "jobseekerForm": {
     "jobseekerRegistration": "የሥራ ፈላጊ መመዝገቢያ",
@@ -245,6 +275,40 @@
     "profilePicture": "የፕሮፋይል ፎቶ",
     "register": "ይመዝገቡ",
     "registering": "በማመዝገብ ላይ...",
+    "hero": {
+      "title": "የምስለኔ ስራዎን ዛሬ ያግኙ",
+      "subtitle": "በመድረካችን በኩል ፍጹም ሚናቸውን ያገኙ ብዙ ሺህ ባለሙያዎች ጋር ይቀላቀሉ",
+      "features": {
+        "opportunities": {
+          "title": "ያልተገደቡ እድሎች",
+          "description": "ለሺህ የሚቆጠሩ የስራ ክፍት ቦታዎች መዳረሻ"
+        },
+        "matching": {
+          "title": "ብልህ መጣጣም",
+          "description": "በAI የሚነዳ የስራ መጣጣም ቴክኖሎጂ"
+        },
+        "fast": {
+          "title": "ፈጣን ሂደት",
+          "description": "ፈጣን የመጠየቂያ እና የቅጥር ሂደት"
+        },
+        "quality": {
+          "title": "ጥራታም ሚናዎች",
+          "description": "የከፈለ የከፍተኛ ኩባንያዎች ዝርዝር"
+        }
+      },
+      "stats": {
+        "jobs": "የሚገኙ ስራዎች",
+        "companies": "ኩባንያዎች",
+        "success": "የስኬት መጠን"
+      },
+      "testimonial": {
+        "name": "ሳራ ጆንሰን",
+        "role": "የሶፍትዌር ገንቢ",
+        "quote": "የምስለኔ ስራዬን በ2 ሳምንት ውስጥ አገኘሁ! መድረኩ ሁሉንም ነገር በጣም ቀላል አድርጎታል።"
+      }
+    },
+    "formSubtitle": "የስራ ፈላጊ አካውንትዎን ለመፍጠር ይጀምሩ",
+    "uploadText": "የግላዊ ፎቶ ለመጫን ይጫኑ",
     "registrationSuccess": "የሥራ ፈላጊ በተሳካ ሁኔታ ተመዝግቧል!",
     "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።"
   },

@@ -118,7 +118,7 @@ export default function EmployerRegistrationForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-800"
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded hover:bg-blue-700 cursor-pointer"
         >
           {isLoading ? t("registering") : t("register")}
         </button>

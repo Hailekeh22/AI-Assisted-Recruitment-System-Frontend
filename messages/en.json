@@ -11,6 +11,7 @@
   },
   "Nav": {
     "title": "Job Website",
+    "home": "Home",
     "findJob": "Find Job",
     "forEmployers": "For Employers",
     "about": "About Us",
@@ -233,6 +234,33 @@
     "profilePicture": "Profile Picture",
     "register": "Register",
     "registering": "Registering...",
+    "hero": {
+      "title": "Hire the Best Talent for Your Company",
+      "subtitle": "Join thousands of employers who found their perfect candidates through our platform",
+      "features": {
+        "company": {
+          "title": "Company Profile",
+          "description": "Showcase your company culture and values"
+        },
+        "talent": {
+          "title": "Top Talent",
+          "description": "Access to thousands of qualified professionals"
+        },
+        "matching": {
+          "title": "Smart Matching",
+          "description": "AI-powered candidate matching technology"
+        },
+        "growth": {
+          "title": "Grow Faster",
+          "description": "Scale your team with the right people"
+        }
+      },
+      "stats": {
+        "companies": "Companies",
+        "hires": "Successful Hires",
+        "success": "Success Rate"
+      }
+    },
     "registrationSuccess": "Employer registered successfully!",
     "registrationError": "Something went wrong. Please try again."
   },
@@ -245,6 +273,40 @@
     "profilePicture": "Profile Picture",
     "register": "Register",
     "registering": "Registering...",
+    "hero": {
+      "title": "Find Your Dream Job Today",
+      "subtitle": "Join thousands of professionals who landed their ideal roles through our platform",
+      "features": {
+        "opportunities": {
+          "title": "Endless Opportunities",
+          "description": "Access to thousands of job openings"
+        },
+        "matching": {
+          "title": "Smart Matching",
+          "description": "AI-powered job matching technology"
+        },
+        "fast": {
+          "title": "Fast Process",
+          "description": "Quick application and hiring process"
+        },
+        "quality": {
+          "title": "Quality Roles",
+          "description": "Curated list of top companies"
+        }
+      },
+      "stats": {
+        "jobs": "Available Jobs",
+        "companies": "Companies",
+        "success": "Success Rate"
+      },
+      "testimonial": {
+        "name": "Sarah Johnson",
+        "role": "Software Developer",
+        "quote": "Found my dream job in just 2 weeks! The platform made everything so easy."
+      }
+    },
+    "formSubtitle": "Create your job seeker account to get started",
+    "uploadText": "Click to upload profile picture",
     "registrationSuccess": "Jobseeker registered successfully!",
     "registrationError": "Something went wrong. Please try again."
   },
