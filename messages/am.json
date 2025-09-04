@@ -242,5 +242,102 @@
         "buttonText": "ሥራዎችን ፈልግ"
       }
     }
+  },
+  "quickJobPosterPage": {
+    "pageTitle": "አፋጣኝ ሥራዎችን መለጠፊያ ፎርም",
+    "form": {
+      "details": {
+        "label": "የስራው ዝርዝሮች",
+        "placeholder": "የስራ ዝርዝሮች..."
+      },
+      "fixedPrice": {
+        "label": "የሚከፍሉት መጠን",
+        "placeholder": "ዋጋ ያስገቡ..."
+      },
+      "location": {
+        "label": "የስራው አድራሻ ያስገቡ",
+        "placeholder": "ስራው የት ነው?"
+      }
+    },
+    "buttons": {
+      "postJob": "ስራ ለጥፍ",
+      "posting": "በማስቀመጥ ላይ..."
+    },
+    "messages": {
+      "loading": "በመጫን ላይ...",
+      "allFieldsRequired": "ሁሉም መስኮች ያስፈልጋሉ!",
+      "jobPostedSuccess": "ስራው በተሳካ ሁኔታ ቀርቧል!"
+    }
+  },
+  "quickJobProfilePage": {
+    "pageTitle": "አፋጣኝ ሥራዎች አካውንት",
+    "loading": "አፋጣኝ ሥራዎች ፕሮፋይል በመፈለግ ላይ…",
+    "error": "መገለጫ ማግኘት አልተቻለም።",
+    "noProfile": {
+      "message": "እስካሁን አፋጣኝ ሥራዎች አካውንት የሎትም። አጭር ጊዜ ስራዎችን ለመለጠፍ እና ለማግኘት አካውንት ይፍጠሩ።",
+      "createButton": "አካውንት ፍጠር"
+    },
+    "dialog": {
+      "title": "አፋጣኝ ሥራዎች አካውንት ፍጠር",
+      "locationLabel": "አድራሻዎን እዚህ ያስገቡ (አማራጭ)",
+      "locationPlaceholder": "አዲስ አበባ፣ ቦሌ …",
+      "creating": "በመፍጠር ላይ…",
+      "create": "አካውንት ፍጠር"
+    },
+    "profile": {
+      "userId": "የተጠቃሚ መለያ",
+      "location": "አድራሻ",
+      "rating": "የተሰጦት ግምገማ ነጥብ",
+      "totalRated": "አጠቃላይ ግምገማ ነጥብ የሰጡ ሰዎች",
+      "owner": "ባለቤት",
+      "notProvided": "—"
+    }
+  },
+  "myquickpostedjobs": {
+    "title": "የኔ አስቸኳይ ስራዎች",
+    "location": "አካባቢ:",
+    "price": "ዋጋ: ብር",
+    "status": "ሁኔታ:",
+    "postedat": "የተለጠፈበት:",
+    "applications": "ማመልከቻዎች",
+    "viewapplications": "ማመልከቻዎችን ይመልከቱ",
+    "nojobsfound": "እስካሁን ምንም ፈጣን ስራ አልለጠፉም።"
+  },
+  "applicationsPage": {
+    "pageTitle": "አስቸኳይ ስራ ማመልከቻዎች",
+    "loading": "ማመልከቻዎች በመጫን ላይ...",
+    "error": "ማመልከቻዎች ማምጫን አልተቻለም።",
+    "noApplications": "ለዚህ ስራ እስካሁን ማመልከቻዎች የሉም።",
+    "tableHeaders": {
+      "seekerName": "የፈላጊው ስም",
+      "email": "ኢሜይል",
+      "location": "አድራሻ",
+      "rating": "ደረጃ",
+      "status": "ሁኔታ",
+      "appliedAt": "የተመዘገበበት ቀን",
+      "actions": "ድርጊቶች"
+    },
+    "status": {
+      "accepted": "ተቀባይነት አግኝቷል",
+      "pending": "በጥበቃ ላይ",
+      "completed": "ተጠናቅቋል",
+      "cancelled": "ተሰርዟል"
+    },
+    "buttons": {
+      "hire": "ቅጠር",
+      "hiring": "በማዋል ላይ...",
+      "hired": "ተቀጥረዋል",
+      "cancel": "ሰርዝ",
+      "cancelling": "በማስረዘም ላይ...",
+      "complete": "ጨርስ",
+      "completing": "በማጠናቀቅ ላይ...",
+      "rate": "ደረጃ ስጥ"
+    },
+    "messages": {
+      "hireSuccess": "ፈላጊው በተሳካ ሁኔታ ተዋል!",
+      "updateSuccess": "ተጠናቋል!",
+      "invalidAssignment": "የማያገለግል  ሥራ አሰጣጥ",
+      "invalidStatus": "የማያገለግል ሁኔታ"
+    }
   }
 }

@@ -6,36 +6,31 @@ import {
   useHireQuickJobSeekerMutation,
   useUpdateQuickJobStatusMutation,
 } from "@/services/quickJobsAPI";
-import { Loader2 } from "lucide-react";
+import { Loader2, Star, Mail, MapPin, Calendar, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "next-intl";
 
 export default function ApplicationsPage() {
+  const t = useTranslations("applicationsPage");
   const params = useParams();
   const jobId = Number(params.id);
 
-  // fetch applications for this job
-  const { data, isLoading, isError } =
-    useFetchQuickJobApplicationsQuery(jobId);
-
+  const { data, isLoading, isError } = useFetchQuickJobApplicationsQuery(jobId);
   const [hireSeeker, { isLoading: isHiring }] = useHireQuickJobSeekerMutation();
-  const [updateStatus, { isLoading: isUpdating }] =
-    useUpdateQuickJobStatusMutation();
-
-  // keep rating per assignment id
+  const [updateStatus, { isLoading: isUpdating }] = useUpdateQuickJobStatusMutation();
   const [ratings, setRatings] = useState<Record<number, number | undefined>>({});
 
   const handleHire = async (assignmentId?: number) => {
     if (!assignmentId || !Number.isFinite(assignmentId)) {
-      console.error("handleHire: invalid assignmentId", assignmentId);
-      alert("Invalid assignment id");
+      alert(t("messages.invalidAssignment"));
       return;
     }
 
     try {
-      console.log("Hiring assignmentId:", assignmentId);
       await hireSeeker(assignmentId).unwrap();
-      alert("Seeker hired successfully!");
+      alert(t("messages.hireSuccess"));
     } catch (err: any) {
-      console.error("hire error:", err);
       alert(err?.data?.error || err?.message || "Failed to hire seeker.");
     }
   };
@@ -45,153 +40,232 @@ export default function ApplicationsPage() {
     status?: "completed" | "cancelled"
   ) => {
     if (!assignmentId || !Number.isFinite(assignmentId)) {
-      console.error("handleUpdateStatus: invalid assignmentId", assignmentId);
-      alert("Invalid assignment id");
+      alert(t("messages.invalidAssignment"));
       return;
     }
     if (!status) {
-      alert("Invalid status");
+      alert(t("messages.invalidStatus"));
       return;
     }
 
-    // pick rating only for completed; convert undefined if not set
-    const ratingToSend =
-      status === "completed" ? ratings[assignmentId] ?? undefined : undefined;
+    const ratingToSend = status === "completed" ? ratings[assignmentId] ?? undefined : undefined;
 
     try {
-      console.log("Updating assignment:", { assignmentId, status, ratingToSend });
       await updateStatus({ assignmentId, status, rating: ratingToSend }).unwrap();
-      alert(`Assignment ${status} successfully!`);
+      alert(t("messages.updateSuccess", { status: t(`status.${status}`) }));
     } catch (err: any) {
-      console.error("update status error:", err);
       alert(err?.data?.error || err?.message || "Failed to update assignment.");
     }
   };
 
   const handleRatingChange = (assignmentId: number, value: string) => {
-    // convert empty string to undefined, otherwise number
     setRatings((prev) => ({
       ...prev,
       [assignmentId]: value === "" ? undefined : Number(value),
     }));
   };
 
+
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <Loader2 className="animate-spin h-8 w-8 text-gray-600" />
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="text-center space-y-4">
+          <Loader2 className="h-8 w-8 animate-spin mx-auto text-blue-500 dark:text-blue-400" />
+          <p className="text-gray-600 dark:text-gray-400">{t("loading")}</p>
+        </div>
       </div>
     );
   }
 
   if (isError) {
     return (
-      <div className="flex justify-center items-center h-screen text-red-500">
-        Failed to load applications.
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="p-6 text-center">
+          <p className="text-red-500 dark:text-red-400 font-medium">{t("error")}</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Applications</h1>
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            {t("pageTitle")}
+          </h1>
+        </div>
 
-      {data && data.length > 0 ? (
-        <table className="min-w-full border border-gray-300 dark:border-gray-700">
-          <thead className="bg-gray-100 dark:bg-gray-800">
-            <tr>
-              <th className="p-2 border">Seeker Name</th>
-              <th className="p-2 border">Email</th>
-              <th className="p-2 border">Location</th>
-              <th className="p-2 border">Rating</th>
-              <th className="p-2 border">Status</th>
-              <th className="p-2 border">Applied At</th>
-              <th className="p-2 border">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((app: any) => {
-              const aId = app.assignment_id;
-              const currentRating = ratings[aId];
+        {data && data.length > 0 ? (
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.seekerName")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.email")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.location")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.rating")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.status")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.appliedAt")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.actions")}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                  {data.map((app: any) => {
+                    const aId = app.assignment_id;
+                    const currentRating = ratings[aId];
+                    const seeker = app.quickjobseekers;
+                    const user = seeker?.users;
 
-              return (
-                <tr
-                  key={aId}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-700"
-                >
-                  <td className="p-2 border">
-                    {app.quickjobseekers?.users?.first_name}{" "}
-                    {app.quickjobseekers?.users?.last_name}
-                  </td>
-                  <td className="p-2 border">
-                    {app.quickjobseekers?.users?.email}
-                  </td>
-                  <td className="p-2 border">
-                    {app.quickjobseekers?.location}
-                  </td>
-                  <td className="p-2 border">
-                    {app.quickjobseekers?.rateing ?? "N/A"} ⭐
-                  </td>
-                  <td className="p-2 border capitalize">{app.status}</td>
-                  <td className="p-2 border">
-                    {new Date(app.assigned_at).toLocaleDateString()}
-                  </td>
-                  <td className="p-2 border text-center space-y-2">
-                    {app.status !== "accepted" ? (
-                      <button
-                        onClick={() => handleHire(aId)}
-                        disabled={isHiring}
-                        className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-50"
+                    return (
+                      <tr
+                        key={aId}
+                        className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                       >
-                        {isHiring ? "Hiring..." : "Hire"}
-                      </button>
-                    ) : (
-                      <>
-                        <span className="text-green-600 font-bold block">Hired</span>
+                        {/* Seeker Name */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <User className="h-4 w-4 text-blue-500 dark:text-blue-400 mr-2" />
+                            <span className="text-sm font-medium text-gray-900 dark:text-white">
+                              {user?.first_name} {user?.last_name}
+                            </span>
+                          </div>
+                        </td>
 
-                        {/* Cancel */}
-                        <button
-                          onClick={() => handleUpdateStatus(aId, "cancelled")}
-                          disabled={isUpdating}
-                          className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 disabled:opacity-50 mt-2"
-                        >
-                          {isUpdating ? "Updating..." : "Cancel"}
-                        </button>
+                        {/* Email */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <Mail className="h-4 w-4 text-gray-400 dark:text-gray-500 mr-2" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                              {user?.email}
+                            </span>
+                          </div>
+                        </td>
 
-                        {/* Rating + Complete */}
-                        <div className="flex items-center gap-2 mt-2 justify-center">
-                          <select
-                            value={currentRating ?? ""}
-                            onChange={(e) => handleRatingChange(aId, e.target.value)}
-                            className="border rounded px-2 py-1"
-                            aria-label={`Rate seeker ${aId}`}
-                          >
-                            <option value="">Rate</option>
-                            {[1, 2, 3, 4, 5].map((r) => (
-                              <option key={r} value={r}>
-                                {r} ⭐
-                              </option>
-                            ))}
-                          </select>
-                          <button
-                            onClick={() => handleUpdateStatus(aId, "completed")}
-                            disabled={isUpdating || currentRating === undefined}
-                            className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
-                          >
-                            {isUpdating ? "Updating..." : "Complete"}
-                          </button>
-                        </div>
-                      </>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      ) : (
-        <p className="text-gray-600">No applications yet for this job.</p>
-      )}
+                        {/* Location */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <MapPin className="h-4 w-4 text-gray-400 dark:text-gray-500 mr-2" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                              {seeker?.location || "N/A"}
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* Rating */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <Star className="h-4 w-4 text-yellow-500 dark:text-yellow-400 mr-2" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                              {seeker?.rateing ? `${seeker.rateing} ` : "N/A"}
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* Status */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <Badge variant="default" className="text-xs capitalize">
+                            {t(`status.${app.status}`)}
+                          </Badge>
+                        </td>
+
+                        {/* Applied At */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 text-gray-400 dark:text-gray-500 mr-2" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                              {new Date(app.assigned_at).toLocaleDateString()}
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* Actions */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {app.status !== "accepted" ? (
+                            <Button
+                              onClick={() => handleHire(aId)}
+                              disabled={isHiring}
+                              size="sm"
+                              className="bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 h-8 text-xs"
+                            >
+                              {isHiring ? t("buttons.hiring") : t("buttons.hire")}
+                            </Button>
+                          ) : (
+                            <div className="space-y-2">
+                              <div className="text-center">
+                                <Badge variant="default" className="px-2 py-1 text-xs">
+                                  {t("buttons.hired")}
+                                </Badge>
+                              </div>
+                              
+                              <div className="flex flex-col gap-2">
+                                <Button
+                                  onClick={() => handleUpdateStatus(aId, "cancelled")}
+                                  disabled={isUpdating}
+                                  variant="destructive"
+                                  size="sm"
+                                  className="h-8 text-xs"
+                                >
+                                  {isUpdating ? t("buttons.cancelling") : t("buttons.cancel")}
+                                </Button>
+
+                                <div className="flex gap-1">
+                                  <select
+                                    value={currentRating ?? ""}
+                                    onChange={(e) => handleRatingChange(aId, e.target.value)}
+                                    className="flex-1 border border-gray-300 dark:border-gray-600 rounded-md px-2 py-1 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500 focus:border-transparent text-xs h-8"
+                                    aria-label={t("buttons.rate")}
+                                  >
+                                    <option value="">{t("buttons.rate")}</option>
+                                    {[1, 2, 3, 4, 5].map((r) => (
+                                      <option key={r} value={r}>
+                                        {r} ⭐
+                                      </option>
+                                    ))}
+                                  </select>
+                                  <Button
+                                    onClick={() => handleUpdateStatus(aId, "completed")}
+                                    disabled={isUpdating || currentRating === undefined}
+                                    size="sm"
+                                    className="h-8 text-xs bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800"
+                                  >
+                                    {isUpdating ? t("buttons.completing") : t("buttons.complete")}
+                                  </Button>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+            <p className="text-gray-600 dark:text-gray-400">
+              {t("noApplications")}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

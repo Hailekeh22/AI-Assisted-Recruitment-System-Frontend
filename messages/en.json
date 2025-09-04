@@ -242,5 +242,103 @@
         "buttonText": "Find Gigs"
       }
     }
+  },
+   "quickJobPosterPage": {
+    "pageTitle": "Quick Job posting form",
+    "form": {
+      "details": {
+        "label": "Details",
+        "placeholder": "Job details..."
+      },
+      "fixedPrice": {
+        "label": "Enter your Price",
+        "placeholder": "Enter price..."
+      },
+      "location": {
+        "label": "Enter work Location",
+        "placeholder": "Where is this job?"
+      }
+    },
+    "buttons": {
+      "postJob": "Post Job",
+      "posting": "Posting..."
+    },
+    "messages": {
+      "loading": "Loading...",
+      "allFieldsRequired": "All fields are required!",
+      "jobPostedSuccess": "Job posted successfully!"
+    }
+  },
+  "quickJobProfilePage": {
+    "pageTitle": "Quick Job – Profile",
+    "loading": "Loading Quick Job profile…",
+    "error": "Failed to load profile.",
+    "noProfile": {
+      "message": "You don’t have a Quick Job profile yet. Create one to publish short-term jobs and get hired.",
+      "createButton": "Create Profile"
+    },
+    "dialog": {
+      "title": "Create Quick Job Profile",
+      "locationLabel": "Location (optional)",
+      "locationPlaceholder": "Addis Ababa, Bole …",
+      "creating": "Creating…",
+      "create": "Create"
+    },
+    "profile": {
+      "userId": "User ID",
+      "location": "Location",
+      "rating": "Rating",
+      "totalRated": "Total People Rated",
+      "owner": "Owner",
+      "notProvided": "—"
+    }
+  },
+  "myquickpostedjobs": {
+    "title": "My Quick Jobs",
+    "location": "Location:",
+    "price": "Price: ETB",
+    "status": "Status:",
+    "postedat": "Posted At:",
+    "applications": "Applications",
+    "viewapplications": "View Applications",
+    "nojobsfound": "You haven’t posted any quick jobs yet.",
+    "failedtofetch": "Failed to load quick jobs."
+  },
+  "applicationsPage": {
+    "pageTitle": "Applications",
+    "loading": "Loading applications...",
+    "error": "Failed to load applications.",
+    "noApplications": "No applications yet for this job.",
+    "tableHeaders": {
+      "seekerName": "Seeker Name",
+      "email": "Email",
+      "location": "Location",
+      "rating": "Rating",
+      "status": "Status",
+      "appliedAt": "Applied At",
+      "actions": "Actions"
+    },
+    "status": {
+      "accepted": "Accepted",
+      "pending": "Pending",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "buttons": {
+      "hire": "Hire",
+      "hiring": "Hiring...",
+      "hired": "Hired",
+      "cancel": "Cancel",
+      "cancelling": "Cancelling...",
+      "complete": "Complete",
+      "completing": "Completing...",
+      "rate": "Rate"
+    },
+    "messages": {
+      "hireSuccess": "Seeker hired successfully!",
+      "updateSuccess": "Assignment successfully!",
+      "invalidAssignment": "Invalid assignment id",
+      "invalidStatus": "Invalid status"
+    }
   }
 }

@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useFetchMyQuickJobsQuery } from "@/services/quickJobsAPI";
+import { useTranslations } from "next-intl";
 
 export default function QuickJobsPage() {
+  const t = useTranslations("myquickpostedjobs");
   const { data, isLoading, isError } = useFetchMyQuickJobsQuery(0);
 
   if (isLoading) {
@@ -20,14 +22,14 @@ export default function QuickJobsPage() {
   if (isError) {
     return (
       <div className="flex justify-center items-center h-screen text-red-500">
-        Failed to load quick jobs.
+        {t("failedtofetch")}
       </div>
     );
   }
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">My Quick Jobs</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
 
       {data && data.length > 0 ? (
         <div className="grid gap-4">
@@ -38,10 +40,10 @@ export default function QuickJobsPage() {
                   <div>
                     <h2 className="text-lg font-semibold">{job.details}</h2>
                     <p className="text-sm text-gray-600">
-                      Location: {job.location}
+                      {t("location")} {job.location}
                     </p>
                     <p className="text-sm text-gray-600">
-                      Price: ETB {job.fixed_price}
+                      {t("price")} {job.fixed_price}
                     </p>
                     <p
                       className={`text-sm font-medium mt-2 ${
@@ -50,20 +52,20 @@ export default function QuickJobsPage() {
                           : "text-gray-500"
                       }`}
                     >
-                      Status: {job.status}
+                      {t("status")} {job.status}
                     </p>
                     <p className="text-xs text-gray-400">
-                      Posted on: {new Date(job.created_at).toLocaleDateString()}
+                      {t("postedat")} {new Date(job.created_at).toLocaleDateString()}
                     </p>
                   </div>
 
                   <div className="text-right">
                     <p className="text-sm text-gray-600">
-                      Applications: {job.quickjobassignments?.length || 0}
+                      {t("applications")} {job.quickjobassignments?.length || 0}
                     </p>
                     <Link href={`/user/quickjobs/listings/${job.quick_job_id}`}>
                       <Button size="sm" className="mt-2">
-                        View Applications
+                       {t("viewapplications")}
                       </Button>
                     </Link>
                   </div>
@@ -73,7 +75,7 @@ export default function QuickJobsPage() {
           ))}
         </div>
       ) : (
-        <p className="text-gray-600">You haven’t posted any quick jobs yet.</p>
+        <p className="text-gray-600">{t("nojobsfound")}</p>
       )}
     </div>
   );
