@@ -3,8 +3,10 @@ import { useFetchQuickJobsQuery, useApplyQuickJobMutation } from "@/services/qui
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../store/store";
+import { useTranslations } from "next-intl";
 
 const QuickJobsPage = () => {
+  const t = useTranslations("quickJobsPage");
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = useFetchQuickJobsQuery(page);
 
@@ -16,16 +18,16 @@ const QuickJobsPage = () => {
   const handleApply = async (jobId: number) => {
     try {
       await applyQuickJob(jobId).unwrap();
-      alert("Applied successfully");
+      alert(t("messages.applySuccess"));
     } catch (err: any) {
-      alert(err?.data?.error || "Failed to apply ");
+      alert(err?.data?.error || t("messages.applyError"));
     }
   };
 
   if (isLoading)
-    return <p className="text-gray-800 dark:text-gray-200">Loading...</p>;
+    return <p className="text-gray-800 dark:text-gray-200">{t("loading")}</p>;
   if (error)
-    return <p className="text-red-600 dark:text-red-400">Error loading jobs</p>;
+    return <p className="text-red-600 dark:text-red-400">{t("error")}</p>;
 
   // ✅ Filter out completed jobs
   const jobs = data?.data.filter((job: any) => job.status !== "completed");
@@ -33,7 +35,7 @@ const QuickJobsPage = () => {
   return (
     <div className="p-6 min-h-screen transition-colors">
       <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-        Quick Job Posts
+        {t("pageTitle")}
       </h2>
 
       {/* Jobs Grid */}
@@ -54,16 +56,16 @@ const QuickJobsPage = () => {
                   {job.poster.full_name}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  📞 {job.poster.phone_number}
+                  📞 {t("jobCard.phone")}: {job.poster.phone_number}
                 </p>
                 <p className="text-gray-700 dark:text-gray-300 mb-2">
                   {job.details}
                 </p>
                 <p className="font-medium text-gray-800 dark:text-gray-200">
-                  💰 {job.fixed_price} ETB
+                  💰 {job.fixed_price} {t("jobCard.price")}
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  📍 {job.location}
+                  📍 {t("jobCard.location")}: {job.location}
                 </p>
                 <p
                   className={`mt-2 text-sm font-semibold ${
@@ -72,7 +74,7 @@ const QuickJobsPage = () => {
                       : "text-red-600 dark:text-red-400"
                   }`}
                 >
-                  Status: {job.status}
+                  {t("jobCard.status")}: {t(`status.${job.status}`)}
                 </p>
               </div>
 
@@ -86,8 +88,8 @@ const QuickJobsPage = () => {
                 }`}
               >
                 {isMyJob
-                  ? "My Job"
-                  : "Apply"}
+                  ? t("buttons.myJob")
+                  : isApplying ? t("buttons.applying") : t("buttons.apply")}
               </button>
             </div>
           );
@@ -104,10 +106,10 @@ const QuickJobsPage = () => {
                      bg-white dark:bg-gray-800 
                      hover:bg-gray-100 dark:hover:bg-gray-700"
         >
-          Prev
+          {t("buttons.prev")}
         </button>
         <span className="font-medium">
-          Page {data?.pagination.page} of {data?.pagination.totalPages}
+          {t("pagination.page")} {data?.pagination.page} {t("pagination.of")} {data?.pagination.totalPages}
         </span>
         <button
           disabled={!data?.pagination.hasNextPage}
@@ -117,7 +119,7 @@ const QuickJobsPage = () => {
                      bg-white dark:bg-gray-800 
                      hover:bg-gray-100 dark:hover:bg-gray-700"
         >
-          Next
+          {t("buttons.next")}
         </button>
       </div>
     </div>

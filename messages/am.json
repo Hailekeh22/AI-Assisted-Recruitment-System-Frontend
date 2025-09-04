@@ -346,5 +346,36 @@
       "invalidAssignment": "የማያገለግል የተግባር መለያ",
       "invalidStatus": "የማያገለግል ሁኔታ"
     }
+  },
+  "quickJobsPage": {
+    "pageTitle": "ፈጣን ስራ ልጥፎች",
+    "loading": "በመጫን ላይ...",
+    "error": "ስራዎች ማምጫን አልተቻለም",
+    "jobCard": {
+      "phone": "ስልክ",
+      "price": "ብር",
+      "location": "አድራሻ",
+      "status": "ሁኔታ"
+    },
+    "status": {
+      "open": "ክፍት",
+      "closed": "ተዘግቷል",
+      "completed": "ተጠናቅቋል"
+    },
+    "buttons": {
+      "apply": "ይመዝገቡ",
+      "myJob": "የእኔ ስራ",
+      "prev": "ቀዳሚ",
+      "next": "ቀጣይ",
+      "applying": "በመመዝገብ ላይ..."
+    },
+    "messages": {
+      "applySuccess": "በተሳካ ሁኔታ ተመዝግበዋል",
+      "applyError": "መመዝገብ አልተቻለም"
+    },
+    "pagination": {
+      "page": "ገጽ",
+      "of": "ከ"
+    }
   }
 }

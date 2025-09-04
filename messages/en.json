@@ -347,5 +347,36 @@
       "invalidAssignment": "Invalid assignment id",
       "invalidStatus": "Invalid status"
     }
+  },
+  "quickJobsPage": {
+    "pageTitle": "Quick Job Posts",
+    "loading": "Loading...",
+    "error": "Error loading jobs",
+    "jobCard": {
+      "phone": "Phone",
+      "price": "ETB",
+      "location": "Location",
+      "status": "Status"
+    },
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "completed": "Completed"
+    },
+    "buttons": {
+      "apply": "Apply",
+      "myJob": "My Job",
+      "prev": "Prev",
+      "next": "Next",
+      "applying": "Applying..."
+    },
+    "messages": {
+      "applySuccess": "Applied successfully",
+      "applyError": "Failed to apply"
+    },
+    "pagination": {
+      "page": "Page",
+      "of": "of"
+    }
   }
 }
