@@ -18,8 +18,10 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 function Page() {
+  const t = useTranslations("interviewsPage");
   const { data, isLoading, isError } = useGetJobSeekerInterviewsQuery({});
   const [sendMessage] = useSendMessageToEmployerMutation();
 
@@ -30,7 +32,7 @@ function Page() {
     return (
       <div className="flex justify-center items-center h-screen">
         <Loader2 className="w-8 h-8 animate-spin" />
-        <span className="ml-2">Loading interviews...</span>
+        <span className="ml-2">{t("loading")}</span>
       </div>
     );
   }
@@ -38,7 +40,7 @@ function Page() {
   if (isError) {
     return (
       <p className="text-red-500 text-center mt-6">
-        Failed to load interviews.
+        {t("error")}
       </p>
     );
   }
@@ -49,21 +51,21 @@ function Page() {
     if (!message.trim()) return;
     try {
       const sendmessage = await sendMessage({ employerId, message }).unwrap();
-      toast.success(sendmessage.message);
+      toast.success(t("messages.sendSuccess"));
       setMessage("");
       setOpenDialogId(null);
     } catch (err) {
-      toast.error("Failed to send message. Please try again.");
+      toast.error(t("messages.sendError"));
       return;
     }
   };
 
   return (
     <div className="max-w-3xl mx-auto mt-8 space-y-4">
-      <h1 className="text-2xl font-bold mb-6">My Interviews</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("pageTitle")}</h1>
 
       {interviews.length === 0 ? (
-        <p className="text-gray-500">No interviews scheduled.</p>
+        <p className="text-gray-500">{t("noInterviews")}</p>
       ) : (
         interviews.map((interview: any) => (
           <Card key={interview.interview_id} className="shadow-md">
@@ -71,11 +73,11 @@ function Page() {
               <h2 className="font-semibold text-lg">
                 {interview.applications.jobs.title}
               </h2>
-              <p>Status: {interview.applications.status}</p>
+              <p>{t("interviewCard.status")}: {interview.applications.status}</p>
               <p>
-                Date: {new Date(interview.scheduled_time).toLocaleDateString()}
+                {t("interviewCard.date")}: {new Date(interview.scheduled_time).toLocaleDateString()}
               </p>
-              <p>Location: {interview.location || "Not specified"}</p>
+              <p>{t("interviewCard.location")}: {interview.location || t("interviewCard.locationNotSpecified")}</p>
 
               {/* Send message dialog */}
               <Dialog
@@ -85,16 +87,16 @@ function Page() {
                 }
               >
                 <DialogTrigger asChild>
-                  <Button variant="outline">Send Message to Employer</Button>
+                  <Button variant="outline">{t("dialog.sendMessage")}</Button>
                 </DialogTrigger>
                 <DialogContent>
                   <DialogHeader>
                     <DialogTitle>
-                      Message to Employer of {interview.applications.jobs.title}
+                      {t("dialog.title", { jobTitle: interview.applications.jobs.title })}
                     </DialogTitle>
                   </DialogHeader>
                   <Textarea
-                    placeholder="Type your message here..."
+                    placeholder={t("dialog.placeholder")}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                   />
@@ -104,7 +106,7 @@ function Page() {
                         handleSend(interview.applications.jobs.employer_id)
                       }
                     >
-                      Send
+                      {t("dialog.send")}
                     </Button>
                   </DialogFooter>
                 </DialogContent>

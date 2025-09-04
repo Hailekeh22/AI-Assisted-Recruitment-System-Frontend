@@ -378,5 +378,27 @@
       "page": "Page",
       "of": "of"
     }
+  },
+   "interviewsPage": {
+    "pageTitle": "My Interviews",
+    "loading": "Loading interviews...",
+    "error": "Failed to load interviews.",
+    "noInterviews": "No interviews scheduled.",
+    "interviewCard": {
+      "status": "Status",
+      "date": "Date",
+      "location": "Location",
+      "locationNotSpecified": "Not specified"
+    },
+    "dialog": {
+      "sendMessage": "Send Message to Employer",
+      "title": "Message to Employer of {jobTitle}",
+      "placeholder": "Type your message here...",
+      "send": "Send"
+    },
+    "messages": {
+      "sendSuccess": "Message sent successfully!",
+      "sendError": "Failed to send message. Please try again."
+    }
   }
 }

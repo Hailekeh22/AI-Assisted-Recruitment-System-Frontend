@@ -377,5 +377,27 @@
       "page": "ገጽ",
       "of": "ከ"
     }
+  },
+  "interviewsPage": {
+    "pageTitle": "የእኔ ቃለ መጠይቆች",
+    "loading": "ቃለ መጠይቆች በመጫን ላይ...",
+    "error": "ቃለ መጠይቆች ማምጫን አልተቻለም።",
+    "noInterviews": "ምንም ቃለ መጠይቅ አልተሰራም።",
+    "interviewCard": {
+      "status": "ሁኔታ",
+      "date": "ቀን",
+      "location": "አድራሻ",
+      "locationNotSpecified": "አልተገለጸም"
+    },
+    "dialog": {
+      "sendMessage": "ለቀጣሪው መልእክት ይላኩ",
+      "title": "ለ {jobTitle} ስራ ለቀጣሪው መልእክት ",
+      "placeholder": "መልእክትዎን እዚህ ይፃፉ...",
+      "send": "ላክ"
+    },
+    "messages": {
+      "sendSuccess": "መልእክት በተሳካ ሁኔታ ተልኳል!",
+      "sendError": "መልእክት ማስተላለፍ አልተቻለም። እባክዎ ደግመው ይሞክሩ።"
+    }
   }
 }
