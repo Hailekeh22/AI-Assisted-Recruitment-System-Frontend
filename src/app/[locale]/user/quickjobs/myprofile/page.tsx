@@ -10,21 +10,45 @@ import {
   DialogTitle,
   DialogFooter,
   DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import {
   useGetQuickJobProfileQuery,
   useCreateQuickJobProfileMutation,
 } from "@/services/quickJobsAPI";
-import { Loader2, User, MapPin, Star, Users, Mail } from "lucide-react";
+import {
+  Loader2,
+  User,
+  MapPin,
+  Star,
+  Users,
+  Mail,
+  Phone,
+  Briefcase,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function QuickJobProfilePage() {
   const t = useTranslations("quickJobProfilePage");
   const { data, isLoading, isError, refetch } = useGetQuickJobProfileQuery({});
-  const [createProfile, { isLoading: isCreating }] = useCreateQuickJobProfileMutation();
+  const [createProfile, { isLoading: isCreating }] =
+    useCreateQuickJobProfileMutation();
   const [open, setOpen] = useState(false);
+  const [serviceDialogOpen, setServiceDialogOpen] = useState(false);
+
+  // New state for extra fields
   const [location, setLocation] = useState("");
+  const [service, setService] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  // Function to truncate service description
+  const truncateService = (text: string, maxWords: number = 15) => {
+    if (!text) return "";
+    const words = text.split(" ");
+    if (words.length <= maxWords) return text;
+    return words.slice(0, maxWords).join(" ") + "...";
+  };
 
   if (isLoading) {
     return (
@@ -42,7 +66,9 @@ export default function QuickJobProfilePage() {
       <div className="flex justify-center items-center min-h-screen">
         <Card className="max-w-md w-full mx-4">
           <CardContent className="p-6 text-center">
-            <p className="text-red-500 dark:text-red-400 font-medium">{t("error")}</p>
+            <p className="text-red-500 dark:text-red-400 font-medium">
+              {t("error")}
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -51,9 +77,15 @@ export default function QuickJobProfilePage() {
 
   const exists = data?.exists;
   const profile = data?.profile;
+  const truncatedService = profile?.service ? truncateService(profile.service) : "";
+  const isServiceTruncated = profile?.service && profile.service.split(" ").length > 15;
 
   const handleCreate = async () => {
-    const payload = { location: location.trim() || undefined };
+    const payload = {
+      location: location.trim() || undefined,
+      service: service.trim() || undefined,
+      phone_number: phoneNumber.trim() || undefined,
+    };
     await createProfile(payload).unwrap();
     setOpen(false);
     refetch();
@@ -88,6 +120,7 @@ export default function QuickJobProfilePage() {
 
                 {/* Profile Details */}
                 <div className="grid gap-4">
+                  {/* User ID */}
                   <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="flex items-center gap-3">
                       <User className="h-5 w-5 text-blue-500 dark:text-blue-400" />
@@ -100,6 +133,7 @@ export default function QuickJobProfilePage() {
                     </span>
                   </div>
 
+                  {/* Location */}
                   <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="flex items-center gap-3">
                       <MapPin className="h-5 w-5 text-green-500 dark:text-green-400" />
@@ -112,6 +146,53 @@ export default function QuickJobProfilePage() {
                     </span>
                   </div>
 
+                  {/* Service */}
+                  <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Briefcase className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+                      <span className="font-medium text-gray-700 dark:text-gray-300">
+                        {t("profile.service")}:
+                      </span>
+                    </div>
+                    <Dialog open={serviceDialogOpen} onOpenChange={setServiceDialogOpen}>
+                      <DialogTrigger asChild>
+                        <span
+                          className={`text-gray-900 dark:text-white max-w-xs cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${
+                            isServiceTruncated ? "underline" : ""
+                          }`}
+                        >
+                          {truncatedService || t("profile.notProvided")}
+                        </span>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                          <DialogTitle className="text-gray-900 dark:text-white">
+                            {t("profile.service")}
+                          </DialogTitle>
+                        </DialogHeader>
+                        <div className="py-4">
+                          <p className="text-gray-600 dark:text-gray-400 whitespace-pre-wrap">
+                            {profile.service}
+                          </p>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+
+                  {/* Phone Number */}
+                  <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <Phone className="h-5 w-5 text-pink-500 dark:text-pink-400" />
+                      <span className="font-medium text-gray-700 dark:text-gray-300">
+                        {t("profile.phone")}:
+                      </span>
+                    </div>
+                    <span className="text-gray-900 dark:text-white">
+                      {profile.phone_number || t("profile.notProvided")}
+                    </span>
+                  </div>
+
+                  {/* Rating */}
                   <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="flex items-center gap-3">
                       <Star className="h-5 w-5 text-yellow-500 dark:text-yellow-400" />
@@ -124,6 +205,7 @@ export default function QuickJobProfilePage() {
                     </span>
                   </div>
 
+                  {/* Total Rated */}
                   <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="flex items-center gap-3">
                       <Users className="h-5 w-5 text-purple-500 dark:text-purple-400" />
@@ -145,9 +227,9 @@ export default function QuickJobProfilePage() {
               <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
                 <User className="h-8 w-8 text-gray-400 dark:text-gray-500" />
               </div>
-              
+
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                No Profile Yet
+                {t("noProfile.title")}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
                 {t("noProfile.message")}
@@ -167,6 +249,7 @@ export default function QuickJobProfilePage() {
                   </DialogHeader>
 
                   <div className="space-y-4 py-4">
+                    {/* Location */}
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
                         {t("dialog.locationLabel")}
@@ -175,6 +258,33 @@ export default function QuickJobProfilePage() {
                         placeholder={t("dialog.locationPlaceholder")}
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
+                        className="w-full"
+                      />
+                    </div>
+
+                    {/* Service */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        {t("dialog.serviceLabel")}
+                      </label>
+                      <Input
+                        placeholder={t("dialog.servicePlaceholder")}
+                        value={service}
+                        onChange={(e) => setService(e.target.value)}
+                        className="w-full"
+                      />
+                    </div>
+
+                    {/* Phone Number */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        {t("dialog.phoneLabel")}
+                      </label>
+                      <Input
+                        type="tel"
+                        placeholder={t("dialog.phonePlaceholder")}
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
                         className="w-full"
                       />
                     </div>

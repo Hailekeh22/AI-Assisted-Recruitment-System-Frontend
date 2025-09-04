@@ -18,7 +18,11 @@ export const quickJobsApi = createApi({
 
     //create a quick job profile
     createQuickJobProfile: builder.mutation({
-      query: (body) => ({
+      query: (body: {
+        location?: string;
+        service?: string;
+        phone_number?: string;
+      }) => ({
         url: `/quickjob/profile`,
         method: "POST",
         body,

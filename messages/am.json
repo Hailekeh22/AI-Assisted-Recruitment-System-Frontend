@@ -279,10 +279,14 @@
     },
     "dialog": {
       "title": "አፋጣኝ ሥራዎች አካውንት ፍጠር",
-      "locationLabel": "አድራሻዎን እዚህ ያስገቡ (አማራጭ)",
+      "locationLabel": "አድራሻዎን እዚህ ያስገቡ",
       "locationPlaceholder": "አዲስ አበባ፣ ቦሌ …",
       "creating": "በመፍጠር ላይ…",
-      "create": "አካውንት ፍጠር"
+      "create": "አካውንት ፍጠር",
+      "serviceLabel": "የምትሰጡትን አገልግሎቶች ያስገቡ",
+      "servicePlaceholder": "የምትሰጡትን አገልግሎቶች ያስገቡ...",
+      "phoneLabel" : "የስልክ ቁጥርዎን እዚህ ያስገቡ",
+      "phonePlaceholder": "09xx xxx xxx"
     },
     "profile": {
       "userId": "የተጠቃሚ መለያ",
@@ -290,7 +294,9 @@
       "rating": "የተሰጦት ግምገማ ነጥብ",
       "totalRated": "አጠቃላይ ግምገማ ነጥብ የሰጡ ሰዎች",
       "owner": "ባለቤት",
-      "notProvided": "—"
+      "notProvided": "—",
+      "service": "የሚሰጡት አገልግሎቶች",
+      "phone": "ስልክ ቁጥር"
     }
   },
   "myquickpostedjobs": {

@@ -282,7 +282,11 @@
       "locationLabel": "Location (optional)",
       "locationPlaceholder": "Addis Ababa, Bole …",
       "creating": "Creating…",
-      "create": "Create"
+      "create": "Create",
+      "serviceLabel": "Services You Offer",
+      "servicePlaceholder": "Enter services you offer...",
+      "phoneLabel" : "Phone Number",
+      "phonePlaceholder": "09xx xxx xxx"
     },
     "profile": {
       "userId": "User ID",
@@ -290,7 +294,9 @@
       "rating": "Rating",
       "totalRated": "Total People Rated",
       "owner": "Owner",
-      "notProvided": "—"
+      "notProvided": "—",
+      "service": "your Services",
+      "phone": "Phone Number"
     }
   },
   "myquickpostedjobs": {
