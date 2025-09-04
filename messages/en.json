@@ -48,7 +48,37 @@
     "ctaheader": "Ready to Revolutionize Your Hiring?",
     "ctabody": "Join thousands of companies and professionals finding their perfect matches.",
     "ctabtnemp": "Create Your Employer profile",
-    "ctabtnjs": "Create Your Job Seeker Profile"
+    "ctabtnjs": "Create Your Job Seeker Profile",
+    "featuresSection": {
+      "title": "What Makes Our System Different From Others",
+      "subtitle": "Powered by cutting-edge AI technology to revolutionize your hiring experience"
+    },
+    "features": {
+      "lightningFast": {
+        "title": "Lightning Fast",
+        "description": "AI-powered matching in seconds"
+      },
+      "precisionMatching": {
+        "title": "Precision Matching",
+        "description": "95% accuracy in job-candidate matching"
+      },
+      "securePrivate": {
+        "title": "Secure & Private",
+        "description": "Enterprise-grade security"
+      },
+      "globalReach": {
+        "title": "Global Reach",
+        "description": "Connect with talent worldwide"
+      },
+      "smartFilters": {
+        "title": "Smart Filters",
+        "description": "Find exactly what you're looking for"
+      },
+      "topRated": {
+        "title": "Top Rated",
+        "description": "Rated 4.9/5 by thousands of users"
+      }
+    }
   },
   "loginPage": {
     "title": "Login to Your Account",
@@ -440,6 +470,84 @@
     "messages": {
       "applySuccess": "Application submitted successfully!",
       "applyError": "Failed to submit application."
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Transforming Recruitment",
+      "subtitle": "Connecting talented professionals with amazing opportunities worldwide",
+      "cta": "Join Our Platform"
+    },
+    "stats": {
+      "jobsPosted": "Jobs Posted",
+      "companies": "Companies",
+      "candidates": "Candidates",
+      "satisfaction": "Satisfaction Rate"
+    },
+    "features": {
+      "title": "Why Choose Us?",
+      "subtitle": "We're revolutionizing the way companies find talent and job seekers find opportunities",
+      "team": {
+        "title": "Expert Team",
+        "description": "Our team of recruitment experts ensures the best matches"
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "To make hiring and job hunting simple, efficient, and effective"
+      },
+      "values": {
+        "title": "Core Values",
+        "description": "Integrity, innovation, and excellence drive everything we do"
+      },
+      "quality": {
+        "title": "Quality First",
+        "description": "We prioritize quality matches over quantity every time"
+      },
+      "global": {
+        "title": "Global Reach",
+        "description": "Connect with opportunities and talent across the globe"
+      },
+      "growth": {
+        "title": "Rapid Growth",
+        "description": "Join one of the fastest-growing recruitment platforms"
+      },
+      "security": {
+        "title": "Secure Platform",
+        "description": "Your data and privacy are our top priority"
+      },
+      "efficiency": {
+        "title": "Efficient Process",
+        "description": "Streamlined hiring process saves time and resources"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive for excellence in every interaction"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Cutting-edge technology powers our platform"
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "description": "Founded with a vision to transform the recruitment industry, we've grown from a small startup to a leading platform connecting thousands of professionals with their dream jobs.",
+      "points": {
+        "1": "Founded in 2020 with a mission to revolutionize hiring",
+        "2": "Grown to serve 50,000+ users worldwide",
+        "3": "Recognized as industry leader in innovation"
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Passionate professionals dedicated to your success",
+      "memberName": "Team Member {number}",
+      "memberRole": "{number, select, 1{CEO & Founder} 2{CTO} 3{Head of Recruitment} 4{Product Lead}}",
+      "memberBio": "Experienced professional with years in the industry dedicated to excellence"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Career?",
+      "subtitle": "Join thousands of professionals who found their dream jobs through our platform",
+      "button": "Get Started Today"
     }
   }
 }
