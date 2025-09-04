@@ -6,7 +6,7 @@ import {
   useHireQuickJobSeekerMutation,
   useUpdateQuickJobStatusMutation,
 } from "@/services/quickJobsAPI";
-import { Loader2, Star, Mail, MapPin, Calendar, User } from "lucide-react";
+import { Loader2, Star, Mail, MapPin, Calendar, User, Phone, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useTranslations } from "next-intl";
@@ -52,7 +52,7 @@ export default function ApplicationsPage() {
 
     try {
       await updateStatus({ assignmentId, status, rating: ratingToSend }).unwrap();
-      alert(t("messages.updateSuccess", { status: t(`status.${status}`) }));
+      alert(t("messages.updateSuccess"));
     } catch (err: any) {
       alert(err?.data?.error || err?.message || "Failed to update assignment.");
     }
@@ -65,6 +65,14 @@ export default function ApplicationsPage() {
     }));
   };
 
+  const getStatusVariant = (status: string) => {
+    switch (status) {
+      case "accepted": return "default";
+      case "completed": return "success";
+      case "cancelled": return "destructive";
+      default: return "secondary";
+    }
+  };
 
   if (isLoading) {
     return (
@@ -94,6 +102,9 @@ export default function ApplicationsPage() {
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             {t("pageTitle")}
           </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Manage job applications and hiring process
+          </p>
         </div>
 
         {data && data.length > 0 ? (
@@ -106,16 +117,16 @@ export default function ApplicationsPage() {
                       {t("tableHeaders.seekerName")}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {t("tableHeaders.email")}
+                      {t("tableHeaders.phoneNumber")}
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {t("tableHeaders.service")}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       {t("tableHeaders.location")}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       {t("tableHeaders.rating")}
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {t("tableHeaders.status")}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       {t("tableHeaders.appliedAt")}
@@ -147,12 +158,22 @@ export default function ApplicationsPage() {
                           </div>
                         </td>
 
-                        {/* Email */}
+                        {/* Phone Number */}
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
-                            <Mail className="h-4 w-4 text-gray-400 dark:text-gray-500 mr-2" />
+                            <Phone className="h-4 w-4 text-gray-400 dark:text-gray-500 mr-2" />
                             <span className="text-sm text-gray-600 dark:text-gray-400">
-                              {user?.email}
+                              {seeker?.phone_number || "N/A"}
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* Service */}
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <Briefcase className="h-4 w-4 text-gray-400 dark:text-gray-500 mr-2" />
+                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                              {seeker?.service || "N/A"}
                             </span>
                           </div>
                         </td>
@@ -172,16 +193,9 @@ export default function ApplicationsPage() {
                           <div className="flex items-center">
                             <Star className="h-4 w-4 text-yellow-500 dark:text-yellow-400 mr-2" />
                             <span className="text-sm text-gray-600 dark:text-gray-400">
-                              {seeker?.rateing ? `${seeker.rateing} ` : "N/A"}
+                              {seeker?.rateing ? `${seeker.rateing} ⭐` : "N/A"}
                             </span>
                           </div>
-                        </td>
-
-                        {/* Status */}
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <Badge variant="default" className="text-xs capitalize">
-                            {t(`status.${app.status}`)}
-                          </Badge>
                         </td>
 
                         {/* Applied At */}

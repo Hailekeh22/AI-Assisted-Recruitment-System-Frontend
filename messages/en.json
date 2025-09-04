@@ -274,6 +274,7 @@
     "loading": "Loading Quick Job profile…",
     "error": "Failed to load profile.",
     "noProfile": {
+      "title": "No Profile Found",
       "message": "You don’t have a Quick Job profile yet. Create one to publish short-term jobs and get hired.",
       "createButton": "Create Profile"
     },
@@ -317,10 +318,10 @@
     "noApplications": "No applications yet for this job.",
     "tableHeaders": {
       "seekerName": "Seeker Name",
-      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "service": "Service",
       "location": "Location",
       "rating": "Rating",
-      "status": "Status",
       "appliedAt": "Applied At",
       "actions": "Actions"
     },

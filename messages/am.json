@@ -274,6 +274,7 @@
     "loading": "አፋጣኝ ሥራዎች ፕሮፋይል በመፈለግ ላይ…",
     "error": "መገለጫ ማግኘት አልተቻለም።",
     "noProfile": {
+      "title": "ፕሮፋይልዎ አልተገኘም",
       "message": "እስካሁን አፋጣኝ ሥራዎች አካውንት የሎትም። አጭር ጊዜ ስራዎችን ለመለጠፍ እና ለማግኘት አካውንት ይፍጠሩ።",
       "createButton": "አካውንት ፍጠር"
     },
@@ -310,16 +311,16 @@
     "nojobsfound": "እስካሁን ምንም ፈጣን ስራ አልለጠፉም።"
   },
   "applicationsPage": {
-    "pageTitle": "አስቸኳይ ስራ ማመልከቻዎች",
+    "pageTitle": "ማመልከቻዎች",
     "loading": "ማመልከቻዎች በመጫን ላይ...",
     "error": "ማመልከቻዎች ማምጫን አልተቻለም።",
     "noApplications": "ለዚህ ስራ እስካሁን ማመልከቻዎች የሉም።",
     "tableHeaders": {
       "seekerName": "የፈላጊው ስም",
-      "email": "ኢሜይል",
+      "phoneNumber": "ስልክ ቁጥር",
+      "service": "አገልግሎት",
       "location": "አድራሻ",
       "rating": "ደረጃ",
-      "status": "ሁኔታ",
       "appliedAt": "የተመዘገበበት ቀን",
       "actions": "ድርጊቶች"
     },
@@ -332,7 +333,7 @@
     "buttons": {
       "hire": "ቅጠር",
       "hiring": "በማዋል ላይ...",
-      "hired": "ተቀጥረዋል",
+      "hired": "ተዋል",
       "cancel": "ሰርዝ",
       "cancelling": "በማስረዘም ላይ...",
       "complete": "ጨርስ",
@@ -341,8 +342,8 @@
     },
     "messages": {
       "hireSuccess": "ፈላጊው በተሳካ ሁኔታ ተዋል!",
-      "updateSuccess": "ተጠናቋል!",
-      "invalidAssignment": "የማያገለግል  ሥራ አሰጣጥ",
+      "updateSuccess": "እያሰማራክ ያለው ተጠናቋል!",
+      "invalidAssignment": "የማያገለግል የተግባር መለያ",
       "invalidStatus": "የማያገለግል ሁኔታ"
     }
   }
