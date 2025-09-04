@@ -217,5 +217,30 @@
     "registering": "Registering...",
     "registrationSuccess": "Jobseeker registered successfully!",
     "registrationError": "Something went wrong. Please try again."
+  },
+  "quickJobsPage": {
+    "pageTitle": "Quick Jobs",
+    "cards": {
+      "postQuickJob": {
+        "title": "Post Quick Job",
+        "description": "Publish a short-term job and hire someone to do it.",
+        "buttonText": "Create Gig"
+      },
+      "myProfile": {
+        "title": "My Profile",
+        "description": "Offer your skills and services (e.g., Fixing, Tutoring, etc.).",
+        "buttonText": "My Profile"
+      },
+      "myQuickJobs": {
+        "title": "My Quick Jobs",
+        "description": "View and manage quick jobs you have posted.",
+        "buttonText": "View Jobs"
+      },
+      "findQuickJob": {
+        "title": "Find Quick Job",
+        "description": "Browse gigs posted by other users to hire them.",
+        "buttonText": "Find Gigs"
+      }
+    }
   }
 }

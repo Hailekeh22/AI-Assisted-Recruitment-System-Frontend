@@ -217,5 +217,30 @@
     "registering": "በማመዝገብ ላይ...",
     "registrationSuccess": "የሥራ ፈላጊ በተሳካ ሁኔታ ተመዝግቧል!",
     "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።"
+  },
+  "quickJobsPage": {
+    "pageTitle": "አፋጣኝ ሥራዎች",
+    "cards": {
+      "postQuickJob": {
+        "title": "አፋጣኝ ሥራ ለጥፍ",
+        "description": "አፋጣኝ ያስተዋውቁ እና ሰው ለማደርግ ይቅጠሩ።",
+        "buttonText": "አፋጣኝ ሥራ ፍጠር"
+      },
+      "myProfile": {
+        "title": "የእኔ አካውንት",
+        "description": "ችሎታዎችዎን እና አገልግሎቶችዎን እዚህ ያስገቡ (ለምሳሌ፥ መጠገን፥ ወዘተ.)።",
+        "buttonText": "የእኔ አካውንት"
+      },
+      "myQuickJobs": {
+        "title": "የእኔ አፋጣኝ ስራዎች",
+        "description": "የለጠፉትን አፋጣኝ ስራዎች ይመልከቱ እና ያስተዳድሩ።",
+        "buttonText": "ስራዎችዎን ይመልከቱ"
+      },
+      "findQuickJob": {
+        "title": "አፋጣኝ ሥራ ፈልግ",
+        "description": "በሌሎች ተጠቃሚዎች የቀረቡ አፋጣኝ ሥራዎችን ይመልከቱ።",
+        "buttonText": "ሥራዎችን ፈልግ"
+      }
+    }
   }
 }

@@ -1,38 +1,42 @@
+"use client";
+
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Briefcase, User, PlusCircle, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-export default async function QuickJobsPage() {
+export default function QuickJobsPage() {
+  const t = useTranslations("quickJobsPage");
 
   const cards = [
     {
-      title: "Post Quick Job ",
-      description: "Publish a short-term job and hire someone to do it.",
+      title: t("cards.postQuickJob.title"),
+      description: t("cards.postQuickJob.description"),
       icon: <PlusCircle className="w-14 h-14 text-blue-500" />,
       link: `/user/quickjobs/create`,
-      buttonText: "Create Gig",
+      buttonText: t("cards.postQuickJob.buttonText"),
     },
     {
-      title: "My Profile",
-      description: "Offer your skills and services (e.g., Fixing, Tutoring, etc.).",
-      icon: <User  className="w-14 h-14 text-green-500" />,
+      title: t("cards.myProfile.title"),
+      description: t("cards.myProfile.description"),
+      icon: <User className="w-14 h-14 text-green-500" />,
       link: `/user/quickjobs/myprofile`,
-      buttonText: "My Profile",
+      buttonText: t("cards.myProfile.buttonText"),
     },
     {
-      title: "My Quick Jobs",
-      description: "View and manage quick jobs you have posted.",
+      title: t("cards.myQuickJobs.title"),
+      description: t("cards.myQuickJobs.description"),
       icon: <Briefcase className="w-14 h-14 text-purple-500" />,
       link: `/user/quickjobs/listings`,
-      buttonText: "View Jobs",
+      buttonText: t("cards.myQuickJobs.buttonText"),
     },
     {
-      title: "Find Quick Job",
-      description: "Browse gigs posted by other users to hire them.",
+      title: t("cards.findQuickJob.title"),
+      description: t("cards.findQuickJob.description"),
       icon: <Search className="w-14 h-14 text-orange-500" />,
       link: `/user/quickjobs/find`,
-      buttonText: "Find Gigs",
+      buttonText: t("cards.findQuickJob.buttonText"),
     },
   ];
 
