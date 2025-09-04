@@ -218,7 +218,7 @@
     "registrationSuccess": "Jobseeker registered successfully!",
     "registrationError": "Something went wrong. Please try again."
   },
-  "quickJobsPage": {
+  "quickJobsLandingPage": {
     "pageTitle": "Quick Jobs",
     "cards": {
       "postQuickJob": {

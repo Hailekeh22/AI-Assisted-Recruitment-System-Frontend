@@ -7,7 +7,7 @@ import { Briefcase, User, PlusCircle, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function QuickJobsPage() {
-  const t = useTranslations("quickJobsPage");
+  const t = useTranslations("quickJobsLandingPage");
 
   const cards = [
     {

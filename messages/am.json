@@ -218,7 +218,7 @@
     "registrationSuccess": "የሥራ ፈላጊ በተሳካ ሁኔታ ተመዝግቧል!",
     "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።"
   },
-  "quickJobsPage": {
+  "quickJobsLandingPage": {
     "pageTitle": "አፋጣኝ ሥራዎች",
     "cards": {
       "postQuickJob": {
