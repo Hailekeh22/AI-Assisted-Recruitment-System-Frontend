@@ -88,6 +88,7 @@ const LandingPage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8, ease: "backOut" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-12 rounded-full text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 group"
             >
               {t("ctabtnlandingpage")}

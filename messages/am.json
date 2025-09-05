@@ -51,32 +51,32 @@
     "ctabtnjs": "የስራ ፈላጊ አካውንት ይፍጠሩ",
     "featuresSection": {
       "title": "ስርዓታችን ከሌሎች ስርዓቶች የሚለየው ምንድን ነው?",
-      "subtitle": "የምርጥ የAI ቴክኖሎጂ በመጠቀም የሰራተኛ ምልመላ ተሞክሮዎን ለመቀየር"
+      "subtitle": "የAI ቴክኖሎጂ በመጠቀም የሰራተኛ ምልመላ ተሞክሮዎን ለመቀየር"
     },
     "features": {
       "lightningFast": {
-        "title": "የዛፍ ቅጠብጣብ",
-        "description": "በAI የሚነዳ መጣጣም በሰከንዶች"
+        "title": "እጅግ ፈጣን",
+        "description": "በAI የሚመራ የሥራ ማመልከቻ ግምገማ በሰከንዶች"
       },
       "precisionMatching": {
-        "title": "ትክክለኛ መጣጣም",
-        "description": "95% ትክክለኛነት በስራ-አመልካች መጣጣም"
+        "title": "ትክክለኛ ግምገማ",
+        "description": "በሥራ እጩ ማዛመድ ውስጥ 95% ትክክለኛነት"
       },
       "securePrivate": {
         "title": "ደህንነቱ የተጠበቀ እና ግላዊ",
-        "description": "የድርጅት ደረጃ ደህንነት"
+        "description": "የድርጅት ደህንነት"
       },
       "globalReach": {
-        "title": "ዓለም አቀፍ ድርሻ",
-        "description": "በሙሉ ዓለም ከብቃት ያላቸው ሰራተኞች ጋር ተገናኝ"
+        "title": "ሰፊ ተደራሽነት",
+        "description": "በሀገራችን ከብቃት ያላቸው ሰራተኞች ጋር ያግኙ"
       },
       "smartFilters": {
-        "title": "ብልህ ማጣሪያዎች",
+        "title": "ለመጠቀም ቀላል",
         "description": "በትክክል የሚፈልጉትን ያግኙ"
       },
       "topRated": {
         "title": "ከፍተኛ ደረጃ",
-        "description": "በእጅግ በርካታ ተጠቃሚዎች 4.9/5 ደረጃ ተሰጥቷል"
+        "description": "በእጅግ በርካታ ተጠቃሚዎችን ማስተናገድ የሚችል"
       }
   }
   },
@@ -640,6 +640,45 @@
       "title": "ሙያዎን ለመቀየር ዝግጁ ኖት?",
       "subtitle": "በመድረካችን በኩል ምስለኔ ስራዎቻቸውን ያገኙ ብዙ ሺህ ባለሙያዎች ጋር ይቀላቀሉ",
       "button": "ዛሬ ይጀምሩ"
+    }
+  },
+  "employerDashboardLanding": {
+    "title": "የሰራተኛ ባለቤት መግቢያ",
+    "subtitle": "ወደ የቅጥር መድረክዎ እንኳን ደህና መጡ",
+    "welcome": {
+      "title": "በብልህነት ይቅጠሩ፣ በፍጥነት ይደጉ",
+      "subtitle": "ከከፍተኛ ብቃት ያላቸው ሰራተኞች ጋር ተገናኝ እና በAI የሚነደ የሰራተኛ ምልመላ መድረካችን የምስለኔ ቡድንዎን ይገንቡ"
+    },
+    "features": {
+      "postJobs": {
+        "title": "ስራዎችን ለጥፍ",
+        "description": "የስራ ዝርዝሮችን በቀላሉ ይፍጠሩ እና ያስተዳድሩ"
+      },
+      "findTalent": {
+        "title": "ብቃት ያግኙ",
+        "description": "ለሺህ የሚቆጠሩ ብቁ ባለሙያዎች መዳረሻ"
+      },
+      "smartMatching": {
+        "title": "ብልህ መጣጣም",
+        "description": "በAI የሚነዳ የአመልካች መጣጣም ቴክኖሎጂ"
+      },
+      "secure": {
+        "title": "ደህንነቱ የተጠበቀ መድረክ",
+        "description": "ለውሂብዎ የድርጅት ደረጃ ደህንነት"
+      }
+    },
+    "stats": {
+      "activeUsers": "ንቁ አመልካቾች",
+      "successRate": "የስኬት መጠን",
+      "companies": "ኩባንያዎች"
+    },
+    "actions": {
+      "signIn": "ግባ",
+      "getStarted": "ጀምር",
+      "package": "ፓኬጅ ይግዙ"
+    },
+    "footer": {
+      "text": "© 2024 የሰራተኛ ምልመላ መድረክ። ዛሬ ቡድንዎን መገንባት ይጀምሩ።"
     }
   }
 }

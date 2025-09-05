@@ -28,7 +28,7 @@
   },
   "LandingPage": {
     "moto": "Find Your Next Hire, Faster Than Ever.",
-    "description": "Our AI intelligently matches the right talent with the right opportunities, saving you time and effort.",
+    "description": "Our AI-powered system saves you time and effort by facilitating faster hiring.",
     "howitworks": "How It Works?",
     "ctabtnlandingpage": "Get Started Now",
     "info": "A simple, streamlined process for job seekers and employers.",
@@ -57,7 +57,7 @@
     "features": {
       "lightningFast": {
         "title": "Lightning Fast",
-        "description": "AI-powered matching in seconds"
+        "description": "AI-powered job application review in seconds"
       },
       "precisionMatching": {
         "title": "Precision Matching",
@@ -68,16 +68,16 @@
         "description": "Enterprise-grade security"
       },
       "globalReach": {
-        "title": "Global Reach",
-        "description": "Connect with talent worldwide"
+        "title": "Wide Reach",
+        "description": "Meet qualified workers in our country"
       },
       "smartFilters": {
-        "title": "Smart Filters",
+        "title": "Easy to Use",
         "description": "Find exactly what you're looking for"
       },
       "topRated": {
         "title": "Top Rated",
-        "description": "Rated 4.9/5 by thousands of users"
+        "description": "Capable of handling multiple users"
       }
     }
   },
@@ -364,7 +364,7 @@
       }
     }
   },
-   "quickJobPosterPage": {
+  "quickJobPosterPage": {
     "pageTitle": "Quick Job posting form",
     "form": {
       "details": {
@@ -407,7 +407,7 @@
       "create": "Create",
       "serviceLabel": "Services You Offer",
       "servicePlaceholder": "Enter services you offer...",
-      "phoneLabel" : "Phone Number",
+      "phoneLabel": "Phone Number",
       "phonePlaceholder": "09xx xxx xxx"
     },
     "profile": {
@@ -500,7 +500,7 @@
       "of": "of"
     }
   },
-   "interviewsPage": {
+  "interviewsPage": {
     "pageTitle": "My Interviews",
     "loading": "Loading interviews...",
     "error": "Failed to load interviews.",
@@ -639,6 +639,45 @@
       "title": "Ready to Transform Your Career?",
       "subtitle": "Join thousands of professionals who found their dream jobs through our platform",
       "button": "Get Started Today"
+    }
+  },
+  "employerDashboardLanding": {
+    "title": "Employer Portal",
+    "subtitle": "Welcome to your hiring platform",
+    "welcome": {
+      "title": "Hire Smarter, Grow Faster",
+      "subtitle": "Connect with top talent and build your dream team with our AI-powered recruitment platform"
+    },
+    "features": {
+      "postJobs": {
+        "title": "Post Jobs",
+        "description": "Create and manage job listings easily"
+      },
+      "findTalent": {
+        "title": "Find Talent",
+        "description": "Access thousands of qualified professionals"
+      },
+      "smartMatching": {
+        "title": "Smart Matching",
+        "description": "AI-powered candidate matching technology"
+      },
+      "secure": {
+        "title": "Secure Platform",
+        "description": "Enterprise-grade security for your data"
+      }
+    },
+    "stats": {
+      "activeUsers": "Active Candidates",
+      "successRate": "Success Rate",
+      "companies": "Companies"
+    },
+    "actions": {
+      "signIn": "Sign In",
+      "getStarted": "Get Started",
+      "package": "Buy Package"
+    },
+    "footer": {
+      "text": "© 2024 Recruitment Platform. Start building your team today."
     }
   }
 }
