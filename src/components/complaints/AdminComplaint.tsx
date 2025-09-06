@@ -91,15 +91,15 @@ const AdminComplaintsTable: React.FC = () => {
   const currentPage = data?.pagination.page || 1;
 
   return (
-    <div className="w-full bg-blue-500/10 dark:bg-[#252525] rounded-2xl shadow-lg p-6 transition-colors">
+    <div className="w-full rounded-2xl shadow-lg p-6 transition-colors">
       <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">
         {t("allComplaints")}
       </h2>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto border">
         <table className="w-full border-collapse text-left">
           <thead>
-            <tr className="bg-blue-600 dark:bg-gray-700">
+            <tr className="bg-blue-600 ">
               <th className="p-3 text-gray-200">{t("content")}</th>
               <th className="p-3 text-gray-200">{t("status")}</th>
               <th className="p-3 text-gray-200">{t("filedat")}</th>

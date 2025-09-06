@@ -15,7 +15,10 @@ export const paymentAPI = createApi({
         body,
       }),
     }),
+    getAllPayments: builder.query<any, { page?: number; limit?: number }>({
+      query: ({ page = 1, limit = 10 }) => `/payments?page=${page}&limit=${limit}`,
+    }),
   }),
 });
 
-export const { useInitializeEmployerPaymentMutation } = paymentAPI;
+export const { useInitializeEmployerPaymentMutation, useGetAllPaymentsQuery } = paymentAPI;
