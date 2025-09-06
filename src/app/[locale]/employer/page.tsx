@@ -50,14 +50,6 @@ const EmployerWelcomePage = () => {
               <h1 className="text-2xl font-bold">{t("title")}</h1>
               <p className="text-muted-foreground">{t("subtitle")}</p>
             </div>
-            <div className="flex items-center gap-3">
-              <Button asChild>
-                <Link href="/employer/postjob">
-                  <Plus className="h-4 w-4 mr-2" />
-                  {t("actions.getStarted")}
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </header>

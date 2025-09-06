@@ -642,7 +642,7 @@
     }
   },
   "employerDashboardLanding": {
-    "title": "Employer Portal",
+    "title": "Employer Dashboard",
     "subtitle": "Welcome to your hiring platform",
     "welcome": {
       "title": "Hire Smarter, Grow Faster",
@@ -678,6 +678,39 @@
     },
     "footer": {
       "text": "© 2024 Recruitment Platform. Start building your team today."
+    }
+  },
+  "adminDashboardLanding": {
+    "title": "Admin Dashboard",
+    "subtitle": "Platform administration and management",
+    "welcome": {
+      "title": "Platform Administration",
+      "subtitle": "Manage users, jobs, complaints, and payments from a single dashboard"
+    },
+    "features": {
+      "manageUsers": {
+        "title": "Manage Users",
+        "description": "View and manage all user accounts and permissions"
+      },
+      "manageJobs": {
+        "title": "Manage Jobs",
+        "description": "Monitor and moderate job postings across the platform"
+      },
+      "manageComplaints": {
+        "title": "Manage Complaints",
+        "description": "Review and resolve user complaints and issues"
+      },
+      "managePayments": {
+        "title": "Manage Payments",
+        "description": "Track payment transactions and revenue"
+      }
+    },
+    "actions": {
+      "viewUsers": "View Users",
+      "viewJobs": "View Jobs",
+      "viewComplaints": "View Complaints",
+      "viewPayments": "View Payments",
+      "reports": "Reports"
     }
   }
 }
