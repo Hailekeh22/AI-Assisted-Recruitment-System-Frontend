@@ -558,6 +558,23 @@
       "deadline": "Deadline",
       "aiSummary": "Get AI Job Summary"
     },
+    "filters": {
+      "categoryPlaceholder": "Select category",
+      "allCategories": "All Categories",
+      "Sales": "Sales",
+      "Technology": "Technology",
+      "Engineering": "Engineering",
+      "Health": "Health",
+      "Marketing": "Marketing",
+      "Education": "Education",
+      "Finance": "Finance",
+      "Hospitality": "Hospitality",
+      "Legal": "Legal",
+      "Design": "Design",
+      "Agriculture": "Agriculture",
+      "others": "Others"
+    },
+    "noJobs": "No jobs found in this category",
     "jobDetails": {
       "description": "Description",
       "requirements": "Requirements",

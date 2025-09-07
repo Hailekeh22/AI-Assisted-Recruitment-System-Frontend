@@ -565,6 +565,23 @@
       "type": "ዓይነት",
       "status": "ሁኔታ"
     },
+    "filters": {
+      "categoryPlaceholder": "ምድብ ይምረጡ",
+      "allCategories": "ሁሉም ምድቦች",
+      "Sales": "ሽያጭ",
+      "Technology": "ቴክኖሎጂ",
+      "Engineering": "ምህንድስና",
+      "Health": "ጤና",
+      "Marketing": "ግብይት",
+      "Education": "ትምህርት",
+      "Finance": "ፋይናንስ",
+      "Hospitality": "አሰፋፈር",
+      "Legal": "ህጋዊ",
+      "Design": "ዲዛይን",
+      "Agriculture": "የእርሻ",
+      "others": "ሌሎች"
+    },
+    "noJobs": "በዚህ ምድብ ምንም ስራዎች አልተገኙም",
     "buttons": {
       "apply": "ያመልክቱ",
       "previous": "ቀዳሚ",

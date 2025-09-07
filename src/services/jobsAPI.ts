@@ -95,26 +95,34 @@ export const jobAPI = createApi({
     }),
 
     // JOb seeker get all Jobs
-    jobSeekerGetAllJObs: builder.query<GetAllJobsResponse, number>({
-      query: (page = 1) => ({
-        url: `/jobs/alljobs?page=${page}`,
-        method: "GET",
-      }),
+    jobSeekerGetAllJObs: builder.query<
+      GetAllJobsResponse,
+      { page?: number; category?: string }
+    >({
+      query: ({ page = 1, category }) => {
+        let url = `/jobs`;
+        if (category) {
+          url = `/jobs/category`; 
+        }
+        url += `?page=${page}`;
+        if (category) {
+          url += `&category=${encodeURIComponent(category)}`;
+        }
+        return { url, method: "GET" };
+      },
     }),
 
     //Job Seeker Apply to jobs
-    applyToJob: builder.mutation(
-      {
-        query: ({ job_id, cover_letter }) => ({
-          url: "/job/apply",
-          method: "POST",
-          body: { job_id, cover_letter },
-        }),
-      }
-    ),
+    applyToJob: builder.mutation({
+      query: ({ job_id, cover_letter }) => ({
+        url: "/job/apply",
+        method: "POST",
+        body: { job_id, cover_letter },
+      }),
+    }),
 
     //GEt Ai summary for a job
-     getAiJobSummary: builder.query<{ summary: string }, number>({
+    getAiJobSummary: builder.query<{ summary: string }, number>({
       query: (jobId) => `/jobs/${jobId}/aisummary`,
     }),
   }),
@@ -129,5 +137,5 @@ export const {
   useAdmindeleteJobMutation,
   useJobSeekerGetAllJObsQuery,
   useApplyToJobMutation,
-  useGetAiJobSummaryQuery
+  useGetAiJobSummaryQuery,
 } = jobAPI;
