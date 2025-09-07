@@ -232,7 +232,7 @@ export default function JobsListing() {
 
       {/* Apply Sheet */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetContent side="right" className="w-[400px] sm:w-[500px]">
+        <SheetContent side="right" className="w-[500px] px-4 sm:w-[500px]">
           <SheetHeader>
             <SheetTitle>
               {t("applySheet.title", { jobTitle: selectedJob?.title || "" })}
@@ -243,7 +243,7 @@ export default function JobsListing() {
               placeholder={t("applySheet.placeholder")}
               value={coverLetter}
               onChange={(e) => setCoverLetter(e.target.value)}
-              className="min-h-[150px]"
+              className="min-h-[350px] resize-none"
             />
           </div>
           <SheetFooter className="mt-4">
