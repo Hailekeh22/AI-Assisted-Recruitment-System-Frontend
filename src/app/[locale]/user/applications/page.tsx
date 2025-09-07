@@ -21,6 +21,14 @@ export default function ApplicationsPage() {
     );
   }
 
+    if (!data?.applications || data.applications.length === 0) {
+    return (
+      <div className="text-center mt-10 text-gray-600 font-medium">
+        No applications found.
+      </div>
+    );
+  }
+
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data?.applications?.map((app:applications, index:number) => (
