@@ -271,6 +271,8 @@
     "confirmPasswordRequired": "Please confirm your password",
     "passwordsDoNotMatch": "Passwords do not match",
     "companyNameRequired": "Company name is required",
+    "firstNameMax": "First name must not exceed 40 characters",
+    "lastNameMax": "Last name must not exceed 40 characters",
     "hero": {
       "title": "Hire the Best Talent for Your Company",
       "subtitle": "Join thousands of employers who found their perfect candidates through our platform",
@@ -317,6 +319,8 @@
     "passwordMin": "Password must be at least 6 characters",
     "confirmPasswordRequired": "Please confirm your password",
     "passwordsDoNotMatch": "Passwords do not match",
+    "firstNameMax": "First name must not exceed 40 characters",
+    "lastNameMax": "Last name must not exceed 40 characters",
     "hero": {
       "title": "Find Your Dream Job Today",
       "subtitle": "Join thousands of professionals who landed their ideal roles through our platform",

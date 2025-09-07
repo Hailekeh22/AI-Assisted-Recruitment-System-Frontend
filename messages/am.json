@@ -273,6 +273,8 @@
     "confirmPasswordRequired": "የይለፍ ቃል እንደገና ያስገቡ",
     "passwordsDoNotMatch": "የይለፍ ቃሎቹ አይዛመዱም",
     "companyNameRequired": "የኩባንያ ስም መሞላት አለበት",
+    "firstNameMax": "የመጀመሪያ ስም ከ40 ፊደላት መብለጥ የለበትም",
+    "lastNameMax": "የአባት ስም ከ40 ፊደላት መብለጥ የለበትም",
     "hero": {
       "title": "ለኩባንያዎ ምርጥ ብቃት ያላቸውን ይቅጠሩ",
       "subtitle": "በመድረካችን በኩል ፍጹም አመልካቾቻቸውን ያገኙ ብዙ ሺህ የሰራተኛ ባለቤቶች ጋር ይቀላቀሉ",
@@ -319,6 +321,8 @@
     "passwordMin": "የይለፍ ቃል ቢያንስ 6 ፊደላት መሆን አለበት",
     "confirmPasswordRequired": "የይለፍ ቃል እንደገና ያስገቡ",
     "passwordsDoNotMatch": "የይለፍ ቃሎቹ አይዛመዱም",
+    "firstNameMax": "የመጀመሪያ ስም ከ40 ፊደላት መብለጥ የለበትም",
+    "lastNameMax": "የአባት ስም ከ40 ፊደላት መብለጥ የለበትም",
     "hero": {
       "title": "ተስማሚ ስራዎን ዛሬውኑ ያግኙ",
       "subtitle": "በመድረካችን በኩል ፍጹም ሚናቸውን ያገኙ ብዙ ሺህ ባለሙያዎች ጋር ይቀላቀሉ",

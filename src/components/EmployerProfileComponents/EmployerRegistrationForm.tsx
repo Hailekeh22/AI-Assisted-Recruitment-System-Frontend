@@ -28,8 +28,8 @@ export default function EmployerRegistrationForm() {
 
   const schema = z
     .object({
-      firstname: z.string().min(3, { message: t("firstNameRequired") }),
-      lastname: z.string().min(3, { message: t("lastNameRequired") }),
+      firstname: z.string().min(3, { message: t("firstNameRequired") }).max(40, { message: t("firstNameMax") }),
+      lastname: z.string().min(3, { message: t("lastNameRequired") }).max(40, { message: t("lastNameMax") }),
       email: z.string().email({ message: t("invalidEmail") }),
       password: z.string().min(6, { message: t("passwordMin") }),
       confirmPassword: z
