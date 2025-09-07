@@ -231,7 +231,14 @@
     "deletedialogtitle": "የማስወገጃ ማረጋገጫ",
     "deleteconfirmation": "ይህን የስራ ማስታወቂያ መሰረዝ እርግጠኛ ነዎት? ይህ ተግባር ሊቀለበስ አይችልም።",
     "canceldeletebtn": "ይቅር",
-    "confirmdeletebtn": "ሰርዝ"
+    "confirmdeletebtn": "ሰርዝ",
+    "titlemax": "የሥራው አርእስት ከ50 ቃላት መሆን የለበትም",
+    "titlemin": "የሥራው አርእስት ከ5 ቃላት መሆን አለበት",
+    "descriptionmin": "መግለጫው ከ20 ቃላት በላይ መሆን አለበት",
+    "descriptionmax": "መግለጫው ከ700 ቃላት በታች መሆን አለበት",
+    "requirementsmin": "መስፈርቶቹ ከ20 ቃላት በላይ መሆን አለበት",
+    "requirementsmax": "መስፈርቶቹ ከ400 ቃላት በታች መሆን አለበት",
+    "salarymax": "የደመወዝ መግለጫ ከ20 ቃላት በታች መሆን አለበት"
   },
   "jobs": {
     "allJobs": "ሁሉም የቀረቡ ስራዎች",

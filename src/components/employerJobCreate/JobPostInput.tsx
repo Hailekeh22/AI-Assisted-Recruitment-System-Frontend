@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { usePostJobMutation, useGetMyJobsQuery } from "@/services/jobsAPI";
+import { z } from "zod";
 
 const JobPostInput: React.FC = () => {
   const t = useTranslations("jobpost");
@@ -12,19 +13,61 @@ const JobPostInput: React.FC = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [jobType, setJobType] = useState("");
-  const [category, setCategory] = useState(""); // New category state
+  const [category, setCategory] = useState("");
   const [requirements, setRequirements] = useState("");
   const [salary, setSalary] = useState("");
   const [deadline, setDeadline] = useState("");
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const [submitJob, { isLoading }] = usePostJobMutation();
   const { refetch } = useGetMyJobsQuery();
+
+  const jobSchema = z.object({
+    title: z.string().max(50, { message: t("titlemax") }).min(5, { message: t("titlemin")}),
+    description: z
+      .string()
+      .refine((val) => val.trim().split(/\s+/).length > 20, {
+        message: t("descriptionmin"),
+      })
+      .refine((val) => val.trim().split(/\s+/).length < 700, {
+        message: t("descriptionmax"),
+      }),
+    requirements: z
+      .string()
+      .refine((val) => val.trim().split(/\s+/).length > 20, {
+        message: t("requirementsmin"),
+      })
+      .refine((val) => val.trim().split(/\s+/).length < 400, {
+        message: t("requirementsmax"),
+      }),
+    salary: z
+      .string()
+      .optional()
+      .refine((val) => !val || val.trim().split(/\s+/).length < 20, {
+        message: t("salarymax"),
+      }),
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const result = jobSchema.safeParse({ title, description, requirements, salary });
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.issues.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0].toString()] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
+
     if (!title || !description || !jobType || !category || !deadline) {
-      toast(t("missingfields")); // "Missing required fields"
+      setErrors((prev) => ({ ...prev, form: t("missingfields") }));
       return;
     }
 
@@ -32,7 +75,7 @@ const JobPostInput: React.FC = () => {
     formData.append("title", title);
     formData.append("description", description);
     formData.append("job_type", jobType);
-    formData.append("category", category); // append category
+    formData.append("category", category);
     formData.append("requirements", requirements);
     if (salary) formData.append("salary", salary);
     formData.append("application_deadline", deadline);
@@ -49,8 +92,9 @@ const JobPostInput: React.FC = () => {
       setRequirements("");
       setSalary("");
       setDeadline("");
+      setErrors({});
     } catch (err) {
-      toast(t("error")); // "Error while posting job"
+      toast(t("error"));
     }
   };
 
@@ -79,6 +123,9 @@ const JobPostInput: React.FC = () => {
               className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
               bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
             />
+            {errors.title && (
+              <p className="text-red-500 text-sm mt-1">{errors.title}</p>
+            )}
           </div>
 
           {/* Description */}
@@ -98,6 +145,9 @@ const JobPostInput: React.FC = () => {
               className="w-full p-4 border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 
               bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
             />
+            {errors.description && (
+              <p className="text-red-500 text-sm mt-1">{errors.description}</p>
+            )}
           </div>
 
           {/* Job Type */}
@@ -170,6 +220,9 @@ const JobPostInput: React.FC = () => {
               className="w-full p-4 border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 
               bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
             />
+            {errors.requirements && (
+              <p className="text-red-500 text-sm mt-1">{errors.requirements}</p>
+            )}
           </div>
 
           {/* Salary (optional) */}
@@ -189,6 +242,9 @@ const JobPostInput: React.FC = () => {
               className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
               bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600 transition-colors"
             />
+            {errors.salary && (
+              <p className="text-red-500 text-sm mt-1">{errors.salary}</p>
+            )}
           </div>
 
           {/* Application Deadline */}
@@ -212,12 +268,25 @@ const JobPostInput: React.FC = () => {
           {/* Submit */}
           <button
             type="submit"
-            disabled={isLoading || !title || !description || !jobType || !category || !deadline}
+            disabled={
+              isLoading ||
+              !title ||
+              !description ||
+              !jobType ||
+              !category ||
+              !deadline
+            }
             className="w-full py-3 bg-blue-600 text-white font-medium text-lg rounded-lg shadow-md 
             hover:bg-blue-700 transition disabled:bg-gray-400 dark:disabled:bg-gray-600"
           >
             {isLoading ? t("posting") : t("submit")}
           </button>
+
+          {errors.form && (
+            <p className="text-red-500 text-sm mt-2 text-center">
+              {errors.form}
+            </p>
+          )}
         </form>
       </div>
     </div>
