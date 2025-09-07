@@ -78,7 +78,7 @@
         "title": "ከፍተኛ ደረጃ",
         "description": "በእጅግ በርካታ ተጠቃሚዎችን ማስተናገድ የሚችል"
       }
-  }
+    }
   },
 
   "loginPage": {
@@ -252,7 +252,7 @@
     "cancelbtn": "ይቅር",
     "deleteing": "በመሰረዝ ላይ...",
     "delete": "ሰርዝ"
-  }, 
+  },
   "employerForm": {
     "employerRegistration": "የቀጣሪዎች ምዝገባ",
     "firstName": "የመጀመርያ ስም",
@@ -265,6 +265,14 @@
     "registering": "በማመዝገብ ላይ...",
     "registrationSuccess": "የቀጣሪው አድራሻ በተሳካ ሁኔታ ተመዝግቧል!",
     "registrationError": "አንድ ስህተት ተፈጥሯል። እባክዎ ደግመው ይሞክሩ።",
+    "confirmPassword": "የይለፍ ቃልን ያረጋግጡ",
+    "firstNameRequired": "ስም መሞላት አለበት፣ ወይም በጣም አጭር ሞልተዋል",
+    "lastNameRequired": "የአባት ስም መሞላት አለበት፣ ወይም በጣም አጭር ሞልተዋል",
+    "invalidEmail": "እባክዎ ትክክለኛ ኢሜይል ያስገቡ",
+    "passwordMin": "የይለፍ ቃል ቢያንስ 6 ቁጥር መሆን አለበት",
+    "confirmPasswordRequired": "የይለፍ ቃል እንደገና ያስገቡ",
+    "passwordsDoNotMatch": "የይለፍ ቃሎቹ አይዛመዱም",
+    "companyNameRequired": "የኩባንያ ስም መሞላት አለበት",
     "hero": {
       "title": "ለኩባንያዎ ምርጥ ብቃት ያላቸውን ይቅጠሩ",
       "subtitle": "በመድረካችን በኩል ፍጹም አመልካቾቻቸውን ያገኙ ብዙ ሺህ የሰራተኛ ባለቤቶች ጋር ይቀላቀሉ",
@@ -409,7 +417,7 @@
       "create": "አካውንት ፍጠር",
       "serviceLabel": "የምትሰጡትን አገልግሎቶች ያስገቡ",
       "servicePlaceholder": "የምትሰጡትን አገልግሎቶች ያስገቡ...",
-      "phoneLabel" : "የስልክ ቁጥርዎን እዚህ ያስገቡ",
+      "phoneLabel": "የስልክ ቁጥርዎን እዚህ ያስገቡ",
       "phonePlaceholder": "09xx xxx xxx"
     },
     "profile": {
