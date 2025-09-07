@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
-
+import { z } from "zod";
 
 export default function JobseekerRegistrationForm() {
-  const t = useTranslations("jobseekerForm")
+  const t = useTranslations("jobseekerForm");
   const dispatch = useDispatch();
   const router = useRouter();
   const [registerJobseeker, { isLoading }] = useRegisterJobSeekerMutation();
@@ -19,9 +19,25 @@ export default function JobseekerRegistrationForm() {
     lastname: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
+
+  // Zod schema
+  const schema = z
+    .object({
+      firstname: z.string().min(3, { message: t("firstNameRequired") }),
+      lastname: z.string().min(3, { message: t("lastNameRequired") }),
+      email: z.string().email({ message: t("invalidEmail") }),
+      password: z.string().min(6, { message: t("passwordMin") }),
+      confirmPassword: z.string().min(6, { message: t("confirmPasswordRequired") }),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: t("passwordsDoNotMatch"),
+      path: ["confirmPassword"],
+    });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -36,9 +52,23 @@ export default function JobseekerRegistrationForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const result = schema.safeParse(form);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.issues.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0].toString()] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
+
     const formData = new FormData();
     Object.entries(form).forEach(([key, value]) =>
-      formData.append(key, value as string)
+      key !== "confirmPassword" && formData.append(key, value as string)
     );
     if (profilePicture) {
       formData.append("profile_picture", profilePicture);
@@ -51,8 +81,7 @@ export default function JobseekerRegistrationForm() {
       dispatch(setEmail(form.email));
       router.push(`/verifyemail`);
     } else if (res?.error) {
-      const errorMsg =
-        res.error?.data?.message || t("registrationError");
+      const errorMsg = res.error?.data?.message || t("registrationError");
       toast.error(errorMsg);
     }
   };
@@ -68,8 +97,9 @@ export default function JobseekerRegistrationForm() {
           value={form.firstname}
           onChange={handleChange}
           className="w-full border p-2 rounded"
-          required
         />
+        {errors.firstname && <p className="text-red-500 text-sm">{errors.firstname}</p>}
+
         <input
           type="text"
           name="lastname"
@@ -77,8 +107,9 @@ export default function JobseekerRegistrationForm() {
           value={form.lastname}
           onChange={handleChange}
           className="w-full border p-2 rounded"
-          required
         />
+        {errors.lastname && <p className="text-red-500 text-sm">{errors.lastname}</p>}
+
         <input
           type="email"
           name="email"
@@ -86,8 +117,9 @@ export default function JobseekerRegistrationForm() {
           value={form.email}
           onChange={handleChange}
           className="w-full border p-2 rounded"
-          required
         />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+
         <input
           type="password"
           name="password"
@@ -95,8 +127,21 @@ export default function JobseekerRegistrationForm() {
           value={form.password}
           onChange={handleChange}
           className="w-full border p-2 rounded"
-          required
         />
+        {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder={t("confirmPassword")}
+          value={form.confirmPassword}
+          onChange={handleChange}
+          className="w-full border p-2 rounded"
+        />
+        {errors.confirmPassword && (
+          <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
+        )}
+
         <label htmlFor="profileImg">{t("profilePicture")}</label>
         <input
           type="file"
@@ -111,7 +156,7 @@ export default function JobseekerRegistrationForm() {
           disabled={isLoading}
           className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded hover:bg-blue-700 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 cursor-pointer"
         >
-          {isLoading ? "Registering..." : "Register"}
+          {isLoading ? t("registering") : t("register")}
         </button>
       </form>
     </div>

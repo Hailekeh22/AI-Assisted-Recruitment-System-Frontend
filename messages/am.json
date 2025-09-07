@@ -312,6 +312,13 @@
     "profilePicture": "የፕሮፋይል ፎቶ",
     "register": "ይመዝገቡ",
     "registering": "በማመዝገብ ላይ...",
+    "confirmPassword": "የይለፍ ቃልን ያረጋግጡ",
+    "firstNameRequired": "ስም መሞላት አለበት፤ ወይም አጭር ስም ሞልተዋል",
+    "lastNameRequired": "የአባት ስም መሞላት አለበት፤ ወይም አጭር ስም ሞልተዋል",
+    "invalidEmail": "እባክዎ ትክክለኛ ኢሜይል ያስገቡ",
+    "passwordMin": "የይለፍ ቃል ቢያንስ 6 ፊደላት መሆን አለበት",
+    "confirmPasswordRequired": "የይለፍ ቃል እንደገና ያስገቡ",
+    "passwordsDoNotMatch": "የይለፍ ቃሎቹ አይዛመዱም",
     "hero": {
       "title": "ተስማሚ ስራዎን ዛሬውኑ ያግኙ",
       "subtitle": "በመድረካችን በኩል ፍጹም ሚናቸውን ያገኙ ብዙ ሺህ ባለሙያዎች ጋር ይቀላቀሉ",

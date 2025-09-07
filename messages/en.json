@@ -310,6 +310,13 @@
     "profilePicture": "Profile Picture",
     "register": "Register",
     "registering": "Registering...",
+    "confirmPassword": "Confirm Password",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "invalidEmail": "Please enter a valid email address",
+    "passwordMin": "Password must be at least 6 characters",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordsDoNotMatch": "Passwords do not match",
     "hero": {
       "title": "Find Your Dream Job Today",
       "subtitle": "Join thousands of professionals who landed their ideal roles through our platform",
