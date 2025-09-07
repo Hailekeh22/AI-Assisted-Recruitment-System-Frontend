@@ -93,6 +93,7 @@
     "foremployers": "for Employers",
     "title": "Welcome Back",
     "subtitle": "Sign in to your account to continue",
+    "forgotPassword": "forgot Password",
     "hero": {
       "title": "Connect with Opportunities",
       "subtitle": "Join thousands of professionals and companies finding their perfect matches",
@@ -737,6 +738,39 @@
       "viewComplaints": "View Complaints",
       "viewPayments": "View Payments",
       "reports": "Reports"
+    }
+  },
+  "forgotPassword": {
+    "title": "Reset Your Password",
+    "emailStep": {
+      "title": "Forgot Password",
+      "subtitle": "Enter your email to receive a verification code",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "button": "Send Verification Code"
+    },
+    "otpStep": {
+      "title": "Verify Your Email",
+      "subtitle": "Enter the 6-digit code sent to your email",
+      "otpLabel": "Verification Code",
+      "otpPlaceholder": "Enter 6-digit code",
+      "button": "Verify Code"
+    },
+    "resetStep": {
+      "title": "Create New Password",
+      "subtitle": "Enter your new password",
+      "passwordLabel": "New Password",
+      "passwordPlaceholder": "Enter new password",
+      "button": "Reset Password"
+    },
+    "success": {
+      "title": "Password Reset Successful!",
+      "message": "Your password has been reset successfully. You can now login with your new password."
+    },
+    "errors": {
+      "invalidEmail": "Please enter a valid email address",
+      "invalidOtp": "Please enter a valid 6-digit code",
+      "passwordRequired": "Password is required"
     }
   }
 }

@@ -93,6 +93,7 @@
     "foremployers": "ለ ቀጣሪዎች",
     "title": "እንኳን ደህና መጡ",
     "subtitle": "ለመቀጠል ወደ አካውንትዎ ይግቡ",
+    "forgotPassword": "የይለፍ ቃል ረሱ?",
     "hero": {
       "title": "ከእድሎች ጋር ተገናኝ",
       "subtitle": "ፍጹም መጣጣሞቻቸውን የሚያገኙ ብዙ ሺህ ባለሙያዎች እና ኩባንያዎች ጋር ይቀላቀሉ",
@@ -738,6 +739,39 @@
       "viewComplaints": "ቅሬታዎችን ይመልከቱ",
       "viewPayments": "ክፍያዎችን ይመልከቱ",
       "reports": "ሪፖርቶች"
+    }
+  },
+  "forgotPassword": {
+    "title": "የይለፍ ቃልዎን ይቀይሩ",
+    "emailStep": {
+      "title": "የይለፍ ቃል ረሱ?",
+      "subtitle": "የማረጋገጫ ኮድ ለማግኘት ኢሜይልዎን ያስገቡ",
+      "emailLabel": "የኢሜይል አድራሻ",
+      "emailPlaceholder": "ኢሜይልዎን ያስገቡ",
+      "button": "የማረጋገጫ ኮድ ይላኩ"
+    },
+    "otpStep": {
+      "title": "ኢሜይልዎን ያረጋግጡ",
+      "subtitle": "ወደ ኢሜይልዎ የተላከውን 6-አሃዝ ኮድ ያስገቡ",
+      "otpLabel": "የማረጋገጫ ኮድ",
+      "otpPlaceholder": "6-አሃዝ ኮድ ያስገቡ",
+      "button": "ኮድ ያረጋግጡ"
+    },
+    "resetStep": {
+      "title": "አዲስ የይለፍ ቃል ይፍጠሩ",
+      "subtitle": "አዲስ የይለፍ ቃልዎን ያስገቡ",
+      "passwordLabel": "አዲስ የይለፍ ቃል",
+      "passwordPlaceholder": "አዲስ የይለፍ ቃል ያስገቡ",
+      "button": "የይለፍ ቃል ይቀይሩ"
+    },
+    "success": {
+      "title": "የይለፍ ቃል በተሳካ ሁኔታ ተቀይሯል!",
+      "message": "የይለፍ ቃልዎ በተሳካ ሁኔታ ተቀይሯል።"
+    },
+    "errors": {
+      "invalidEmail": "እባክዎ ትክክለኛ የኢሜይል አድራሻ ያስገቡ",
+      "invalidOtp": "እባክዎ ትክክለኛ 6-አሃዝ ኮድ ያስገቡ",
+      "passwordRequired": "የይለፍ ቃል ያስፈልጋል"
     }
   }
 }

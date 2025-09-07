@@ -169,6 +169,13 @@ export default function LoginForm() {
               >
                 {t("forjobseekers")}
               </Link>
+              <span className="text-gray-400">|</span>
+              <Link
+                href="/forgotpassword"
+                className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium"
+              >
+                {t("forgotPassword")}
+              </Link>
             </div>
           </div>
         </motion.div>
