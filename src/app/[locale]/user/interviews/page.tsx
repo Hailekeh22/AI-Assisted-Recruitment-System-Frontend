@@ -94,19 +94,45 @@ function Page() {
                 {interview.location || t("interviewCard.locationNotSpecified")}
               </p>
 
-              {/* Send message */}
-              <Button
-                variant="outline"
-                onClick={() =>
-                  setOpenDialogId(
-                    openDialogId === interview.interview_id
-                      ? null
-                      : interview.interview_id
-                  )
-                }
+              {/* Send message dialog */}
+              <Dialog
+                open={openDialogId === interview.interview_id}
+                onOpenChange={(open) => {
+                  if (!open) {
+                    setOpenDialogId(null);
+                  } else {
+                    setOpenDialogId(interview.interview_id);
+                  }
+                }}
               >
-                {t("dialog.sendMessage")}
-              </Button>
+                <DialogTrigger asChild>
+                  <Button variant="outline">
+                    {t("dialog.sendMessage")}
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-lg">
+                  <DialogHeader>
+                    <DialogTitle>
+                      {t("dialog.title", {
+                        jobTitle: interview.applications.jobs.title,
+                      })}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <Textarea
+                    placeholder={t("dialog.placeholder")}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="min-h-[100px]"
+                  />
+                  <Button
+                    onClick={() =>
+                      handleSend(interview.applications.jobs.employer_id)
+                    }
+                  >
+                    {t("dialog.send")}
+                  </Button>
+                </DialogContent>
+              </Dialog>
 
               {/* Get Interview Preparation */}
               <Button
@@ -115,6 +141,7 @@ function Page() {
                   handleGetPrep(interview.applications.jobs.job_id)
                 }
                 disabled={prepLoading}
+                className="ml-2"
               >
                 {prepLoading ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
