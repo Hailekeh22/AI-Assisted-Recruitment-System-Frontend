@@ -78,6 +78,17 @@ export const applicationsApi = createApi({
         body: { employerId, message },
       }),
     }),
+
+    getInterviewPreparation: builder.mutation<
+      { message: string; tips: string },
+      { jobId: number }
+    >({
+      query: ({ jobId }) => ({
+        url: "/interviews/prep",
+        method: "POST",
+        body: { jobId },
+      }),
+    }),
   }),
 });
 
@@ -89,5 +100,6 @@ export const {
   useGetEmployerInterviewsQuery,
   useGetJobSeekerInterviewsQuery,
   useSendMessageMutation,
-  useSendMessageToEmployerMutation
+  useSendMessageToEmployerMutation,
+  useGetInterviewPreparationMutation
 } = applicationsApi;
