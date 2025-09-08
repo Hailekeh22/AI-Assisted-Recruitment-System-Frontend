@@ -35,7 +35,7 @@ const Footer = () => {
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8"
           >
             <motion.div variants={fadeIn} className="col-span-2 lg:col-span-1">
-              <h4 className="text-white text-xl font-bold mb-4">JobConnect</h4>
+              <h4 className="text-white text-xl font-bold mb-4">Job Website</h4>
               <p className="text-gray-400 dark:text-gray-500 mb-6">
                 AI-Powered Recruitment Platform
               </p>
@@ -103,10 +103,10 @@ const Footer = () => {
               <h5 className="font-semibold text-white mb-4">Contact</h5>
               <ul className="space-y-3 text-gray-400 dark:text-gray-500">
                 <li className="flex items-center">
-                  <Mail className="mr-3" size={16} /> contact@jobconnect.com
+                  <Mail className="mr-3" size={16} /> contact@jobwebsite.com
                 </li>
                 <li className="flex items-center">
-                  <Phone className="mr-3" size={16} /> +1 (251) 912-345-678
+                  <Phone className="mr-3" size={16} /> 0942423237
                 </li>
                 <li className="flex items-center">
                   <MapPin className="mr-3" size={16} /> Gondar, Ethiopia
@@ -123,7 +123,7 @@ const Footer = () => {
             className="mt-12 border-t border-gray-700 dark:border-gray-800 pt-8 text-center text-gray-500"
           >
             <p>
-              &copy; {new Date().getFullYear()} JobConnect. All rights reserved.
+              &copy; {new Date().getFullYear()} JobWebsite. All rights reserved.
             </p>
           </motion.div>
         </div>
