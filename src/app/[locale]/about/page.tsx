@@ -222,7 +222,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
               >
                 <Image
-                  src="/api/placeholder/600/400"
+                  src="https://res.cloudinary.com/dznbpqut9/image/upload/v1757312427/img_ms1djr.jpg"
                   alt="Our story"
                   width={600}
                   height={400}
